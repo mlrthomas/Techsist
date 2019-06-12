@@ -17,6 +17,21 @@ namespace Techsist
             InitializeComponent();
         }
 
-      
+        private void BtnSignIn_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+
+            if(login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
+            {
+                FrmRegister Reg = new FrmRegister();
+                Reg.Show();
+                this.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Login! Try Again");
+            }
+
+        }
     }
 }

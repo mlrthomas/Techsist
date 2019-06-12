@@ -102,6 +102,7 @@
             this.BtnSignIn.TabIndex = 5;
             this.BtnSignIn.Text = "SIGN IN";
             this.BtnSignIn.UseVisualStyleBackColor = false;
+            this.BtnSignIn.Click += new System.EventHandler(this.BtnSignIn_Click);
             // 
             // PicLogo
             // 

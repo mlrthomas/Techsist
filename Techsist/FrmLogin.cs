@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Techsist
 {
-    public partial class Form1 : Form
+    public partial class FrmLogin : Form
     {
-        public Form1()
+        public FrmLogin()
         {
             InitializeComponent();
         }
+
+      
     }
 }

@@ -70,6 +70,7 @@
             this.LblHaveAccount.Size = new System.Drawing.Size(150, 15);
             this.LblHaveAccount.TabIndex = 9;
             this.LblHaveAccount.Text = "Already have an account? Sign In!";
+            this.LblHaveAccount.Click += new System.EventHandler(this.LblHaveAccount_Click);
             // 
             // GrpSignIn
             // 

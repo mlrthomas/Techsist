@@ -36,7 +36,7 @@
             this.BtnSignIn = new System.Windows.Forms.Button();
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.LblForgotPassword = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblRegisterNow = new System.Windows.Forms.Label();
             this.GrpSignIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.SuspendLayout();
@@ -127,17 +127,17 @@
             this.LblForgotPassword.TabIndex = 6;
             this.LblForgotPassword.Text = "Forgot Password?";
             // 
-            // label1
+            // LblRegisterNow
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(427, 347);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "New User? Register Now!";
+            this.LblRegisterNow.AutoSize = true;
+            this.LblRegisterNow.BackColor = System.Drawing.Color.Transparent;
+            this.LblRegisterNow.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRegisterNow.ForeColor = System.Drawing.Color.White;
+            this.LblRegisterNow.Location = new System.Drawing.Point(427, 347);
+            this.LblRegisterNow.Name = "LblRegisterNow";
+            this.LblRegisterNow.Size = new System.Drawing.Size(118, 15);
+            this.LblRegisterNow.TabIndex = 7;
+            this.LblRegisterNow.Text = "New User? Register Now!";
             // 
             // FrmLogin
             // 
@@ -147,7 +147,7 @@
             this.BackgroundImage = global::Techsist.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(818, 520);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblRegisterNow);
             this.Controls.Add(this.LblForgotPassword);
             this.Controls.Add(this.GrpSignIn);
             this.Controls.Add(this.PicLogo);
@@ -172,7 +172,7 @@
         private System.Windows.Forms.GroupBox GrpSignIn;
         private System.Windows.Forms.Button BtnSignIn;
         private System.Windows.Forms.Label LblForgotPassword;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblRegisterNow;
     }
 }
 

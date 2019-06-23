@@ -16,5 +16,12 @@ namespace Techsist
         {
             InitializeComponent();
         }
+
+        private void LblHaveAccount_Click(object sender, EventArgs e)
+        {
+            FrmLogin login = new FrmLogin();
+            this.Visible = false;
+            login.Show();
+        }
     }
 }

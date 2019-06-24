@@ -15,6 +15,7 @@ namespace Techsist
         public FrmLogin()
         {
             InitializeComponent();
+            TxtPassword.PasswordChar = '*';
         }
 
         private void BtnSignIn_Click(object sender, EventArgs e)

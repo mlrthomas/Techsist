@@ -24,8 +24,8 @@ namespace Techsist
 
             if(login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
             {
-                FrmRegister Reg = new FrmRegister();
-                Reg.Show();
+                FrmRegularUser RegUser = new FrmRegularUser();
+                RegUser.Show();
                 this.Visible = false;
             }
             else

@@ -77,7 +77,7 @@
             // 
             this.TbcControlUser.Controls.Add(this.TbpSubmitRequest);
             this.TbcControlUser.Controls.Add(this.TbpViewRequests);
-            this.TbcControlUser.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TbcControlUser.Font = new System.Drawing.Font("Arial", 9.25F);
             this.TbcControlUser.Location = new System.Drawing.Point(73, 132);
             this.TbcControlUser.Multiline = true;
             this.TbcControlUser.Name = "TbcControlUser";
@@ -89,10 +89,10 @@
             // 
             this.TbpSubmitRequest.BackColor = System.Drawing.Color.SteelBlue;
             this.TbpSubmitRequest.ForeColor = System.Drawing.Color.White;
-            this.TbpSubmitRequest.Location = new System.Drawing.Point(4, 26);
+            this.TbpSubmitRequest.Location = new System.Drawing.Point(4, 24);
             this.TbpSubmitRequest.Name = "TbpSubmitRequest";
             this.TbpSubmitRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.TbpSubmitRequest.Size = new System.Drawing.Size(653, 258);
+            this.TbpSubmitRequest.Size = new System.Drawing.Size(653, 260);
             this.TbpSubmitRequest.TabIndex = 0;
             this.TbpSubmitRequest.Text = "Submit Request";
             // 
@@ -118,6 +118,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PicLogo);
             this.Name = "FrmRegularUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Regular User";
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.TbcControlUser.ResumeLayout(false);

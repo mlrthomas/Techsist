@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.PicLogo = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LblWelcomeUser = new System.Windows.Forms.Label();
+            this.LblLogout = new System.Windows.Forms.Label();
             this.TbcControlUser = new System.Windows.Forms.TabControl();
             this.TbpSubmitRequest = new System.Windows.Forms.TabPage();
             this.TbpViewRequests = new System.Windows.Forms.TabPage();
@@ -49,29 +49,30 @@
             this.PicLogo.TabIndex = 2;
             this.PicLogo.TabStop = false;
             // 
-            // label1
+            // LblWelcomeUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Berlin Sans FB", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(237, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 58);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Welcome User!";
+            this.LblWelcomeUser.AutoSize = true;
+            this.LblWelcomeUser.BackColor = System.Drawing.Color.Transparent;
+            this.LblWelcomeUser.Font = new System.Drawing.Font("Berlin Sans FB", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblWelcomeUser.ForeColor = System.Drawing.Color.White;
+            this.LblWelcomeUser.Location = new System.Drawing.Point(237, 34);
+            this.LblWelcomeUser.Name = "LblWelcomeUser";
+            this.LblWelcomeUser.Size = new System.Drawing.Size(348, 58);
+            this.LblWelcomeUser.TabIndex = 3;
+            this.LblWelcomeUser.Text = "Welcome User!";
             // 
-            // label2
+            // LblLogout
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Font = new System.Drawing.Font("Arial Black", 12.25F, System.Drawing.FontStyle.Underline);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(662, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Logout";
+            this.LblLogout.AutoSize = true;
+            this.LblLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LblLogout.Font = new System.Drawing.Font("Arial Black", 12.25F, System.Drawing.FontStyle.Underline);
+            this.LblLogout.ForeColor = System.Drawing.Color.White;
+            this.LblLogout.Location = new System.Drawing.Point(662, 50);
+            this.LblLogout.Name = "LblLogout";
+            this.LblLogout.Size = new System.Drawing.Size(73, 24);
+            this.LblLogout.TabIndex = 4;
+            this.LblLogout.Text = "Logout";
+            this.LblLogout.Click += new System.EventHandler(this.LblLogout_Click);
             // 
             // TbcControlUser
             // 
@@ -98,10 +99,10 @@
             // 
             // TbpViewRequests
             // 
-            this.TbpViewRequests.Location = new System.Drawing.Point(4, 26);
+            this.TbpViewRequests.Location = new System.Drawing.Point(4, 24);
             this.TbpViewRequests.Name = "TbpViewRequests";
             this.TbpViewRequests.Padding = new System.Windows.Forms.Padding(3);
-            this.TbpViewRequests.Size = new System.Drawing.Size(653, 258);
+            this.TbpViewRequests.Size = new System.Drawing.Size(653, 260);
             this.TbpViewRequests.TabIndex = 1;
             this.TbpViewRequests.Text = "View Request";
             this.TbpViewRequests.UseVisualStyleBackColor = true;
@@ -114,8 +115,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TbcControlUser);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblLogout);
+            this.Controls.Add(this.LblWelcomeUser);
             this.Controls.Add(this.PicLogo);
             this.Name = "FrmRegularUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -130,8 +131,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox PicLogo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblWelcomeUser;
+        private System.Windows.Forms.Label LblLogout;
         private System.Windows.Forms.TabControl TbcControlUser;
         private System.Windows.Forms.TabPage TbpSubmitRequest;
         private System.Windows.Forms.TabPage TbpViewRequests;

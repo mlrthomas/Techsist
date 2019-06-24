@@ -24,9 +24,18 @@ namespace Techsist
 
             if(login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
             {
-                FrmRegularUser RegUser = new FrmRegularUser();
-                RegUser.Show();
-                this.Visible = false;
+                if(TxtEmail.Text == login.RegUser )
+                { 
+                    FrmRegularUser RegUser = new FrmRegularUser();
+                    RegUser.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    FrmSaUser SaUser = new FrmSaUser();
+                    SaUser.Show();
+                    this.Visible = false;
+                }
             }
             else
             {
@@ -35,5 +44,11 @@ namespace Techsist
 
         }
 
+        private void LblRegisterNow_Click(object sender, EventArgs e)
+        {
+            FrmRegister RegNewUser = new FrmRegister();
+            RegNewUser.Show();
+            this.Visible = false;
+        }
     }
 }

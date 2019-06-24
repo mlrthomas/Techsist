@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LblLogout = new System.Windows.Forms.Label();
+            this.LblWelcomeSA = new System.Windows.Forms.Label();
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.TbcSaUser = new System.Windows.Forms.TabControl();
             this.TbpRequests = new System.Windows.Forms.TabPage();
@@ -39,29 +39,30 @@
             this.TbcSaUser.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
+            // LblLogout
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Font = new System.Drawing.Font("Arial Black", 12.25F, System.Drawing.FontStyle.Underline);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(663, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 24);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Logout";
+            this.LblLogout.AutoSize = true;
+            this.LblLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LblLogout.Font = new System.Drawing.Font("Arial Black", 12.25F, System.Drawing.FontStyle.Underline);
+            this.LblLogout.ForeColor = System.Drawing.Color.White;
+            this.LblLogout.Location = new System.Drawing.Point(663, 49);
+            this.LblLogout.Name = "LblLogout";
+            this.LblLogout.Size = new System.Drawing.Size(73, 24);
+            this.LblLogout.TabIndex = 7;
+            this.LblLogout.Text = "Logout";
+            this.LblLogout.Click += new System.EventHandler(this.LblLogout_Click);
             // 
-            // label1
+            // LblWelcomeSA
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Berlin Sans FB", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(238, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(313, 58);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Welcome SA!";
+            this.LblWelcomeSA.AutoSize = true;
+            this.LblWelcomeSA.BackColor = System.Drawing.Color.Transparent;
+            this.LblWelcomeSA.Font = new System.Drawing.Font("Berlin Sans FB", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblWelcomeSA.ForeColor = System.Drawing.Color.White;
+            this.LblWelcomeSA.Location = new System.Drawing.Point(238, 33);
+            this.LblWelcomeSA.Name = "LblWelcomeSA";
+            this.LblWelcomeSA.Size = new System.Drawing.Size(313, 58);
+            this.LblWelcomeSA.TabIndex = 6;
+            this.LblWelcomeSA.Text = "Welcome SA!";
             // 
             // PicLogo
             // 
@@ -80,7 +81,7 @@
             this.TbcSaUser.Controls.Add(this.TbpSATasks);
             this.TbcSaUser.Controls.Add(this.TbpSummary);
             this.TbcSaUser.Font = new System.Drawing.Font("Arial", 9.25F);
-            this.TbcSaUser.Location = new System.Drawing.Point(77, 115);
+            this.TbcSaUser.Location = new System.Drawing.Point(78, 115);
             this.TbcSaUser.Name = "TbcSaUser";
             this.TbcSaUser.SelectedIndex = 0;
             this.TbcSaUser.Size = new System.Drawing.Size(658, 283);
@@ -123,12 +124,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TbcSaUser);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LblLogout);
+            this.Controls.Add(this.LblWelcomeSA);
             this.Controls.Add(this.PicLogo);
             this.Name = "FrmSaUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SA User";
+            this.Load += new System.EventHandler(this.FrmSaUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.TbcSaUser.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -138,8 +140,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblLogout;
+        private System.Windows.Forms.Label LblWelcomeSA;
         private System.Windows.Forms.PictureBox PicLogo;
         private System.Windows.Forms.TabControl TbcSaUser;
         private System.Windows.Forms.TabPage TbpRequests;

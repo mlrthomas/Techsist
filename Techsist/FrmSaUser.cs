@@ -16,5 +16,17 @@ namespace Techsist
         {
             InitializeComponent();
         }
+
+        private void FrmSaUser_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblLogout_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FrmLogin Log = new FrmLogin();
+            Log.Show();
+        }
     }
 }

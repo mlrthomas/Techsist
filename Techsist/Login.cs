@@ -17,13 +17,14 @@ namespace Techsist
         private string Password { get; set; } = "";
 
         // Assigned temporary username and password as administrator
-        private const string User = "admin";
-        private const string Pass = "password";
+        public string User = "admin@hotmail.com";
+        public string RegUser = "regularuser@hotmail.com";
+        public string Pass = "password";
 
         //Check if user input match to the login
         public bool doesLoginMatch(string UserName, string Password)
         {
-            if (UserName == User && Password == Pass)
+            if ((UserName == User && Password == Pass) || (UserName == RegUser && Password == Pass))
             {
                 return true;
             }

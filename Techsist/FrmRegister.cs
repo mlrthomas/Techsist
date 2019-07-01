@@ -13,7 +13,8 @@ namespace Techsist
 {
     public partial class FrmRegister : Form
     {
-        SqlConnection con = new SqlConnection(Techsist.Properties.Settings.Default.TechsistDatabaseConnectionString);
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
+
         public FrmRegister()
         {
             InitializeComponent();

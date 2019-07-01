@@ -37,6 +37,7 @@
             this.TbpSummary = new System.Windows.Forms.TabPage();
             this.TbpUserLists = new System.Windows.Forms.TabPage();
             this.DgvUserList = new System.Windows.Forms.DataGridView();
+            this.LblSelectedID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcSaUser.SuspendLayout();
             this.TbpUserLists.SuspendLayout();
@@ -123,6 +124,7 @@
             // 
             // TbpUserLists
             // 
+            this.TbpUserLists.Controls.Add(this.LblSelectedID);
             this.TbpUserLists.Controls.Add(this.DgvUserList);
             this.TbpUserLists.Location = new System.Drawing.Point(4, 24);
             this.TbpUserLists.Name = "TbpUserLists";
@@ -138,8 +140,18 @@
             this.DgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUserList.Location = new System.Drawing.Point(33, 20);
             this.DgvUserList.Name = "DgvUserList";
-            this.DgvUserList.Size = new System.Drawing.Size(590, 208);
+            this.DgvUserList.Size = new System.Drawing.Size(590, 154);
             this.DgvUserList.TabIndex = 0;
+            this.DgvUserList.SelectionChanged += new System.EventHandler(this.DgvUserList_SelectionChanged);
+            // 
+            // LblSelectedID
+            // 
+            this.LblSelectedID.AutoSize = true;
+            this.LblSelectedID.Location = new System.Drawing.Point(34, 195);
+            this.LblSelectedID.Name = "LblSelectedID";
+            this.LblSelectedID.Size = new System.Drawing.Size(71, 16);
+            this.LblSelectedID.TabIndex = 1;
+            this.LblSelectedID.Text = "SelectedID";
             // 
             // FrmSaUser
             // 
@@ -159,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.TbcSaUser.ResumeLayout(false);
             this.TbpUserLists.ResumeLayout(false);
+            this.TbpUserLists.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,5 +189,6 @@
         private System.Windows.Forms.TabPage TbpSummary;
         private System.Windows.Forms.TabPage TbpUserLists;
         private System.Windows.Forms.DataGridView DgvUserList;
+        private System.Windows.Forms.Label LblSelectedID;
     }
 }

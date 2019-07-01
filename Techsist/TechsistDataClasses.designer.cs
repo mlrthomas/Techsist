@@ -506,7 +506,7 @@ namespace Techsist
 		
 		private int _Permission;
 		
-		private System.Data.Linq.Binary _CreationDate;
+		private System.DateTime _CreationDate;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -528,7 +528,7 @@ namespace Techsist
     partial void OnPositionChanged();
     partial void OnPermissionChanging(int value);
     partial void OnPermissionChanged();
-    partial void OnCreationDateChanging(System.Data.Linq.Binary value);
+    partial void OnCreationDateChanging(System.DateTime value);
     partial void OnCreationDateChanged();
     #endregion
 		
@@ -537,7 +537,7 @@ namespace Techsist
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -557,7 +557,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string FirstName
 		{
 			get
@@ -577,7 +577,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string LastName
 		{
 			get
@@ -597,7 +597,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -617,7 +617,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Password
 		{
 			get
@@ -637,7 +637,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Department
 		{
 			get
@@ -657,7 +657,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Position
 		{
 			get
@@ -677,7 +677,7 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Permission", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Permission", DbType="Int NOT NULL")]
 		public int Permission
 		{
 			get
@@ -697,8 +697,8 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationDate", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary CreationDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreationDate
 		{
 			get
 			{

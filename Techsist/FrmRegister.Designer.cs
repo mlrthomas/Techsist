@@ -32,13 +32,13 @@
             this.LblHaveAccount = new System.Windows.Forms.Label();
             this.GrpSignIn = new System.Windows.Forms.GroupBox();
             this.GrpSARadio = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RdoSA = new System.Windows.Forms.RadioButton();
             this.RdoSALead = new System.Windows.Forms.RadioButton();
             this.TxtPosition = new System.Windows.Forms.TextBox();
             this.LblPosition = new System.Windows.Forms.Label();
             this.LblDepartment = new System.Windows.Forms.Label();
             this.CboDepartment = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
             this.LblPassword = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.LblEmail = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.GrpSignIn.Controls.Add(this.LblPosition);
             this.GrpSignIn.Controls.Add(this.LblDepartment);
             this.GrpSignIn.Controls.Add(this.CboDepartment);
-            this.GrpSignIn.Controls.Add(this.textBox1);
+            this.GrpSignIn.Controls.Add(this.TxtPassword);
             this.GrpSignIn.Controls.Add(this.LblPassword);
             this.GrpSignIn.Controls.Add(this.TxtEmail);
             this.GrpSignIn.Controls.Add(this.LblEmail);
@@ -101,7 +101,7 @@
             // 
             // GrpSARadio
             // 
-            this.GrpSARadio.Controls.Add(this.radioButton1);
+            this.GrpSARadio.Controls.Add(this.RdoSA);
             this.GrpSARadio.Controls.Add(this.RdoSALead);
             this.GrpSARadio.ForeColor = System.Drawing.Color.White;
             this.GrpSARadio.Location = new System.Drawing.Point(365, 88);
@@ -110,20 +110,20 @@
             this.GrpSARadio.TabIndex = 19;
             this.GrpSARadio.TabStop = false;
             // 
-            // radioButton1
+            // RdoSA
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.radioButton1.FlatAppearance.BorderSize = 0;
-            this.radioButton1.Font = new System.Drawing.Font("Arial", 8F);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(20, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(127, 18);
-            this.radioButton1.TabIndex = 18;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "System Administrator";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RdoSA.AutoSize = true;
+            this.RdoSA.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.RdoSA.FlatAppearance.BorderSize = 0;
+            this.RdoSA.Font = new System.Drawing.Font("Arial", 8F);
+            this.RdoSA.ForeColor = System.Drawing.Color.White;
+            this.RdoSA.Location = new System.Drawing.Point(20, 37);
+            this.RdoSA.Name = "RdoSA";
+            this.RdoSA.Size = new System.Drawing.Size(127, 18);
+            this.RdoSA.TabIndex = 18;
+            this.RdoSA.TabStop = true;
+            this.RdoSA.Text = "System Administrator";
+            this.RdoSA.UseVisualStyleBackColor = true;
             // 
             // RdoSALead
             // 
@@ -186,12 +186,12 @@
             this.CboDepartment.Text = "Select Department";
             this.CboDepartment.SelectedIndexChanged += new System.EventHandler(this.CboDepartment_SelectedIndexChanged);
             // 
-            // textBox1
+            // TxtPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(22, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
-            this.textBox1.TabIndex = 11;
+            this.TxtPassword.Location = new System.Drawing.Point(22, 173);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(252, 20);
+            this.TxtPassword.TabIndex = 11;
             // 
             // LblPassword
             // 
@@ -251,6 +251,7 @@
             this.BtnRegister.TabIndex = 5;
             this.BtnRegister.Text = "REGISTER";
             this.BtnRegister.UseVisualStyleBackColor = false;
+            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // TxtFirstName
             // 
@@ -300,7 +301,7 @@
         private System.Windows.Forms.GroupBox GrpSignIn;
         private System.Windows.Forms.Label LblDepartment;
         private System.Windows.Forms.ComboBox CboDepartment;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.Label LblPassword;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label LblEmail;
@@ -312,7 +313,7 @@
         private System.Windows.Forms.Label LblPosition;
         private System.Windows.Forms.TextBox TxtPosition;
         private System.Windows.Forms.GroupBox GrpSARadio;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RdoSA;
         private System.Windows.Forms.RadioButton RdoSALead;
     }
 }

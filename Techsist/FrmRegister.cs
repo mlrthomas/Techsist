@@ -15,6 +15,9 @@ namespace Techsist
         public FrmRegister()
         {
             InitializeComponent();
+            GrpSARadio.Hide();
+            LblPosition.Hide();
+            TxtPosition.Hide();
         }
 
         private void LblHaveAccount_Click(object sender, EventArgs e)
@@ -22,6 +25,19 @@ namespace Techsist
             FrmLogin login = new FrmLogin();
             this.Visible = false;
             login.Show();
+        }
+
+        private void CboDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LblPosition.Show();
+            if (CboDepartment.Text == "System Administrator")
+            {
+                TxtPosition.Hide();
+                GrpSARadio.Show();
+            }else {
+                TxtPosition.Show();
+                GrpSARadio.Hide();
+            }
         }
     }
 }

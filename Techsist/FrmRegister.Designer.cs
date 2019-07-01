@@ -31,21 +31,25 @@
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.LblHaveAccount = new System.Windows.Forms.Label();
             this.GrpSignIn = new System.Windows.Forms.GroupBox();
+            this.LblPosition = new System.Windows.Forms.Label();
+            this.LblDepartment = new System.Windows.Forms.Label();
+            this.CboDepartment = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LblPassword = new System.Windows.Forms.Label();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.LblEmail = new System.Windows.Forms.Label();
+            this.TxtLastName = new System.Windows.Forms.TextBox();
+            this.LblLastName = new System.Windows.Forms.Label();
             this.BtnRegister = new System.Windows.Forms.Button();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.LblFirstName = new System.Windows.Forms.Label();
-            this.TxtLastName = new System.Windows.Forms.TextBox();
-            this.LblLastName = new System.Windows.Forms.Label();
-            this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.LblEmail = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.LblPassword = new System.Windows.Forms.Label();
-            this.CboDepartment = new System.Windows.Forms.ComboBox();
-            this.LblDepartment = new System.Windows.Forms.Label();
-            this.LblPosition = new System.Windows.Forms.Label();
-            this.CboPosition = new System.Windows.Forms.ComboBox();
+            this.TxtPosition = new System.Windows.Forms.TextBox();
+            this.RdoSALead = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.GrpSARadio = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.GrpSignIn.SuspendLayout();
+            this.GrpSARadio.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicLogo
@@ -75,8 +79,9 @@
             // GrpSignIn
             // 
             this.GrpSignIn.BackColor = System.Drawing.Color.Transparent;
+            this.GrpSignIn.Controls.Add(this.GrpSARadio);
+            this.GrpSignIn.Controls.Add(this.TxtPosition);
             this.GrpSignIn.Controls.Add(this.LblPosition);
-            this.GrpSignIn.Controls.Add(this.CboPosition);
             this.GrpSignIn.Controls.Add(this.LblDepartment);
             this.GrpSignIn.Controls.Add(this.CboDepartment);
             this.GrpSignIn.Controls.Add(this.textBox1);
@@ -93,6 +98,101 @@
             this.GrpSignIn.Size = new System.Drawing.Size(686, 224);
             this.GrpSignIn.TabIndex = 8;
             this.GrpSignIn.TabStop = false;
+            // 
+            // LblPosition
+            // 
+            this.LblPosition.AutoSize = true;
+            this.LblPosition.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPosition.ForeColor = System.Drawing.Color.White;
+            this.LblPosition.Location = new System.Drawing.Point(362, 70);
+            this.LblPosition.Name = "LblPosition";
+            this.LblPosition.Size = new System.Drawing.Size(53, 15);
+            this.LblPosition.TabIndex = 15;
+            this.LblPosition.Text = "Position";
+            // 
+            // LblDepartment
+            // 
+            this.LblDepartment.AutoSize = true;
+            this.LblDepartment.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDepartment.ForeColor = System.Drawing.Color.White;
+            this.LblDepartment.Location = new System.Drawing.Point(362, 24);
+            this.LblDepartment.Name = "LblDepartment";
+            this.LblDepartment.Size = new System.Drawing.Size(74, 15);
+            this.LblDepartment.TabIndex = 13;
+            this.LblDepartment.Text = "Department";
+            // 
+            // CboDepartment
+            // 
+            this.CboDepartment.FormattingEnabled = true;
+            this.CboDepartment.Items.AddRange(new object[] {
+            "Accounting",
+            "Configuration ",
+            "Cybersecurity",
+            "Others",
+            "Quality Assuarance",
+            "Software Developer",
+            "System Administrator"});
+            this.CboDepartment.Location = new System.Drawing.Point(365, 39);
+            this.CboDepartment.Name = "CboDepartment";
+            this.CboDepartment.Size = new System.Drawing.Size(211, 21);
+            this.CboDepartment.Sorted = true;
+            this.CboDepartment.TabIndex = 12;
+            this.CboDepartment.Text = "Select Department";
+            this.CboDepartment.SelectedIndexChanged += new System.EventHandler(this.CboDepartment_SelectedIndexChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(22, 173);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(252, 20);
+            this.textBox1.TabIndex = 11;
+            // 
+            // LblPassword
+            // 
+            this.LblPassword.AutoSize = true;
+            this.LblPassword.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPassword.ForeColor = System.Drawing.Color.White;
+            this.LblPassword.Location = new System.Drawing.Point(19, 157);
+            this.LblPassword.Name = "LblPassword";
+            this.LblPassword.Size = new System.Drawing.Size(65, 15);
+            this.LblPassword.TabIndex = 10;
+            this.LblPassword.Text = "Password";
+            // 
+            // TxtEmail
+            // 
+            this.TxtEmail.Location = new System.Drawing.Point(22, 131);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(252, 20);
+            this.TxtEmail.TabIndex = 9;
+            // 
+            // LblEmail
+            // 
+            this.LblEmail.AutoSize = true;
+            this.LblEmail.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmail.ForeColor = System.Drawing.Color.White;
+            this.LblEmail.Location = new System.Drawing.Point(19, 115);
+            this.LblEmail.Name = "LblEmail";
+            this.LblEmail.Size = new System.Drawing.Size(38, 15);
+            this.LblEmail.TabIndex = 8;
+            this.LblEmail.Text = "Email";
+            // 
+            // TxtLastName
+            // 
+            this.TxtLastName.Location = new System.Drawing.Point(22, 86);
+            this.TxtLastName.Name = "TxtLastName";
+            this.TxtLastName.Size = new System.Drawing.Size(252, 20);
+            this.TxtLastName.TabIndex = 7;
+            // 
+            // LblLastName
+            // 
+            this.LblLastName.AutoSize = true;
+            this.LblLastName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLastName.ForeColor = System.Drawing.Color.White;
+            this.LblLastName.Location = new System.Drawing.Point(19, 70);
+            this.LblLastName.Name = "LblLastName";
+            this.LblLastName.Size = new System.Drawing.Size(68, 15);
+            this.LblLastName.TabIndex = 6;
+            this.LblLastName.Text = "Last Name";
             // 
             // BtnRegister
             // 
@@ -124,117 +224,48 @@
             this.LblFirstName.TabIndex = 1;
             this.LblFirstName.Text = "First Name";
             // 
-            // TxtLastName
+            // TxtPosition
             // 
-            this.TxtLastName.Location = new System.Drawing.Point(22, 86);
-            this.TxtLastName.Name = "TxtLastName";
-            this.TxtLastName.Size = new System.Drawing.Size(252, 20);
-            this.TxtLastName.TabIndex = 7;
+            this.TxtPosition.Location = new System.Drawing.Point(365, 88);
+            this.TxtPosition.Name = "TxtPosition";
+            this.TxtPosition.Size = new System.Drawing.Size(252, 20);
+            this.TxtPosition.TabIndex = 16;
             // 
-            // LblLastName
+            // RdoSALead
             // 
-            this.LblLastName.AutoSize = true;
-            this.LblLastName.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLastName.ForeColor = System.Drawing.Color.White;
-            this.LblLastName.Location = new System.Drawing.Point(19, 70);
-            this.LblLastName.Name = "LblLastName";
-            this.LblLastName.Size = new System.Drawing.Size(68, 15);
-            this.LblLastName.TabIndex = 6;
-            this.LblLastName.Text = "Last Name";
+            this.RdoSALead.AutoSize = true;
+            this.RdoSALead.Font = new System.Drawing.Font("Arial", 8F);
+            this.RdoSALead.ForeColor = System.Drawing.Color.White;
+            this.RdoSALead.Location = new System.Drawing.Point(20, 8);
+            this.RdoSALead.Name = "RdoSALead";
+            this.RdoSALead.Size = new System.Drawing.Size(111, 18);
+            this.RdoSALead.TabIndex = 17;
+            this.RdoSALead.TabStop = true;
+            this.RdoSALead.Text = "SA Lead/Manager";
+            this.RdoSALead.UseVisualStyleBackColor = true;
             // 
-            // TxtEmail
+            // radioButton1
             // 
-            this.TxtEmail.Location = new System.Drawing.Point(22, 131);
-            this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(252, 20);
-            this.TxtEmail.TabIndex = 9;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Arial", 8F);
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
+            this.radioButton1.Location = new System.Drawing.Point(20, 32);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(127, 18);
+            this.radioButton1.TabIndex = 18;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "System Administrator";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // LblEmail
+            // GrpSARadio
             // 
-            this.LblEmail.AutoSize = true;
-            this.LblEmail.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmail.ForeColor = System.Drawing.Color.White;
-            this.LblEmail.Location = new System.Drawing.Point(19, 115);
-            this.LblEmail.Name = "LblEmail";
-            this.LblEmail.Size = new System.Drawing.Size(38, 15);
-            this.LblEmail.TabIndex = 8;
-            this.LblEmail.Text = "Email";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(22, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 20);
-            this.textBox1.TabIndex = 11;
-            // 
-            // LblPassword
-            // 
-            this.LblPassword.AutoSize = true;
-            this.LblPassword.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPassword.ForeColor = System.Drawing.Color.White;
-            this.LblPassword.Location = new System.Drawing.Point(19, 157);
-            this.LblPassword.Name = "LblPassword";
-            this.LblPassword.Size = new System.Drawing.Size(65, 15);
-            this.LblPassword.TabIndex = 10;
-            this.LblPassword.Text = "Password";
-            // 
-            // CboDepartment
-            // 
-            this.CboDepartment.FormattingEnabled = true;
-            this.CboDepartment.Items.AddRange(new object[] {
-            "Accounting",
-            "Configuration ",
-            "Cybersecurity",
-            "Others",
-            "Quality Assuarance",
-            "Software Developer",
-            "System Administrator"});
-            this.CboDepartment.Location = new System.Drawing.Point(365, 39);
-            this.CboDepartment.Name = "CboDepartment";
-            this.CboDepartment.Size = new System.Drawing.Size(211, 21);
-            this.CboDepartment.Sorted = true;
-            this.CboDepartment.TabIndex = 12;
-            this.CboDepartment.Text = "Select Department";
-            // 
-            // LblDepartment
-            // 
-            this.LblDepartment.AutoSize = true;
-            this.LblDepartment.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDepartment.ForeColor = System.Drawing.Color.White;
-            this.LblDepartment.Location = new System.Drawing.Point(362, 24);
-            this.LblDepartment.Name = "LblDepartment";
-            this.LblDepartment.Size = new System.Drawing.Size(74, 15);
-            this.LblDepartment.TabIndex = 13;
-            this.LblDepartment.Text = "Department";
-            // 
-            // LblPosition
-            // 
-            this.LblPosition.AutoSize = true;
-            this.LblPosition.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPosition.ForeColor = System.Drawing.Color.White;
-            this.LblPosition.Location = new System.Drawing.Point(362, 70);
-            this.LblPosition.Name = "LblPosition";
-            this.LblPosition.Size = new System.Drawing.Size(53, 15);
-            this.LblPosition.TabIndex = 15;
-            this.LblPosition.Text = "Position";
-            // 
-            // CboPosition
-            // 
-            this.CboPosition.FormattingEnabled = true;
-            this.CboPosition.Items.AddRange(new object[] {
-            "Accounting",
-            "Configuration ",
-            "Cybersecurity",
-            "Others",
-            "Quality Assuarance",
-            "Software Developer",
-            "System Administrator"});
-            this.CboPosition.Location = new System.Drawing.Point(365, 85);
-            this.CboPosition.Name = "CboPosition";
-            this.CboPosition.Size = new System.Drawing.Size(211, 21);
-            this.CboPosition.Sorted = true;
-            this.CboPosition.TabIndex = 14;
-            this.CboPosition.Text = "Select Position";
+            this.GrpSARadio.Controls.Add(this.radioButton1);
+            this.GrpSARadio.Controls.Add(this.RdoSALead);
+            this.GrpSARadio.Location = new System.Drawing.Point(365, 86);
+            this.GrpSARadio.Name = "GrpSARadio";
+            this.GrpSARadio.Size = new System.Drawing.Size(182, 64);
+            this.GrpSARadio.TabIndex = 19;
+            this.GrpSARadio.TabStop = false;
             // 
             // FrmRegister
             // 
@@ -247,10 +278,13 @@
             this.Controls.Add(this.GrpSignIn);
             this.Controls.Add(this.PicLogo);
             this.Name = "FrmRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register Form";
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.GrpSignIn.ResumeLayout(false);
             this.GrpSignIn.PerformLayout();
+            this.GrpSARadio.ResumeLayout(false);
+            this.GrpSARadio.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +307,9 @@
         private System.Windows.Forms.TextBox TxtFirstName;
         private System.Windows.Forms.Label LblFirstName;
         private System.Windows.Forms.Label LblPosition;
-        private System.Windows.Forms.ComboBox CboPosition;
+        private System.Windows.Forms.TextBox TxtPosition;
+        private System.Windows.Forms.GroupBox GrpSARadio;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RdoSALead;
     }
 }

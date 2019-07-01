@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TechsistDataClasses">
+  <DataContextMoniker Name="/TechsistDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="184f61b7-a81f-4551-af8f-099bc94854d5" absoluteBounds="2.375, 1.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/TechsistDataClassesDataContext/Ticket" />
+      <nestedChildShapes>
+        <elementListCompartment Id="030eea35-705a-4024-a4ff-413deccb2673" absoluteBounds="2.39, 1.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="78f08a32-6821-4ce0-8aea-5f818de03ed1" absoluteBounds="0.75, 3.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/TechsistDataClassesDataContext/TicketTransaction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc086e8a-6f5e-4603-bb2b-5dc1a66cbaaa" absoluteBounds="0.76500000000000012, 3.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c52fea56-36bb-4372-8317-945bd4940ef1" absoluteBounds="4.5, 3.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/TechsistDataClassesDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f5a942e-a2b2-4054-b781-c3a46db2ac92" absoluteBounds="4.515, 3.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

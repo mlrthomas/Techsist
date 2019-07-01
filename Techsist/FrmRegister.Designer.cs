@@ -31,6 +31,10 @@
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.LblHaveAccount = new System.Windows.Forms.Label();
             this.GrpSignIn = new System.Windows.Forms.GroupBox();
+            this.GrpSARadio = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RdoSALead = new System.Windows.Forms.RadioButton();
+            this.TxtPosition = new System.Windows.Forms.TextBox();
             this.LblPosition = new System.Windows.Forms.Label();
             this.LblDepartment = new System.Windows.Forms.Label();
             this.CboDepartment = new System.Windows.Forms.ComboBox();
@@ -43,10 +47,6 @@
             this.BtnRegister = new System.Windows.Forms.Button();
             this.TxtFirstName = new System.Windows.Forms.TextBox();
             this.LblFirstName = new System.Windows.Forms.Label();
-            this.TxtPosition = new System.Windows.Forms.TextBox();
-            this.RdoSALead = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.GrpSARadio = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.GrpSignIn.SuspendLayout();
             this.GrpSARadio.SuspendLayout();
@@ -98,6 +98,52 @@
             this.GrpSignIn.Size = new System.Drawing.Size(686, 224);
             this.GrpSignIn.TabIndex = 8;
             this.GrpSignIn.TabStop = false;
+            // 
+            // GrpSARadio
+            // 
+            this.GrpSARadio.Controls.Add(this.radioButton1);
+            this.GrpSARadio.Controls.Add(this.RdoSALead);
+            this.GrpSARadio.ForeColor = System.Drawing.Color.White;
+            this.GrpSARadio.Location = new System.Drawing.Point(365, 88);
+            this.GrpSARadio.Name = "GrpSARadio";
+            this.GrpSARadio.Size = new System.Drawing.Size(252, 64);
+            this.GrpSARadio.TabIndex = 19;
+            this.GrpSARadio.TabStop = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.radioButton1.FlatAppearance.BorderSize = 0;
+            this.radioButton1.Font = new System.Drawing.Font("Arial", 8F);
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
+            this.radioButton1.Location = new System.Drawing.Point(20, 37);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(127, 18);
+            this.radioButton1.TabIndex = 18;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "System Administrator";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // RdoSALead
+            // 
+            this.RdoSALead.AutoSize = true;
+            this.RdoSALead.Font = new System.Drawing.Font("Arial", 8F);
+            this.RdoSALead.ForeColor = System.Drawing.Color.White;
+            this.RdoSALead.Location = new System.Drawing.Point(20, 13);
+            this.RdoSALead.Name = "RdoSALead";
+            this.RdoSALead.Size = new System.Drawing.Size(111, 18);
+            this.RdoSALead.TabIndex = 17;
+            this.RdoSALead.TabStop = true;
+            this.RdoSALead.Text = "SA Lead/Manager";
+            this.RdoSALead.UseVisualStyleBackColor = true;
+            // 
+            // TxtPosition
+            // 
+            this.TxtPosition.Location = new System.Drawing.Point(365, 88);
+            this.TxtPosition.Name = "TxtPosition";
+            this.TxtPosition.Size = new System.Drawing.Size(252, 20);
+            this.TxtPosition.TabIndex = 16;
             // 
             // LblPosition
             // 
@@ -223,49 +269,6 @@
             this.LblFirstName.Size = new System.Drawing.Size(68, 15);
             this.LblFirstName.TabIndex = 1;
             this.LblFirstName.Text = "First Name";
-            // 
-            // TxtPosition
-            // 
-            this.TxtPosition.Location = new System.Drawing.Point(365, 88);
-            this.TxtPosition.Name = "TxtPosition";
-            this.TxtPosition.Size = new System.Drawing.Size(252, 20);
-            this.TxtPosition.TabIndex = 16;
-            // 
-            // RdoSALead
-            // 
-            this.RdoSALead.AutoSize = true;
-            this.RdoSALead.Font = new System.Drawing.Font("Arial", 8F);
-            this.RdoSALead.ForeColor = System.Drawing.Color.White;
-            this.RdoSALead.Location = new System.Drawing.Point(20, 8);
-            this.RdoSALead.Name = "RdoSALead";
-            this.RdoSALead.Size = new System.Drawing.Size(111, 18);
-            this.RdoSALead.TabIndex = 17;
-            this.RdoSALead.TabStop = true;
-            this.RdoSALead.Text = "SA Lead/Manager";
-            this.RdoSALead.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Arial", 8F);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(20, 32);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(127, 18);
-            this.radioButton1.TabIndex = 18;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "System Administrator";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // GrpSARadio
-            // 
-            this.GrpSARadio.Controls.Add(this.radioButton1);
-            this.GrpSARadio.Controls.Add(this.RdoSALead);
-            this.GrpSARadio.Location = new System.Drawing.Point(365, 86);
-            this.GrpSARadio.Name = "GrpSARadio";
-            this.GrpSARadio.Size = new System.Drawing.Size(182, 64);
-            this.GrpSARadio.TabIndex = 19;
-            this.GrpSARadio.TabStop = false;
             // 
             // FrmRegister
             // 

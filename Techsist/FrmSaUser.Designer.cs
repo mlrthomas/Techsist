@@ -35,8 +35,12 @@
             this.TbpRequests = new System.Windows.Forms.TabPage();
             this.TbpSATasks = new System.Windows.Forms.TabPage();
             this.TbpSummary = new System.Windows.Forms.TabPage();
+            this.TbpUserLists = new System.Windows.Forms.TabPage();
+            this.DgvUserList = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcSaUser.SuspendLayout();
+            this.TbpUserLists.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).BeginInit();
             this.SuspendLayout();
             // 
             // LblLogout
@@ -80,6 +84,7 @@
             this.TbcSaUser.Controls.Add(this.TbpRequests);
             this.TbcSaUser.Controls.Add(this.TbpSATasks);
             this.TbcSaUser.Controls.Add(this.TbpSummary);
+            this.TbcSaUser.Controls.Add(this.TbpUserLists);
             this.TbcSaUser.Font = new System.Drawing.Font("Arial", 9.25F);
             this.TbcSaUser.Location = new System.Drawing.Point(78, 115);
             this.TbcSaUser.Name = "TbcSaUser";
@@ -116,6 +121,26 @@
             this.TbpSummary.TabIndex = 2;
             this.TbpSummary.Text = "Summary";
             // 
+            // TbpUserLists
+            // 
+            this.TbpUserLists.Controls.Add(this.DgvUserList);
+            this.TbpUserLists.Location = new System.Drawing.Point(4, 24);
+            this.TbpUserLists.Name = "TbpUserLists";
+            this.TbpUserLists.Size = new System.Drawing.Size(650, 255);
+            this.TbpUserLists.TabIndex = 3;
+            this.TbpUserLists.Text = "UserLists";
+            this.TbpUserLists.UseVisualStyleBackColor = true;
+            this.TbpUserLists.Click += new System.EventHandler(this.FrmSaUser_Load);
+            // 
+            // DgvUserList
+            // 
+            this.DgvUserList.AllowUserToOrderColumns = true;
+            this.DgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvUserList.Location = new System.Drawing.Point(33, 20);
+            this.DgvUserList.Name = "DgvUserList";
+            this.DgvUserList.Size = new System.Drawing.Size(590, 208);
+            this.DgvUserList.TabIndex = 0;
+            // 
             // FrmSaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +158,8 @@
             this.Load += new System.EventHandler(this.FrmSaUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.TbcSaUser.ResumeLayout(false);
+            this.TbpUserLists.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +174,7 @@
         private System.Windows.Forms.TabPage TbpRequests;
         private System.Windows.Forms.TabPage TbpSATasks;
         private System.Windows.Forms.TabPage TbpSummary;
+        private System.Windows.Forms.TabPage TbpUserLists;
+        private System.Windows.Forms.DataGridView DgvUserList;
     }
 }

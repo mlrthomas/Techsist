@@ -21,6 +21,7 @@ namespace Techsist
             GrpSARadio.Hide();
             LblPosition.Hide();
             TxtPosition.Hide();
+            TxtPassword.PasswordChar = '*';
         }
         FrmLogin login = new FrmLogin();
         private void LblHaveAccount_Click(object sender, EventArgs e)

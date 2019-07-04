@@ -37,6 +37,7 @@
             this.PicLogo = new System.Windows.Forms.PictureBox();
             this.LblForgotPassword = new System.Windows.Forms.Label();
             this.LblRegisterNow = new System.Windows.Forms.Label();
+            this.LblExit = new System.Windows.Forms.Label();
             this.GrpSignIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +141,19 @@
             this.LblRegisterNow.Text = "New User? Register Now!";
             this.LblRegisterNow.Click += new System.EventHandler(this.LblRegisterNow_Click);
             // 
+            // LblExit
+            // 
+            this.LblExit.AutoSize = true;
+            this.LblExit.BackColor = System.Drawing.Color.Transparent;
+            this.LblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblExit.ForeColor = System.Drawing.Color.Red;
+            this.LblExit.Location = new System.Drawing.Point(728, 18);
+            this.LblExit.Name = "LblExit";
+            this.LblExit.Size = new System.Drawing.Size(26, 25);
+            this.LblExit.TabIndex = 8;
+            this.LblExit.Text = "X";
+            this.LblExit.Click += new System.EventHandler(this.LblExit_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +162,7 @@
             this.BackgroundImage = global::Techsist.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(818, 520);
+            this.Controls.Add(this.LblExit);
             this.Controls.Add(this.LblRegisterNow);
             this.Controls.Add(this.LblForgotPassword);
             this.Controls.Add(this.GrpSignIn);
@@ -174,6 +189,7 @@
         private System.Windows.Forms.Button BtnSignIn;
         private System.Windows.Forms.Label LblForgotPassword;
         private System.Windows.Forms.Label LblRegisterNow;
+        public System.Windows.Forms.Label LblExit;
     }
 }
 

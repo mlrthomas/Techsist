@@ -50,5 +50,10 @@ namespace Techsist
             RegNewUser.Show();
             this.Visible = false;
         }
+
+        private void LblExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

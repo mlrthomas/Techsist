@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,8 @@ namespace Techsist
     // Start of Login Class
     public class Login
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
+        
         // EmptyConstructor
         public Login() { }
 
@@ -16,15 +19,13 @@ namespace Techsist
         private string UserName { get; set; } = "";
         private string Password { get; set; } = "";
 
-        // Assigned temporary username and password as administrator
-        public string User = "admin@hotmail.com";
-        public string RegUser = "regularuser@hotmail.com";
-        public string Pass = "password";
-
         //Check if user input match to the login
         public bool doesLoginMatch(string UserName, string Password)
         {
-            if ((UserName == User && Password == Pass) || (UserName == RegUser && Password == Pass))
+
+            Query query = new Query();
+            string queryPassword = query.GetPassword(UserName);
+            if (Password == queryPassword)
             {
                 return true;
             }

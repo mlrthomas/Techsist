@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace Techsist
 {
     public partial class FrmLogin : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -21,19 +24,19 @@ namespace Techsist
         private void BtnSignIn_Click(object sender, EventArgs e)
         {
             Login login = new Login();
+            Query query = new Query();
 
-            if(login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
+            if (login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
             {
-                if(TxtEmail.Text == login.RegUser )
-                { 
-                    FrmRegularUser RegUser = new FrmRegularUser();
-                    RegUser.Show();
+                if(query.GetDepartment(TxtEmail.Text) == "System Administrator"){
+                    FrmSaUser SaUser = new FrmSaUser();
+                    SaUser.Show();
                     this.Visible = false;
                 }
                 else
                 {
-                    FrmSaUser SaUser = new FrmSaUser();
-                    SaUser.Show();
+                    FrmRegularUser RegUser = new FrmRegularUser();
+                    RegUser.Show();
                     this.Visible = false;
                 }
             }
@@ -41,6 +44,8 @@ namespace Techsist
             {
                 MessageBox.Show("Invalid Login! Try Again");
             }
+
+
 
         }
 

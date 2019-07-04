@@ -25,6 +25,7 @@ namespace Techsist
         {
             Login login = new Login();
             Query query = new Query();
+            int queryId = query.GetUserId(TxtEmail.Text);
 
             if (login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
             {
@@ -35,7 +36,7 @@ namespace Techsist
                 }
                 else
                 {
-                    FrmRegularUser RegUser = new FrmRegularUser();
+                    FrmRegularUser RegUser = new FrmRegularUser(queryId);
                     RegUser.Show();
                     this.Visible = false;
                 }

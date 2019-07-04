@@ -30,15 +30,14 @@ namespace Techsist
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTicket(Ticket instance);
-    partial void UpdateTicket(Ticket instance);
-    partial void DeleteTicket(Ticket instance);
     partial void InsertTicketTransaction(TicketTransaction instance);
     partial void UpdateTicketTransaction(TicketTransaction instance);
     partial void DeleteTicketTransaction(TicketTransaction instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void UpdateTicket(Ticket instance);
+    partial void DeleteTicket(Ticket instance);
     #endregion
 		
 		public TechsistDataClassesDataContext() : 
@@ -71,14 +70,6 @@ namespace Techsist
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Ticket> Tickets
-		{
-			get
-			{
-				return this.GetTable<Ticket>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TicketTransaction> TicketTransactions
 		{
 			get
@@ -94,187 +85,25 @@ namespace Techsist
 				return this.GetTable<User>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ticket")]
-	public partial class Ticket : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private int _UserID;
-		
-		private string _IssueType;
-		
-		private int _PriorityLevel;
-		
-		private string _Note;
-		
-		private System.Data.Linq.Binary _CreationTime;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnIssueTypeChanging(string value);
-    partial void OnIssueTypeChanged();
-    partial void OnPriorityLevelChanging(int value);
-    partial void OnPriorityLevelChanged();
-    partial void OnNoteChanging(string value);
-    partial void OnNoteChanged();
-    partial void OnCreationTimeChanging(System.Data.Linq.Binary value);
-    partial void OnCreationTimeChanged();
-    #endregion
-		
-		public Ticket()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public int Id
+		public System.Data.Linq.Table<Ticket> Tickets
 		{
 			get
 			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
+				return this.GetTable<Ticket>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int UserID
+		private void InsertTicket(Ticket obj)
 		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
+			this.InsertTicket(((System.Nullable<int>)(obj.UserID)), obj.IssueType, ((System.Nullable<int>)(obj.PriorityLevel)), obj.Note);
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueType", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string IssueType
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertTicket")]
+		public int InsertTicket([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string issuetype, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> prioritylevel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string note)
 		{
-			get
-			{
-				return this._IssueType;
-			}
-			set
-			{
-				if ((this._IssueType != value))
-				{
-					this.OnIssueTypeChanging(value);
-					this.SendPropertyChanging();
-					this._IssueType = value;
-					this.SendPropertyChanged("IssueType");
-					this.OnIssueTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriorityLevel", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int PriorityLevel
-		{
-			get
-			{
-				return this._PriorityLevel;
-			}
-			set
-			{
-				if ((this._PriorityLevel != value))
-				{
-					this.OnPriorityLevelChanging(value);
-					this.SendPropertyChanging();
-					this._PriorityLevel = value;
-					this.SendPropertyChanged("PriorityLevel");
-					this.OnPriorityLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string Note
-		{
-			get
-			{
-				return this._Note;
-			}
-			set
-			{
-				if ((this._Note != value))
-				{
-					this.OnNoteChanging(value);
-					this.SendPropertyChanging();
-					this._Note = value;
-					this.SendPropertyChanged("Note");
-					this.OnNoteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationTime", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary CreationTime
-		{
-			get
-			{
-				return this._CreationTime;
-			}
-			set
-			{
-				if ((this._CreationTime != value))
-				{
-					this.OnCreationTimeChanging(value);
-					this.SendPropertyChanging();
-					this._CreationTime = value;
-					this.SendPropertyChanged("CreationTime");
-					this.OnCreationTimeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userid, issuetype, prioritylevel, note);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -713,6 +542,188 @@ namespace Techsist
 					this._CreationDate = value;
 					this.SendPropertyChanged("CreationDate");
 					this.OnCreationDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Ticket")]
+	public partial class Ticket : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _UserID;
+		
+		private string _IssueType;
+		
+		private int _PriorityLevel;
+		
+		private string _Note;
+		
+		private System.DateTime _CreationTime;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnIssueTypeChanging(string value);
+    partial void OnIssueTypeChanged();
+    partial void OnPriorityLevelChanging(int value);
+    partial void OnPriorityLevelChanged();
+    partial void OnNoteChanging(string value);
+    partial void OnNoteChanged();
+    partial void OnCreationTimeChanging(System.DateTime value);
+    partial void OnCreationTimeChanged();
+    #endregion
+		
+		public Ticket()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IssueType
+		{
+			get
+			{
+				return this._IssueType;
+			}
+			set
+			{
+				if ((this._IssueType != value))
+				{
+					this.OnIssueTypeChanging(value);
+					this.SendPropertyChanging();
+					this._IssueType = value;
+					this.SendPropertyChanged("IssueType");
+					this.OnIssueTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriorityLevel", DbType="Int NOT NULL")]
+		public int PriorityLevel
+		{
+			get
+			{
+				return this._PriorityLevel;
+			}
+			set
+			{
+				if ((this._PriorityLevel != value))
+				{
+					this.OnPriorityLevelChanging(value);
+					this.SendPropertyChanging();
+					this._PriorityLevel = value;
+					this.SendPropertyChanged("PriorityLevel");
+					this.OnPriorityLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this.OnNoteChanging(value);
+					this.SendPropertyChanging();
+					this._Note = value;
+					this.SendPropertyChanged("Note");
+					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreationTime
+		{
+			get
+			{
+				return this._CreationTime;
+			}
+			set
+			{
+				if ((this._CreationTime != value))
+				{
+					this.OnCreationTimeChanging(value);
+					this.SendPropertyChanging();
+					this._CreationTime = value;
+					this.SendPropertyChanged("CreationTime");
+					this.OnCreationTimeChanged();
 				}
 			}
 		}

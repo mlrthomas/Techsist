@@ -33,17 +33,21 @@
             this.LblLogout = new System.Windows.Forms.Label();
             this.TbcControlUser = new System.Windows.Forms.TabControl();
             this.TbpSubmitRequest = new System.Windows.Forms.TabPage();
-            this.TbpViewRequests = new System.Windows.Forms.TabPage();
-            this.LblIssue = new System.Windows.Forms.Label();
-            this.LblPriorityLevel = new System.Windows.Forms.Label();
-            this.TxtNote = new System.Windows.Forms.TextBox();
-            this.LblNote = new System.Windows.Forms.Label();
-            this.TxtIssue = new System.Windows.Forms.TextBox();
-            this.CboPriorityLevel = new System.Windows.Forms.ComboBox();
             this.BtnSubmit = new System.Windows.Forms.Button();
+            this.CboPriorityLevel = new System.Windows.Forms.ComboBox();
+            this.TxtIssue = new System.Windows.Forms.TextBox();
+            this.LblNote = new System.Windows.Forms.Label();
+            this.TxtNote = new System.Windows.Forms.TextBox();
+            this.LblPriorityLevel = new System.Windows.Forms.Label();
+            this.LblIssue = new System.Windows.Forms.Label();
+            this.TbpViewRequests = new System.Windows.Forms.TabPage();
+            this.DgvViewRequests = new System.Windows.Forms.DataGridView();
+            this.LblSelectedIssue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcControlUser.SuspendLayout();
             this.TbpSubmitRequest.SuspendLayout();
+            this.TbpViewRequests.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvViewRequests)).BeginInit();
             this.SuspendLayout();
             // 
             // PicLogo
@@ -112,57 +116,17 @@
             this.TbpSubmitRequest.TabIndex = 0;
             this.TbpSubmitRequest.Text = "Submit Request";
             // 
-            // TbpViewRequests
+            // BtnSubmit
             // 
-            this.TbpViewRequests.Location = new System.Drawing.Point(4, 24);
-            this.TbpViewRequests.Name = "TbpViewRequests";
-            this.TbpViewRequests.Padding = new System.Windows.Forms.Padding(3);
-            this.TbpViewRequests.Size = new System.Drawing.Size(653, 260);
-            this.TbpViewRequests.TabIndex = 1;
-            this.TbpViewRequests.Text = "View Request";
-            this.TbpViewRequests.UseVisualStyleBackColor = true;
-            // 
-            // LblIssue
-            // 
-            this.LblIssue.AutoSize = true;
-            this.LblIssue.Location = new System.Drawing.Point(97, 24);
-            this.LblIssue.Name = "LblIssue";
-            this.LblIssue.Size = new System.Drawing.Size(43, 16);
-            this.LblIssue.TabIndex = 0;
-            this.LblIssue.Text = "Issue:";
-            // 
-            // LblPriorityLevel
-            // 
-            this.LblPriorityLevel.AutoSize = true;
-            this.LblPriorityLevel.Location = new System.Drawing.Point(97, 50);
-            this.LblPriorityLevel.Name = "LblPriorityLevel";
-            this.LblPriorityLevel.Size = new System.Drawing.Size(86, 16);
-            this.LblPriorityLevel.TabIndex = 1;
-            this.LblPriorityLevel.Text = "Priority Level:";
-            // 
-            // TxtNote
-            // 
-            this.TxtNote.Location = new System.Drawing.Point(146, 76);
-            this.TxtNote.Multiline = true;
-            this.TxtNote.Name = "TxtNote";
-            this.TxtNote.Size = new System.Drawing.Size(340, 135);
-            this.TxtNote.TabIndex = 2;
-            // 
-            // LblNote
-            // 
-            this.LblNote.AutoSize = true;
-            this.LblNote.Location = new System.Drawing.Point(97, 73);
-            this.LblNote.Name = "LblNote";
-            this.LblNote.Size = new System.Drawing.Size(39, 16);
-            this.LblNote.TabIndex = 3;
-            this.LblNote.Text = "Note:";
-            // 
-            // TxtIssue
-            // 
-            this.TxtIssue.Location = new System.Drawing.Point(146, 21);
-            this.TxtIssue.Name = "TxtIssue";
-            this.TxtIssue.Size = new System.Drawing.Size(341, 22);
-            this.TxtIssue.TabIndex = 5;
+            this.BtnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSubmit.Location = new System.Drawing.Point(530, 215);
+            this.BtnSubmit.Name = "BtnSubmit";
+            this.BtnSubmit.Size = new System.Drawing.Size(108, 28);
+            this.BtnSubmit.TabIndex = 7;
+            this.BtnSubmit.Text = "Submit";
+            this.BtnSubmit.UseVisualStyleBackColor = false;
+            this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
             // CboPriorityLevel
             // 
@@ -176,17 +140,77 @@
             this.CboPriorityLevel.Size = new System.Drawing.Size(302, 23);
             this.CboPriorityLevel.TabIndex = 6;
             // 
-            // BtnSubmit
+            // TxtIssue
             // 
-            this.BtnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BtnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSubmit.Location = new System.Drawing.Point(530, 215);
-            this.BtnSubmit.Name = "BtnSubmit";
-            this.BtnSubmit.Size = new System.Drawing.Size(108, 28);
-            this.BtnSubmit.TabIndex = 7;
-            this.BtnSubmit.Text = "Submit";
-            this.BtnSubmit.UseVisualStyleBackColor = false;
-            this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            this.TxtIssue.Location = new System.Drawing.Point(146, 21);
+            this.TxtIssue.Name = "TxtIssue";
+            this.TxtIssue.Size = new System.Drawing.Size(341, 22);
+            this.TxtIssue.TabIndex = 5;
+            // 
+            // LblNote
+            // 
+            this.LblNote.AutoSize = true;
+            this.LblNote.Location = new System.Drawing.Point(97, 73);
+            this.LblNote.Name = "LblNote";
+            this.LblNote.Size = new System.Drawing.Size(39, 16);
+            this.LblNote.TabIndex = 3;
+            this.LblNote.Text = "Note:";
+            // 
+            // TxtNote
+            // 
+            this.TxtNote.Location = new System.Drawing.Point(146, 76);
+            this.TxtNote.Multiline = true;
+            this.TxtNote.Name = "TxtNote";
+            this.TxtNote.Size = new System.Drawing.Size(340, 135);
+            this.TxtNote.TabIndex = 2;
+            // 
+            // LblPriorityLevel
+            // 
+            this.LblPriorityLevel.AutoSize = true;
+            this.LblPriorityLevel.Location = new System.Drawing.Point(97, 50);
+            this.LblPriorityLevel.Name = "LblPriorityLevel";
+            this.LblPriorityLevel.Size = new System.Drawing.Size(86, 16);
+            this.LblPriorityLevel.TabIndex = 1;
+            this.LblPriorityLevel.Text = "Priority Level:";
+            // 
+            // LblIssue
+            // 
+            this.LblIssue.AutoSize = true;
+            this.LblIssue.Location = new System.Drawing.Point(97, 24);
+            this.LblIssue.Name = "LblIssue";
+            this.LblIssue.Size = new System.Drawing.Size(43, 16);
+            this.LblIssue.TabIndex = 0;
+            this.LblIssue.Text = "Issue:";
+            // 
+            // TbpViewRequests
+            // 
+            this.TbpViewRequests.Controls.Add(this.LblSelectedIssue);
+            this.TbpViewRequests.Controls.Add(this.DgvViewRequests);
+            this.TbpViewRequests.Location = new System.Drawing.Point(4, 24);
+            this.TbpViewRequests.Name = "TbpViewRequests";
+            this.TbpViewRequests.Padding = new System.Windows.Forms.Padding(3);
+            this.TbpViewRequests.Size = new System.Drawing.Size(653, 260);
+            this.TbpViewRequests.TabIndex = 1;
+            this.TbpViewRequests.Text = "View Request";
+            this.TbpViewRequests.UseVisualStyleBackColor = true;
+            // 
+            // DgvViewRequests
+            // 
+            this.DgvViewRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvViewRequests.Location = new System.Drawing.Point(27, 23);
+            this.DgvViewRequests.Name = "DgvViewRequests";
+            this.DgvViewRequests.Size = new System.Drawing.Size(608, 172);
+            this.DgvViewRequests.TabIndex = 0;
+            this.DgvViewRequests.SelectionChanged += new System.EventHandler(this.DgvViewRequests_SelectionChanged);
+            // 
+            // LblSelectedIssue
+            // 
+            this.LblSelectedIssue.AutoSize = true;
+            this.LblSelectedIssue.Location = new System.Drawing.Point(27, 207);
+            this.LblSelectedIssue.Name = "LblSelectedIssue";
+            this.LblSelectedIssue.Size = new System.Drawing.Size(90, 16);
+            this.LblSelectedIssue.TabIndex = 1;
+            this.LblSelectedIssue.Text = "SelectedIssue";
             // 
             // FrmRegularUser
             // 
@@ -202,10 +226,14 @@
             this.Name = "FrmRegularUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Regular User";
+            this.Load += new System.EventHandler(this.FrmRegularUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.TbcControlUser.ResumeLayout(false);
             this.TbpSubmitRequest.ResumeLayout(false);
             this.TbpSubmitRequest.PerformLayout();
+            this.TbpViewRequests.ResumeLayout(false);
+            this.TbpViewRequests.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvViewRequests)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +254,7 @@
         private System.Windows.Forms.TextBox TxtNote;
         private System.Windows.Forms.Label LblPriorityLevel;
         private System.Windows.Forms.Label LblIssue;
+        private System.Windows.Forms.DataGridView DgvViewRequests;
+        private System.Windows.Forms.Label LblSelectedIssue;
     }
 }

@@ -47,4 +47,14 @@
     <Parameter Name="note" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GetViewRequests" Method="GetViewRequests">
+    <Parameter Name="userid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetViewRequestsResult">
+      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Issue" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PriorityLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

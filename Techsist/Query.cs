@@ -49,5 +49,6 @@ namespace Techsist
             dc.InsertTicket(id, issue, priority, note);
             dc.SubmitChanges();
         }
+
     }
 }

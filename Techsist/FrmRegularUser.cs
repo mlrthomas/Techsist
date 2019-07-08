@@ -76,8 +76,8 @@ namespace Techsist
             if (cell != null)
             {
                 DataGridViewRow row = cell.OwningRow;
-                var x = row.Cells["IssueType"].Value.ToString();
-                LblSelectedIssue.Text = x;
+                var x = row.Cells["Id"].Value.ToString();
+                LblSelectedId.Text = x;
             }
         }
     }

@@ -41,8 +41,8 @@
             this.LblPriorityLevel = new System.Windows.Forms.Label();
             this.LblIssue = new System.Windows.Forms.Label();
             this.TbpViewRequests = new System.Windows.Forms.TabPage();
+            this.LblSelectedId = new System.Windows.Forms.Label();
             this.DgvViewRequests = new System.Windows.Forms.DataGridView();
-            this.LblSelectedIssue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcControlUser.SuspendLayout();
             this.TbpSubmitRequest.SuspendLayout();
@@ -184,7 +184,7 @@
             // 
             // TbpViewRequests
             // 
-            this.TbpViewRequests.Controls.Add(this.LblSelectedIssue);
+            this.TbpViewRequests.Controls.Add(this.LblSelectedId);
             this.TbpViewRequests.Controls.Add(this.DgvViewRequests);
             this.TbpViewRequests.Location = new System.Drawing.Point(4, 24);
             this.TbpViewRequests.Name = "TbpViewRequests";
@@ -194,6 +194,15 @@
             this.TbpViewRequests.Text = "View Request";
             this.TbpViewRequests.UseVisualStyleBackColor = true;
             // 
+            // LblSelectedId
+            // 
+            this.LblSelectedId.AutoSize = true;
+            this.LblSelectedId.Location = new System.Drawing.Point(27, 207);
+            this.LblSelectedId.Name = "LblSelectedId";
+            this.LblSelectedId.Size = new System.Drawing.Size(69, 16);
+            this.LblSelectedId.TabIndex = 1;
+            this.LblSelectedId.Text = "SelectedId";
+            // 
             // DgvViewRequests
             // 
             this.DgvViewRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -202,15 +211,6 @@
             this.DgvViewRequests.Size = new System.Drawing.Size(608, 172);
             this.DgvViewRequests.TabIndex = 0;
             this.DgvViewRequests.SelectionChanged += new System.EventHandler(this.DgvViewRequests_SelectionChanged);
-            // 
-            // LblSelectedIssue
-            // 
-            this.LblSelectedIssue.AutoSize = true;
-            this.LblSelectedIssue.Location = new System.Drawing.Point(27, 207);
-            this.LblSelectedIssue.Name = "LblSelectedIssue";
-            this.LblSelectedIssue.Size = new System.Drawing.Size(90, 16);
-            this.LblSelectedIssue.TabIndex = 1;
-            this.LblSelectedIssue.Text = "SelectedIssue";
             // 
             // FrmRegularUser
             // 
@@ -255,6 +255,6 @@
         private System.Windows.Forms.Label LblPriorityLevel;
         private System.Windows.Forms.Label LblIssue;
         private System.Windows.Forms.DataGridView DgvViewRequests;
-        private System.Windows.Forms.Label LblSelectedIssue;
+        private System.Windows.Forms.Label LblSelectedId;
     }
 }

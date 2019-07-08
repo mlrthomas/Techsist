@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TechsistDatabase" Class="TechsistDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TechsistDatabase.mdf;Integrated Security=True" SettingsObjectName="Techsist.Properties.Settings" SettingsPropertyName="TechsistDatabaseConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.TicketTransaction" Member="TicketTransactions">
-    <Type Name="TicketTransaction">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="StatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ActionDone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AssignedSAID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ModifiedDate" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -40,6 +29,24 @@
       <Argument Parameter="note" Member="Note" />
     </InsertFunction>
   </Table>
+  <Table Name="dbo.TicketTransaction" Member="TicketTransactions">
+    <Type Name="TicketTransaction">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TicketUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AssignedSAID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId2">
+      <Argument Parameter="ticketuserid" Member="TicketUserID" />
+      <Argument Parameter="statuscode" Member="StatusCode" />
+      <Argument Parameter="actiondone" Member="ActionDone" />
+      <Argument Parameter="assignedsaid" Member="AssignedSAID" />
+      <Argument Parameter="modifiedby" Member="ModifiedBy" />
+    </InsertFunction>
+  </Table>
   <Function Id="FunctionId1" Name="dbo.InsertTicket" Method="InsertTicket">
     <Parameter Name="userid" Type="System.Int32" DbType="Int" />
     <Parameter Name="issuetype" Type="System.String" DbType="NVarChar(50)" />
@@ -56,5 +63,13 @@
       <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.InsertTicketTransaction" Method="InsertTicketTransaction">
+    <Parameter Name="ticketuserid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="statuscode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="actiondone" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="assignedsaid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="modifiedby" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

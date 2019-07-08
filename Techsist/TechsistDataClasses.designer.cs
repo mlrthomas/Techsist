@@ -30,14 +30,13 @@ namespace Techsist
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTicketTransaction(TicketTransaction instance);
-    partial void UpdateTicketTransaction(TicketTransaction instance);
-    partial void DeleteTicketTransaction(TicketTransaction instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
     partial void UpdateTicket(Ticket instance);
     partial void DeleteTicket(Ticket instance);
+    partial void UpdateTicketTransaction(TicketTransaction instance);
+    partial void DeleteTicketTransaction(TicketTransaction instance);
     #endregion
 		
 		public TechsistDataClassesDataContext() : 
@@ -70,14 +69,6 @@ namespace Techsist
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TicketTransaction> TicketTransactions
-		{
-			get
-			{
-				return this.GetTable<TicketTransaction>();
-			}
-		}
-		
 		public System.Data.Linq.Table<User> Users
 		{
 			get
@@ -94,9 +85,22 @@ namespace Techsist
 			}
 		}
 		
+		public System.Data.Linq.Table<TicketTransaction> TicketTransactions
+		{
+			get
+			{
+				return this.GetTable<TicketTransaction>();
+			}
+		}
+		
 		private void InsertTicket(Ticket obj)
 		{
 			this.InsertTicket(((System.Nullable<int>)(obj.UserID)), obj.IssueType, ((System.Nullable<int>)(obj.PriorityLevel)), obj.Note);
+		}
+		
+		private void InsertTicketTransaction(TicketTransaction obj)
+		{
+			this.InsertTicketTransaction(((System.Nullable<int>)(obj.TicketUserID)), ((System.Nullable<int>)(obj.StatusCode)), obj.ActionDone, ((System.Nullable<int>)(obj.AssignedSAID)), obj.ModifiedBy);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertTicket")]
@@ -112,211 +116,12 @@ namespace Techsist
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userid);
 			return ((ISingleResult<GetViewRequestsResult>)(result.ReturnValue));
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TicketTransaction")]
-	public partial class TicketTransaction : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private int _TicketID;
-		
-		private int _StatusCode;
-		
-		private string _ActionDone;
-		
-		private System.Nullable<int> _AssignedSAID;
-		
-		private string _ModifiedBy;
-		
-		private System.Data.Linq.Binary _ModifiedDate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTicketIDChanging(int value);
-    partial void OnTicketIDChanged();
-    partial void OnStatusCodeChanging(int value);
-    partial void OnStatusCodeChanged();
-    partial void OnActionDoneChanging(string value);
-    partial void OnActionDoneChanged();
-    partial void OnAssignedSAIDChanging(System.Nullable<int> value);
-    partial void OnAssignedSAIDChanged();
-    partial void OnModifiedByChanging(string value);
-    partial void OnModifiedByChanged();
-    partial void OnModifiedDateChanging(System.Data.Linq.Binary value);
-    partial void OnModifiedDateChanged();
-    #endregion
-		
-		public TicketTransaction()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertTicketTransaction")]
+		public int InsertTicketTransaction([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ticketuserid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statuscode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string actiondone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> assignedsaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string modifiedby)
 		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int TicketID
-		{
-			get
-			{
-				return this._TicketID;
-			}
-			set
-			{
-				if ((this._TicketID != value))
-				{
-					this.OnTicketIDChanging(value);
-					this.SendPropertyChanging();
-					this._TicketID = value;
-					this.SendPropertyChanged("TicketID");
-					this.OnTicketIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode", DbType="Int NOT NULL", UpdateCheck=UpdateCheck.Never)]
-		public int StatusCode
-		{
-			get
-			{
-				return this._StatusCode;
-			}
-			set
-			{
-				if ((this._StatusCode != value))
-				{
-					this.OnStatusCodeChanging(value);
-					this.SendPropertyChanging();
-					this._StatusCode = value;
-					this.SendPropertyChanged("StatusCode");
-					this.OnStatusCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDone", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public string ActionDone
-		{
-			get
-			{
-				return this._ActionDone;
-			}
-			set
-			{
-				if ((this._ActionDone != value))
-				{
-					this.OnActionDoneChanging(value);
-					this.SendPropertyChanging();
-					this._ActionDone = value;
-					this.SendPropertyChanged("ActionDone");
-					this.OnActionDoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignedSAID", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> AssignedSAID
-		{
-			get
-			{
-				return this._AssignedSAID;
-			}
-			set
-			{
-				if ((this._AssignedSAID != value))
-				{
-					this.OnAssignedSAIDChanging(value);
-					this.SendPropertyChanging();
-					this._AssignedSAID = value;
-					this.SendPropertyChanged("AssignedSAID");
-					this.OnAssignedSAIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string ModifiedBy
-		{
-			get
-			{
-				return this._ModifiedBy;
-			}
-			set
-			{
-				if ((this._ModifiedBy != value))
-				{
-					this.OnModifiedByChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedBy = value;
-					this.SendPropertyChanged("ModifiedBy");
-					this.OnModifiedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", AutoSync=AutoSync.Always, DbType="rowversion NOT NULL", CanBeNull=false, IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary ModifiedDate
-		{
-			get
-			{
-				return this._ModifiedDate;
-			}
-			set
-			{
-				if ((this._ModifiedDate != value))
-				{
-					this.OnModifiedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ModifiedDate = value;
-					this.SendPropertyChanged("ModifiedDate");
-					this.OnModifiedDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ticketuserid, statuscode, actiondone, assignedsaid, modifiedby);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -731,6 +536,212 @@ namespace Techsist
 					this._CreationTime = value;
 					this.SendPropertyChanged("CreationTime");
 					this.OnCreationTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TicketTransaction")]
+	public partial class TicketTransaction : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private int _TicketUserID;
+		
+		private int _StatusCode;
+		
+		private string _ActionDone;
+		
+		private System.Nullable<int> _AssignedSAID;
+		
+		private string _ModifiedBy;
+		
+		private System.DateTime _ModifiedDate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTicketUserIDChanging(int value);
+    partial void OnTicketUserIDChanged();
+    partial void OnStatusCodeChanging(int value);
+    partial void OnStatusCodeChanged();
+    partial void OnActionDoneChanging(string value);
+    partial void OnActionDoneChanged();
+    partial void OnAssignedSAIDChanging(System.Nullable<int> value);
+    partial void OnAssignedSAIDChanged();
+    partial void OnModifiedByChanging(string value);
+    partial void OnModifiedByChanged();
+    partial void OnModifiedDateChanging(System.DateTime value);
+    partial void OnModifiedDateChanged();
+    #endregion
+		
+		public TicketTransaction()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketUserID", DbType="Int NOT NULL")]
+		public int TicketUserID
+		{
+			get
+			{
+				return this._TicketUserID;
+			}
+			set
+			{
+				if ((this._TicketUserID != value))
+				{
+					this.OnTicketUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._TicketUserID = value;
+					this.SendPropertyChanged("TicketUserID");
+					this.OnTicketUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode", DbType="Int NOT NULL")]
+		public int StatusCode
+		{
+			get
+			{
+				return this._StatusCode;
+			}
+			set
+			{
+				if ((this._StatusCode != value))
+				{
+					this.OnStatusCodeChanging(value);
+					this.SendPropertyChanging();
+					this._StatusCode = value;
+					this.SendPropertyChanged("StatusCode");
+					this.OnStatusCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDone", DbType="NVarChar(MAX)")]
+		public string ActionDone
+		{
+			get
+			{
+				return this._ActionDone;
+			}
+			set
+			{
+				if ((this._ActionDone != value))
+				{
+					this.OnActionDoneChanging(value);
+					this.SendPropertyChanging();
+					this._ActionDone = value;
+					this.SendPropertyChanged("ActionDone");
+					this.OnActionDoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignedSAID", DbType="Int")]
+		public System.Nullable<int> AssignedSAID
+		{
+			get
+			{
+				return this._AssignedSAID;
+			}
+			set
+			{
+				if ((this._AssignedSAID != value))
+				{
+					this.OnAssignedSAIDChanging(value);
+					this.SendPropertyChanging();
+					this._AssignedSAID = value;
+					this.SendPropertyChanged("AssignedSAID");
+					this.OnAssignedSAIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
+		public string ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this.OnModifiedByChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedBy = value;
+					this.SendPropertyChanged("ModifiedBy");
+					this.OnModifiedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this.OnModifiedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ModifiedDate = value;
+					this.SendPropertyChanged("ModifiedDate");
+					this.OnModifiedDateChanged();
 				}
 			}
 		}

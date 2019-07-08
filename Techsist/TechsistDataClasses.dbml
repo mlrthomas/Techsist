@@ -28,19 +28,25 @@
       <Argument Parameter="prioritylevel" Member="PriorityLevel" />
       <Argument Parameter="note" Member="Note" />
     </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId2">
+      <Argument Parameter="id" Member="Id" />
+      <Argument Parameter="issuetype" Member="IssueType" />
+      <Argument Parameter="prioritylevel" Member="PriorityLevel" />
+      <Argument Parameter="note" Member="Note" />
+    </UpdateFunction>
   </Table>
   <Table Name="dbo.TicketTransaction" Member="TicketTransactions">
     <Type Name="TicketTransaction">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TicketUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="StatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ActionDone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="AssignedSAID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
-    <InsertFunction FunctionId="FunctionId2">
-      <Argument Parameter="ticketuserid" Member="TicketUserID" />
+    <InsertFunction FunctionId="FunctionId3">
+      <Argument Parameter="ticketid" Member="TicketID" />
       <Argument Parameter="statuscode" Member="StatusCode" />
       <Argument Parameter="actiondone" Member="ActionDone" />
       <Argument Parameter="assignedsaid" Member="AssignedSAID" />
@@ -64,12 +70,19 @@
       <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId2" Name="dbo.InsertTicketTransaction" Method="InsertTicketTransaction">
-    <Parameter Name="ticketuserid" Type="System.Int32" DbType="Int" />
+  <Function Id="FunctionId3" Name="dbo.InsertTicketTransaction" Method="InsertTicketTransaction">
+    <Parameter Name="ticketid" Type="System.Int32" DbType="Int" />
     <Parameter Name="statuscode" Type="System.Int32" DbType="Int" />
     <Parameter Name="actiondone" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="assignedsaid" Type="System.Int32" DbType="Int" />
     <Parameter Name="modifiedby" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId2" Name="dbo.UpdateTicketInformation" Method="UpdateTicketInformation">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="issuetype" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="prioritylevel" Type="System.Int32" DbType="Int" />
+    <Parameter Name="note" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

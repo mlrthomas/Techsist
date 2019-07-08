@@ -14,10 +14,10 @@
         <elementListCompartment Id="06f72d9f-c455-4519-8318-c020eef13f8d" absoluteBounds="2.015, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ad1c7b77-6255-4c91-a932-e88c8b7f56fa" absoluteBounds="1.375, 3.75, 2, 2.1554996744791666">
+    <classShape Id="8927e17e-59b1-4bc7-9ffd-d213fc27453a" absoluteBounds="1.125, 4.125, 2, 2.1554996744791666">
       <DataClassMoniker Name="/TechsistDataClassesDataContext/TicketTransaction" />
       <nestedChildShapes>
-        <elementListCompartment Id="37a3880e-51af-4b8e-af5b-a3f52428733e" absoluteBounds="1.3900000000000001, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d9e7cbe9-f267-47c5-86b4-446c99f6e2dc" absoluteBounds="1.1400000000000001, 4.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

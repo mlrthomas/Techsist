@@ -43,10 +43,44 @@ namespace Techsist
             return queryUserId;
         }
 
+        public string GetNameByUserID(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            var queryUserName =
+                (from a in dc.GetTable<User>()
+                 where a.Id == id
+                 select a.FirstName +" "+ a.LastName ).FirstOrDefault();
+            return queryUserName;
+        }
+
+        public int GetTicketId(int userid, string issue)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            var queryTicketID =
+                (from a in dc.GetTable<Ticket>()
+                 where a.UserID == userid && a.IssueType == issue
+                 select a.Id).FirstOrDefault();
+            return queryTicketID;
+        }
+
         public void InsertTicketInformation(int id, string issue, int priority, string note)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             dc.InsertTicket(id, issue, priority, note);
+            dc.SubmitChanges();
+        }
+
+        public void InsertTicketTransaction(int id, int status, string actiondone, int SaId, string modBy)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.InsertTicketTransaction(id, status, actiondone, SaId, modBy);
+            dc.SubmitChanges();
+        }
+
+        public void UpdateTicket(int ticketid, string issue, int priority, string note)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.UpdateTicketInformation(ticketid, issue,priority,note);
             dc.SubmitChanges();
         }
 

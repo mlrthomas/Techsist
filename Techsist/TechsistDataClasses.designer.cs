@@ -33,7 +33,6 @@ namespace Techsist
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void UpdateTicket(Ticket instance);
     partial void DeleteTicket(Ticket instance);
     partial void UpdateTicketTransaction(TicketTransaction instance);
     partial void DeleteTicketTransaction(TicketTransaction instance);
@@ -98,9 +97,14 @@ namespace Techsist
 			this.InsertTicket(((System.Nullable<int>)(obj.UserID)), obj.IssueType, ((System.Nullable<int>)(obj.PriorityLevel)), obj.Note);
 		}
 		
+		private void UpdateTicket(Ticket obj)
+		{
+			this.UpdateTicketInformation(((System.Nullable<int>)(obj.Id)), obj.IssueType, ((System.Nullable<int>)(obj.PriorityLevel)), obj.Note);
+		}
+		
 		private void InsertTicketTransaction(TicketTransaction obj)
 		{
-			this.InsertTicketTransaction(((System.Nullable<int>)(obj.TicketUserID)), ((System.Nullable<int>)(obj.StatusCode)), obj.ActionDone, ((System.Nullable<int>)(obj.AssignedSAID)), obj.ModifiedBy);
+			this.InsertTicketTransaction(((System.Nullable<int>)(obj.TicketID)), ((System.Nullable<int>)(obj.StatusCode)), obj.ActionDone, ((System.Nullable<int>)(obj.AssignedSAID)), obj.ModifiedBy);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertTicket")]
@@ -118,9 +122,16 @@ namespace Techsist
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertTicketTransaction")]
-		public int InsertTicketTransaction([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ticketuserid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statuscode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string actiondone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> assignedsaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string modifiedby)
+		public int InsertTicketTransaction([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ticketid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statuscode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string actiondone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> assignedsaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string modifiedby)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ticketuserid, statuscode, actiondone, assignedsaid, modifiedby);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ticketid, statuscode, actiondone, assignedsaid, modifiedby);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateTicketInformation")]
+		public int UpdateTicketInformation([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string issuetype, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> prioritylevel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string note)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, issuetype, prioritylevel, note);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -569,7 +580,7 @@ namespace Techsist
 		
 		private int _Id;
 		
-		private int _TicketUserID;
+		private int _TicketID;
 		
 		private int _StatusCode;
 		
@@ -587,8 +598,8 @@ namespace Techsist
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnTicketUserIDChanging(int value);
-    partial void OnTicketUserIDChanged();
+    partial void OnTicketIDChanging(int value);
+    partial void OnTicketIDChanged();
     partial void OnStatusCodeChanging(int value);
     partial void OnStatusCodeChanged();
     partial void OnActionDoneChanging(string value);
@@ -626,22 +637,22 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketUserID", DbType="Int NOT NULL")]
-		public int TicketUserID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL")]
+		public int TicketID
 		{
 			get
 			{
-				return this._TicketUserID;
+				return this._TicketID;
 			}
 			set
 			{
-				if ((this._TicketUserID != value))
+				if ((this._TicketID != value))
 				{
-					this.OnTicketUserIDChanging(value);
+					this.OnTicketIDChanging(value);
 					this.SendPropertyChanging();
-					this._TicketUserID = value;
-					this.SendPropertyChanged("TicketUserID");
-					this.OnTicketUserIDChanged();
+					this._TicketID = value;
+					this.SendPropertyChanged("TicketID");
+					this.OnTicketIDChanged();
 				}
 			}
 		}

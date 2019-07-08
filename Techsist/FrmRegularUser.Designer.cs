@@ -41,8 +41,17 @@
             this.LblPriorityLevel = new System.Windows.Forms.Label();
             this.LblIssue = new System.Windows.Forms.Label();
             this.TbpViewRequests = new System.Windows.Forms.TabPage();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.BtnEdit = new System.Windows.Forms.Button();
+            this.CboEditPriorityLevel = new System.Windows.Forms.ComboBox();
+            this.TxtEditIssue = new System.Windows.Forms.TextBox();
+            this.LblEditNote = new System.Windows.Forms.Label();
+            this.TxtEditNote = new System.Windows.Forms.TextBox();
+            this.LblEditPriorityLevel = new System.Windows.Forms.Label();
+            this.LblEditIssue = new System.Windows.Forms.Label();
             this.LblSelectedId = new System.Windows.Forms.Label();
             this.DgvViewRequests = new System.Windows.Forms.DataGridView();
+            this.BtnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcControlUser.SuspendLayout();
             this.TbpSubmitRequest.SuspendLayout();
@@ -184,6 +193,15 @@
             // 
             // TbpViewRequests
             // 
+            this.TbpViewRequests.Controls.Add(this.BtnUpdate);
+            this.TbpViewRequests.Controls.Add(this.BtnCancel);
+            this.TbpViewRequests.Controls.Add(this.BtnEdit);
+            this.TbpViewRequests.Controls.Add(this.CboEditPriorityLevel);
+            this.TbpViewRequests.Controls.Add(this.TxtEditIssue);
+            this.TbpViewRequests.Controls.Add(this.LblEditNote);
+            this.TbpViewRequests.Controls.Add(this.TxtEditNote);
+            this.TbpViewRequests.Controls.Add(this.LblEditPriorityLevel);
+            this.TbpViewRequests.Controls.Add(this.LblEditIssue);
             this.TbpViewRequests.Controls.Add(this.LblSelectedId);
             this.TbpViewRequests.Controls.Add(this.DgvViewRequests);
             this.TbpViewRequests.Location = new System.Drawing.Point(4, 24);
@@ -193,6 +211,92 @@
             this.TbpViewRequests.TabIndex = 1;
             this.TbpViewRequests.Text = "View Request";
             this.TbpViewRequests.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancel.Location = new System.Drawing.Point(489, 156);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(108, 28);
+            this.BtnCancel.TabIndex = 15;
+            this.BtnCancel.Text = "Cancel";
+            this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Visible = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // BtnEdit
+            // 
+            this.BtnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEdit.Location = new System.Drawing.Point(489, 213);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(108, 28);
+            this.BtnEdit.TabIndex = 14;
+            this.BtnEdit.Text = "Edit";
+            this.BtnEdit.UseVisualStyleBackColor = false;
+            this.BtnEdit.Visible = false;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            // 
+            // CboEditPriorityLevel
+            // 
+            this.CboEditPriorityLevel.FormattingEnabled = true;
+            this.CboEditPriorityLevel.Items.AddRange(new object[] {
+            "High",
+            "Medium",
+            "Low"});
+            this.CboEditPriorityLevel.Location = new System.Drawing.Point(143, 45);
+            this.CboEditPriorityLevel.Name = "CboEditPriorityLevel";
+            this.CboEditPriorityLevel.Size = new System.Drawing.Size(302, 23);
+            this.CboEditPriorityLevel.TabIndex = 13;
+            this.CboEditPriorityLevel.Visible = false;
+            // 
+            // TxtEditIssue
+            // 
+            this.TxtEditIssue.Location = new System.Drawing.Point(105, 19);
+            this.TxtEditIssue.Name = "TxtEditIssue";
+            this.TxtEditIssue.Size = new System.Drawing.Size(341, 22);
+            this.TxtEditIssue.TabIndex = 12;
+            this.TxtEditIssue.Visible = false;
+            // 
+            // LblEditNote
+            // 
+            this.LblEditNote.AutoSize = true;
+            this.LblEditNote.Location = new System.Drawing.Point(56, 71);
+            this.LblEditNote.Name = "LblEditNote";
+            this.LblEditNote.Size = new System.Drawing.Size(39, 16);
+            this.LblEditNote.TabIndex = 11;
+            this.LblEditNote.Text = "Note:";
+            this.LblEditNote.Visible = false;
+            // 
+            // TxtEditNote
+            // 
+            this.TxtEditNote.Location = new System.Drawing.Point(105, 74);
+            this.TxtEditNote.Multiline = true;
+            this.TxtEditNote.Name = "TxtEditNote";
+            this.TxtEditNote.Size = new System.Drawing.Size(340, 135);
+            this.TxtEditNote.TabIndex = 10;
+            this.TxtEditNote.Visible = false;
+            // 
+            // LblEditPriorityLevel
+            // 
+            this.LblEditPriorityLevel.AutoSize = true;
+            this.LblEditPriorityLevel.Location = new System.Drawing.Point(56, 48);
+            this.LblEditPriorityLevel.Name = "LblEditPriorityLevel";
+            this.LblEditPriorityLevel.Size = new System.Drawing.Size(86, 16);
+            this.LblEditPriorityLevel.TabIndex = 9;
+            this.LblEditPriorityLevel.Text = "Priority Level:";
+            this.LblEditPriorityLevel.Visible = false;
+            // 
+            // LblEditIssue
+            // 
+            this.LblEditIssue.AutoSize = true;
+            this.LblEditIssue.Location = new System.Drawing.Point(56, 22);
+            this.LblEditIssue.Name = "LblEditIssue";
+            this.LblEditIssue.Size = new System.Drawing.Size(43, 16);
+            this.LblEditIssue.TabIndex = 8;
+            this.LblEditIssue.Text = "Issue:";
+            this.LblEditIssue.Visible = false;
             // 
             // LblSelectedId
             // 
@@ -211,6 +315,19 @@
             this.DgvViewRequests.Size = new System.Drawing.Size(608, 172);
             this.DgvViewRequests.TabIndex = 0;
             this.DgvViewRequests.SelectionChanged += new System.EventHandler(this.DgvViewRequests_SelectionChanged);
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUpdate.Location = new System.Drawing.Point(489, 41);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(108, 28);
+            this.BtnUpdate.TabIndex = 16;
+            this.BtnUpdate.Text = "Update";
+            this.BtnUpdate.UseVisualStyleBackColor = false;
+            this.BtnUpdate.Visible = false;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // FrmRegularUser
             // 
@@ -256,5 +373,14 @@
         private System.Windows.Forms.Label LblIssue;
         private System.Windows.Forms.DataGridView DgvViewRequests;
         private System.Windows.Forms.Label LblSelectedId;
+        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.ComboBox CboEditPriorityLevel;
+        private System.Windows.Forms.TextBox TxtEditIssue;
+        private System.Windows.Forms.Label LblEditNote;
+        private System.Windows.Forms.TextBox TxtEditNote;
+        private System.Windows.Forms.Label LblEditPriorityLevel;
+        private System.Windows.Forms.Label LblEditIssue;
+        private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnUpdate;
     }
 }

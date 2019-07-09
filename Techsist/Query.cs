@@ -84,5 +84,12 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+
+        public void DeleteTicket(int ticketid)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.DeleteTicket(ticketid);
+            dc.SubmitChanges();
+        }
     }
 }

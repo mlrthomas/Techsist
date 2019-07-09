@@ -41,6 +41,7 @@
             this.LblPriorityLevel = new System.Windows.Forms.Label();
             this.LblIssue = new System.Windows.Forms.Label();
             this.TbpViewRequests = new System.Windows.Forms.TabPage();
+            this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
             this.CboEditPriorityLevel = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,7 @@
             this.LblEditIssue = new System.Windows.Forms.Label();
             this.LblSelectedId = new System.Windows.Forms.Label();
             this.DgvViewRequests = new System.Windows.Forms.DataGridView();
-            this.BtnUpdate = new System.Windows.Forms.Button();
+            this.BtnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcControlUser.SuspendLayout();
             this.TbpSubmitRequest.SuspendLayout();
@@ -193,6 +194,7 @@
             // 
             // TbpViewRequests
             // 
+            this.TbpViewRequests.Controls.Add(this.BtnDelete);
             this.TbpViewRequests.Controls.Add(this.BtnUpdate);
             this.TbpViewRequests.Controls.Add(this.BtnCancel);
             this.TbpViewRequests.Controls.Add(this.BtnEdit);
@@ -211,6 +213,19 @@
             this.TbpViewRequests.TabIndex = 1;
             this.TbpViewRequests.Text = "View Request";
             this.TbpViewRequests.UseVisualStyleBackColor = true;
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUpdate.Location = new System.Drawing.Point(489, 41);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(108, 28);
+            this.BtnUpdate.TabIndex = 16;
+            this.BtnUpdate.Text = "Update";
+            this.BtnUpdate.UseVisualStyleBackColor = false;
+            this.BtnUpdate.Visible = false;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // BtnCancel
             // 
@@ -316,18 +331,18 @@
             this.DgvViewRequests.TabIndex = 0;
             this.DgvViewRequests.SelectionChanged += new System.EventHandler(this.DgvViewRequests_SelectionChanged);
             // 
-            // BtnUpdate
+            // BtnDelete
             // 
-            this.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BtnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnUpdate.Location = new System.Drawing.Point(489, 41);
-            this.BtnUpdate.Name = "BtnUpdate";
-            this.BtnUpdate.Size = new System.Drawing.Size(108, 28);
-            this.BtnUpdate.TabIndex = 16;
-            this.BtnUpdate.Text = "Update";
-            this.BtnUpdate.UseVisualStyleBackColor = false;
-            this.BtnUpdate.Visible = false;
-            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDelete.Location = new System.Drawing.Point(363, 213);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(108, 28);
+            this.BtnDelete.TabIndex = 17;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Visible = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // FrmRegularUser
             // 
@@ -382,5 +397,6 @@
         private System.Windows.Forms.Label LblEditIssue;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnUpdate;
+        private System.Windows.Forms.Button BtnDelete;
     }
 }

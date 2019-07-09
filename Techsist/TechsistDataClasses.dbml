@@ -34,6 +34,9 @@
       <Argument Parameter="prioritylevel" Member="PriorityLevel" />
       <Argument Parameter="note" Member="Note" />
     </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId3">
+      <Argument Parameter="id" Member="Id" />
+    </DeleteFunction>
   </Table>
   <Table Name="dbo.TicketTransaction" Member="TicketTransactions">
     <Type Name="TicketTransaction">
@@ -45,7 +48,7 @@
       <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
-    <InsertFunction FunctionId="FunctionId3">
+    <InsertFunction FunctionId="FunctionId4">
       <Argument Parameter="ticketid" Member="TicketID" />
       <Argument Parameter="statuscode" Member="StatusCode" />
       <Argument Parameter="actiondone" Member="ActionDone" />
@@ -70,7 +73,7 @@
       <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId3" Name="dbo.InsertTicketTransaction" Method="InsertTicketTransaction">
+  <Function Id="FunctionId4" Name="dbo.InsertTicketTransaction" Method="InsertTicketTransaction">
     <Parameter Name="ticketid" Type="System.Int32" DbType="Int" />
     <Parameter Name="statuscode" Type="System.Int32" DbType="Int" />
     <Parameter Name="actiondone" Type="System.String" DbType="NVarChar(MAX)" />
@@ -83,6 +86,10 @@
     <Parameter Name="issuetype" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="prioritylevel" Type="System.Int32" DbType="Int" />
     <Parameter Name="note" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId3" Name="dbo.DeleteTicket" Method="DeleteTicket">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

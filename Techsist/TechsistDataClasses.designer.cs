@@ -33,7 +33,6 @@ namespace Techsist
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
-    partial void DeleteTicket(Ticket instance);
     partial void UpdateTicketTransaction(TicketTransaction instance);
     partial void DeleteTicketTransaction(TicketTransaction instance);
     #endregion
@@ -102,6 +101,11 @@ namespace Techsist
 			this.UpdateTicketInformation(((System.Nullable<int>)(obj.Id)), obj.IssueType, ((System.Nullable<int>)(obj.PriorityLevel)), obj.Note);
 		}
 		
+		private void DeleteTicket(Ticket obj)
+		{
+			this.DeleteTicket(((System.Nullable<int>)(obj.Id)));
+		}
+		
 		private void InsertTicketTransaction(TicketTransaction obj)
 		{
 			this.InsertTicketTransaction(((System.Nullable<int>)(obj.TicketID)), ((System.Nullable<int>)(obj.StatusCode)), obj.ActionDone, ((System.Nullable<int>)(obj.AssignedSAID)), obj.ModifiedBy);
@@ -132,6 +136,13 @@ namespace Techsist
 		public int UpdateTicketInformation([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string issuetype, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> prioritylevel, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string note)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, issuetype, prioritylevel, note);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteTicket")]
+		public int DeleteTicket([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
 			return ((int)(result.ReturnValue));
 		}
 	}

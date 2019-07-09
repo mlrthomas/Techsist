@@ -21,9 +21,8 @@ namespace Techsist
         {
             InitializeComponent();
             userId = activeUserId;
-            
+    
         }
-
 
         private void LblLogout_Click(object sender, EventArgs e)
         {
@@ -38,6 +37,16 @@ namespace Techsist
             query.InsertTicketInformation(userId, TxtIssue.Text, GetPriorityValue(CboPriorityLevel.Text), TxtNote.Text);
             query.InsertTicketTransaction(query.GetTicketId(userId, TxtIssue.Text), 0, "", 0, query.GetNameByUserID(userId));
             MessageBox.Show("Successfully Submitted");
+        }
+
+        private void RefreshData()
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.GetViewRequests(userId);
+
+            var getRequestsQuery = from a in dc.GetTable<Ticket>()
+                                   select a;
+            DgvViewRequests.DataSource = getRequestsQuery;
         }
 
         private int GetPriorityValue(string priorityText)
@@ -73,12 +82,7 @@ namespace Techsist
 
         private void FrmRegularUser_Load(object sender, EventArgs e)
         {
-            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            dc.GetViewRequests(userId);
-
-            var getRequestsQuery = from a in dc.GetTable<Ticket>()
-                              select a;
-            DgvViewRequests.DataSource = getRequestsQuery;
+            RefreshData();
         }
 
 
@@ -106,11 +110,8 @@ namespace Techsist
             }
         }
 
-
-
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-
             DgvViewRequests.Visible = false;
             LblEditIssue.Visible = true;
             LblEditPriorityLevel.Visible = true;
@@ -137,8 +138,6 @@ namespace Techsist
             BtnEdit.Visible = true;
         }
 
-       
-
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             DgvViewRequests.Visible = true;
@@ -154,16 +153,14 @@ namespace Techsist
             int ticketid = Convert.ToInt32(LblSelectedId.Text);
             int priority = GetPriorityValue((CboEditPriorityLevel.SelectedItem).ToString());
             query.UpdateTicket(ticketid, TxtEditIssue.Text, priority, TxtEditNote.Text);
-            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            dc.GetViewRequests(userId);
-
-            var getRequestsQuery = from a in dc.GetTable<Ticket>()
-                                   select a;
-            DgvViewRequests.DataSource = getRequestsQuery;
-
-
+            RefreshData();
         }
 
-   
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            int ticketid = Convert.ToInt32(LblSelectedId.Text);
+            query.DeleteTicket(ticketid);
+            RefreshData();
+        }
     }
 }

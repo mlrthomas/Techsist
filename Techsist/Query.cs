@@ -91,5 +91,13 @@ namespace Techsist
             dc.DeleteTicket(ticketid);
             dc.SubmitChanges();
         }
+
+        public void GetTicketTransactionList()
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.GetTicketTransactionList();
+            dc.SubmitChanges();
+        }
     }
 }
+

@@ -145,6 +145,13 @@ namespace Techsist
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetTicketTransactionList")]
+		public ISingleResult<GetTicketTransactionListResult> GetTicketTransactionList()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetTicketTransactionListResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
@@ -882,6 +889,212 @@ namespace Techsist
 				if ((this._CreationTime != value))
 				{
 					this._CreationTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetTicketTransactionListResult
+	{
+		
+		private int _Id;
+		
+		private int _TicketID;
+		
+		private string _RequestorName;
+		
+		private string _Department;
+		
+		private string _IssueType;
+		
+		private int _PriorityLevel;
+		
+		private string _Note;
+		
+		private System.DateTime _CreationTime;
+		
+		private System.Nullable<int> _AssignedSAID;
+		
+		private string _ModifiedBy;
+		
+		private System.DateTime _ModifiedDate;
+		
+		public GetTicketTransactionListResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL")]
+		public int TicketID
+		{
+			get
+			{
+				return this._TicketID;
+			}
+			set
+			{
+				if ((this._TicketID != value))
+				{
+					this._TicketID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestorName", DbType="NVarChar(101) NOT NULL", CanBeNull=false)]
+		public string RequestorName
+		{
+			get
+			{
+				return this._RequestorName;
+			}
+			set
+			{
+				if ((this._RequestorName != value))
+				{
+					this._RequestorName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IssueType
+		{
+			get
+			{
+				return this._IssueType;
+			}
+			set
+			{
+				if ((this._IssueType != value))
+				{
+					this._IssueType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriorityLevel", DbType="Int NOT NULL")]
+		public int PriorityLevel
+		{
+			get
+			{
+				return this._PriorityLevel;
+			}
+			set
+			{
+				if ((this._PriorityLevel != value))
+				{
+					this._PriorityLevel = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this._Note = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreationTime
+		{
+			get
+			{
+				return this._CreationTime;
+			}
+			set
+			{
+				if ((this._CreationTime != value))
+				{
+					this._CreationTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignedSAID", DbType="Int")]
+		public System.Nullable<int> AssignedSAID
+		{
+			get
+			{
+				return this._AssignedSAID;
+			}
+			set
+			{
+				if ((this._AssignedSAID != value))
+				{
+					this._AssignedSAID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
+		public string ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this._ModifiedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this._ModifiedDate = value;
 				}
 			}
 		}

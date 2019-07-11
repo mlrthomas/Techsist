@@ -39,14 +39,18 @@ namespace Techsist
             MessageBox.Show("Successfully Submitted");
         }
 
+     
+
         private void RefreshData()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            dc.GetViewRequests(userId);
 
-            var getRequestsQuery = from a in dc.GetTable<Ticket>()
-                                   select a;
-            DgvViewRequests.DataSource = getRequestsQuery;
+            var requestdataquery = (from a in dc.GetTable<Ticket>()
+                                  where a.UserID == userId
+                                   select a).ToList();
+
+            DgvViewRequests.DataSource = requestdataquery;
+          
         }
 
         private int GetPriorityValue(string priorityText)

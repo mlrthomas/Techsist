@@ -44,13 +44,10 @@ namespace Techsist
         private void RefreshData()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            var requestslinqsprocquery = (from a in dc.GetViewRequests(userId)
+                                          select a).ToList();
 
-            var requestdataquery = (from a in dc.GetTable<Ticket>()
-                                  where a.UserID == userId
-                                   select a).ToList();
-
-            DgvViewRequests.DataSource = requestdataquery;
-          
+            DgvViewRequests.DataSource = requestslinqsprocquery;
         }
 
         private int GetPriorityValue(string priorityText)
@@ -126,6 +123,7 @@ namespace Techsist
             BtnCancel.Visible = true;
             BtnEdit.Visible = false;
             BtnUpdate.Visible = true;
+            BtnDelete.Visible = false;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -140,6 +138,7 @@ namespace Techsist
             BtnCancel.Visible = false;
             BtnUpdate.Visible = false;
             BtnEdit.Visible = true;
+            BtnDelete.Visible = true;
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
@@ -153,6 +152,7 @@ namespace Techsist
             CboEditPriorityLevel.Visible = false;
             BtnUpdate.Visible = false;
             BtnCancel.Visible = false;
+            BtnDelete.Visible = true;
             BtnEdit.Visible = true;
             int ticketid = Convert.ToInt32(LblSelectedId.Text);
             int priority = GetPriorityValue((CboEditPriorityLevel.SelectedItem).ToString());

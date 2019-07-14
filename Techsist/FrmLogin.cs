@@ -30,7 +30,7 @@ namespace Techsist
             if (login.doesLoginMatch(TxtEmail.Text, TxtPassword.Text))
             {
                 if(query.GetDepartment(TxtEmail.Text) == "System Administrator"){
-                    FrmSaUser SaUser = new FrmSaUser();
+                    FrmSaUser SaUser = new FrmSaUser(queryId);
                     SaUser.Show();
                     this.Visible = false;
                 }

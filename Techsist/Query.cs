@@ -43,6 +43,16 @@ namespace Techsist
             return queryUserId;
         }
 
+        public int GetPermissionByUserId(int userIdInput)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            var queryPermission =
+                (from a in dc.GetTable<User>()
+                 where a.Id == userIdInput
+                 select a.Permission).FirstOrDefault();
+            return queryPermission;
+        }
+
         public string GetNameByUserID(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);

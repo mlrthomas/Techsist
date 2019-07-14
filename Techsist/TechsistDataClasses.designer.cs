@@ -118,13 +118,6 @@ namespace Techsist
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetViewRequests")]
-		public ISingleResult<GetViewRequestsResult> GetViewRequests([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userid)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userid);
-			return ((ISingleResult<GetViewRequestsResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertTicketTransaction")]
 		public int InsertTicketTransaction([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> ticketid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statuscode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string actiondone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> assignedsaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string modifiedby)
 		{
@@ -144,6 +137,13 @@ namespace Techsist
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetViewRequests")]
+		public ISingleResult<GetViewRequestsResult> GetViewRequests([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userid);
+			return ((ISingleResult<GetViewRequestsResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetTicketTransactionList")]
@@ -799,9 +799,9 @@ namespace Techsist
 	public partial class GetViewRequestsResult
 	{
 		
-		private int _TicketID;
+		private int _Id;
 		
-		private string _Issue;
+		private string _IssueType;
 		
 		private int _PriorityLevel;
 		
@@ -813,34 +813,34 @@ namespace Techsist
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL")]
-		public int TicketID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
 		{
 			get
 			{
-				return this._TicketID;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._TicketID != value))
+				if ((this._Id != value))
 				{
-					this._TicketID = value;
+					this._Id = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issue", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Issue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IssueType
 		{
 			get
 			{
-				return this._Issue;
+				return this._IssueType;
 			}
 			set
 			{
-				if ((this._Issue != value))
+				if ((this._IssueType != value))
 				{
-					this._Issue = value;
+					this._IssueType = value;
 				}
 			}
 		}
@@ -901,7 +901,9 @@ namespace Techsist
 		
 		private int _TicketID;
 		
-		private string _RequestorName;
+		private string _FirstName;
+		
+		private string _LastName;
 		
 		private string _Department;
 		
@@ -955,18 +957,34 @@ namespace Techsist
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestorName", DbType="NVarChar(101) NOT NULL", CanBeNull=false)]
-		public string RequestorName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
 		{
 			get
 			{
-				return this._RequestorName;
+				return this._FirstName;
 			}
 			set
 			{
-				if ((this._RequestorName != value))
+				if ((this._FirstName != value))
 				{
-					this._RequestorName = value;
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
 				}
 			}
 		}

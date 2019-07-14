@@ -14,9 +14,14 @@ namespace Techsist
     public partial class FrmSaUser : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
-        public FrmSaUser()
+        Query query = new Query();
+        public int userId { get; set; } = 0;
+
+        public FrmSaUser(int activeUserId)
         {
             InitializeComponent();
+            userId = activeUserId;
+
         }
 
         private void RefreshRequestsData()
@@ -24,9 +29,12 @@ namespace Techsist
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             dc.GetTicketTransactionList();
 
-            var getRequestsQuery = from a in dc.GetTicketTransactionList()
+            var getRequestsQuery = (from a in dc.GetTicketTransactionList()
+                                   select a).ToList();
+            var getUserListQuery = from a in dc.GetTable<User>()
                                    select a;
-            DgvGetRequests.DataSource = getRequestsQuery;
+            DgvGetRequests.DataSource = getRequestsQuery; 
+            DgvUserList.DataSource = getUserListQuery;
         }
 
         private void FrmSaUser_Load(object sender, EventArgs e)

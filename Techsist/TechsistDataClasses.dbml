@@ -63,16 +63,6 @@
     <Parameter Name="note" Type="System.String" DbType="NVarChar(MAX)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.GetViewRequests" Method="GetViewRequests">
-    <Parameter Name="userid" Type="System.Int32" DbType="Int" />
-    <ElementType Name="GetViewRequestsResult">
-      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Issue" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PriorityLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Id="FunctionId4" Name="dbo.InsertTicketTransaction" Method="InsertTicketTransaction">
     <Parameter Name="ticketid" Type="System.Int32" DbType="Int" />
     <Parameter Name="statuscode" Type="System.Int32" DbType="Int" />
@@ -92,11 +82,22 @@
     <Parameter Name="id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GetViewRequests" Method="GetViewRequests">
+    <Parameter Name="userid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetViewRequestsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IssueType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PriorityLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GetTicketTransactionList" Method="GetTicketTransactionList">
     <ElementType Name="GetTicketTransactionListResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RequestorName" Type="System.String" DbType="NVarChar(101) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Department" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="IssueType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PriorityLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

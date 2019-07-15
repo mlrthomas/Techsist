@@ -161,7 +161,7 @@
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.BackgroundImage = global::Techsist.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(818, 520);
+            this.ClientSize = new System.Drawing.Size(806, 719);
             this.Controls.Add(this.LblExit);
             this.Controls.Add(this.LblRegisterNow);
             this.Controls.Add(this.LblForgotPassword);

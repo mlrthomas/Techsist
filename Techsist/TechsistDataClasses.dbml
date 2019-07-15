@@ -92,6 +92,13 @@
       <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.GetSAMembers" Method="GetSAMembers">
+    <ElementType Name="GetSAMembersResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.GetTicketTransactionList" Method="GetTicketTransactionList">
     <ElementType Name="GetTicketTransactionListResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -103,6 +110,8 @@
       <Column Name="PriorityLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="AssignedSAID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />

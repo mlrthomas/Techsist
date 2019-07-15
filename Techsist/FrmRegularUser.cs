@@ -15,6 +15,8 @@ namespace Techsist
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
         Query query = new Query();
+        Priority priority = new Priority();
+       
         public int userId { get; set; } = 0;
 
         public FrmRegularUser(int activeUserId)
@@ -34,7 +36,7 @@ namespace Techsist
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             
-            query.InsertTicketInformation(userId, TxtIssue.Text, GetPriorityValue(CboPriorityLevel.Text), TxtNote.Text);
+            query.InsertTicketInformation(userId, TxtIssue.Text, priority.GetPriorityValue(CboPriorityLevel.Text), TxtNote.Text);
             query.InsertTicketTransaction(query.GetTicketId(userId, TxtIssue.Text), 0, "", 0, query.GetNameByUserID(userId));
             MessageBox.Show("Successfully Submitted");
         }
@@ -50,36 +52,7 @@ namespace Techsist
             DgvViewRequests.DataSource = requestslinqsprocquery;
         }
 
-        private int GetPriorityValue(string priorityText)
-        {
-            if (priorityText == "High")
-            {
-                return 3;
-            }else if (priorityText == "Medium")
-            {
-                return 2;
-            }
-            else
-            {
-                return 1;
-            }
-        }
-
-        private string GetReversePriorityValue(string pValue)
-        {
-            if (pValue == "3")
-            {
-                return "High";
-            }
-            else if (pValue == "2")
-            {
-                return "Medium";
-            }
-            else
-            {
-                return "Low";
-            }
-        }
+     
 
         private void FrmRegularUser_Load(object sender, EventArgs e)
         {
@@ -101,7 +74,7 @@ namespace Techsist
                 var xId = row.Cells["Id"].Value.ToString();
                 var xIssueType = row.Cells["IssueType"].Value.ToString();
                 var xPriorityLevel = (row.Cells["PriorityLevel"]).Value.ToString();
-                string xPL = GetReversePriorityValue(xPriorityLevel);
+                string xPL = priority.GetReversePriorityValue(xPriorityLevel);
                 var xNote = row.Cells["Note"].Value.ToString();
                 LblSelectedId.Text = xId;
                 TxtEditIssue.Text = xIssueType;
@@ -155,8 +128,8 @@ namespace Techsist
             BtnDelete.Visible = true;
             BtnEdit.Visible = true;
             int ticketid = Convert.ToInt32(LblSelectedId.Text);
-            int priority = GetPriorityValue((CboEditPriorityLevel.SelectedItem).ToString());
-            query.UpdateTicket(ticketid, TxtEditIssue.Text, priority, TxtEditNote.Text);
+            int prioritylvl = priority.GetPriorityValue((CboEditPriorityLevel.SelectedItem).ToString());
+            query.UpdateTicket(ticketid, TxtEditIssue.Text, prioritylvl, TxtEditNote.Text);
             RefreshData();
         }
 

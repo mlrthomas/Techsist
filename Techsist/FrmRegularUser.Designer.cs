@@ -41,6 +41,7 @@
             this.LblPriorityLevel = new System.Windows.Forms.Label();
             this.LblIssue = new System.Windows.Forms.Label();
             this.TbpViewRequests = new System.Windows.Forms.TabPage();
+            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnEdit = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.LblEditIssue = new System.Windows.Forms.Label();
             this.LblSelectedId = new System.Windows.Forms.Label();
             this.DgvViewRequests = new System.Windows.Forms.DataGridView();
-            this.BtnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcControlUser.SuspendLayout();
             this.TbpSubmitRequest.SuspendLayout();
@@ -214,6 +214,18 @@
             this.TbpViewRequests.Text = "View Request";
             this.TbpViewRequests.UseVisualStyleBackColor = true;
             // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDelete.Location = new System.Drawing.Point(363, 213);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(108, 28);
+            this.BtnDelete.TabIndex = 17;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
             // BtnUpdate
             // 
             this.BtnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -331,25 +343,13 @@
             this.DgvViewRequests.TabIndex = 0;
             this.DgvViewRequests.SelectionChanged += new System.EventHandler(this.DgvViewRequests_SelectionChanged);
             // 
-            // BtnDelete
-            // 
-            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDelete.Location = new System.Drawing.Point(363, 213);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(108, 28);
-            this.BtnDelete.TabIndex = 17;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
-            // 
             // FrmRegularUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Techsist.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(798, 722);
             this.Controls.Add(this.TbcControlUser);
             this.Controls.Add(this.LblLogout);
             this.Controls.Add(this.LblWelcomeUser);

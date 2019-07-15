@@ -10,9 +10,9 @@ namespace Techsist
     public class Query
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
-    
-        public Query() {}
-        
+
+        public Query() { }
+
         public string GetDepartment(string userEmailInput)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -59,7 +59,7 @@ namespace Techsist
             var queryUserName =
                 (from a in dc.GetTable<User>()
                  where a.Id == id
-                 select a.FirstName +" "+ a.LastName ).FirstOrDefault();
+                 select a.FirstName + " " + a.LastName).FirstOrDefault();
             return queryUserName;
         }
 
@@ -90,10 +90,9 @@ namespace Techsist
         public void UpdateTicket(int ticketid, string issue, int priority, string note)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            dc.UpdateTicketInformation(ticketid, issue,priority,note);
+            dc.UpdateTicketInformation(ticketid, issue, priority, note);
             dc.SubmitChanges();
         }
-
 
         public void DeleteTicket(int ticketid)
         {
@@ -107,6 +106,12 @@ namespace Techsist
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             dc.GetTicketTransactionList();
             dc.SubmitChanges();
+        }
+
+        public void GetSAMembers()
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.GetSAMembers();
         }
     }
 }

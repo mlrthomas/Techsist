@@ -146,6 +146,13 @@ namespace Techsist
 			return ((ISingleResult<GetViewRequestsResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetSAMembers")]
+		public ISingleResult<GetSAMembersResult> GetSAMembers()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetSAMembersResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetTicketTransactionList")]
 		public ISingleResult<GetTicketTransactionListResult> GetTicketTransactionList()
 		{
@@ -894,6 +901,68 @@ namespace Techsist
 		}
 	}
 	
+	public partial class GetSAMembersResult
+	{
+		
+		private int _Id;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		public GetSAMembersResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+	}
+	
 	public partial class GetTicketTransactionListResult
 	{
 		
@@ -914,6 +983,10 @@ namespace Techsist
 		private string _Note;
 		
 		private System.DateTime _CreationTime;
+		
+		private int _StatusCode;
+		
+		private string _ActionDone;
 		
 		private System.Nullable<int> _AssignedSAID;
 		
@@ -1065,6 +1138,38 @@ namespace Techsist
 				if ((this._CreationTime != value))
 				{
 					this._CreationTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode", DbType="Int NOT NULL")]
+		public int StatusCode
+		{
+			get
+			{
+				return this._StatusCode;
+			}
+			set
+			{
+				if ((this._StatusCode != value))
+				{
+					this._StatusCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDone", DbType="NVarChar(MAX)")]
+		public string ActionDone
+		{
+			get
+			{
+				return this._ActionDone;
+			}
+			set
+			{
+				if ((this._ActionDone != value))
+				{
+					this._ActionDone = value;
 				}
 			}
 		}

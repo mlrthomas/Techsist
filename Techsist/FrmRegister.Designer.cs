@@ -277,7 +277,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Techsist.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 722);
             this.Controls.Add(this.LblHaveAccount);
             this.Controls.Add(this.GrpSignIn);
             this.Controls.Add(this.PicLogo);

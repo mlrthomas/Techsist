@@ -96,9 +96,11 @@
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
+    <Compile Include="Priority.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="TechsistDataClasses.cs">
       <DependentUpon>TechsistDataClasses.dbml</DependentUpon>
     </Compile>

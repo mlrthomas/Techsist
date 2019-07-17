@@ -153,11 +153,25 @@ namespace Techsist
 			return ((ISingleResult<GetSAMembersResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateTicketTransaction")]
+		public int UpdateTicketTransaction([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> statuscode, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(MAX)")] string actiondone, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> assignedsaid, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string modifiedby)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, statuscode, actiondone, assignedsaid, modifiedby);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetTicketTransactionList")]
 		public ISingleResult<GetTicketTransactionListResult> GetTicketTransactionList()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<GetTicketTransactionListResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CancelTicket")]
+		public int CancelTicket([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	

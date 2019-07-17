@@ -113,6 +113,22 @@ namespace Techsist
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             dc.GetSAMembers();
         }
+
+        public void UpdateTicketTransactionList(int ticketid, string issue, int priority, string note, int id, int status, string action, int said, string modby)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.UpdateTicketInformation(ticketid, issue, priority, note);
+            dc.UpdateTicketTransaction(id, status, action, said, modby);
+            dc.SubmitChanges();
+        }
+
+        public void CancelTicket(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.CancelTicket(id);
+            dc.SubmitChanges();
+            
+        }
     }
 }
 

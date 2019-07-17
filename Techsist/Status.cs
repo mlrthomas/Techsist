@@ -13,7 +13,15 @@ namespace Techsist
 
         public string GetStatusValueByID(int id)
         {
-            if (id == 4)
+            if (id == 6)
+            {
+                return "Cancelled";
+            }
+            else if (id == 5)
+            {
+                return "Completed";
+            }
+            else if (id == 4)
             {
                 return "Done";
             }
@@ -33,7 +41,15 @@ namespace Techsist
 
         public int GetStatusCodeByString(string status)
         {
-            if (status == "Done")
+            if (status == "Cancelled")
+            {
+                return 6;
+            }
+            else if (status == "Completed")
+            {
+                return 5;
+            }
+            else if (status == "done")
             {
                 return 4;
             }

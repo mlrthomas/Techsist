@@ -19,6 +19,11 @@ namespace Techsist
         Status status = new Status();
         public int userId { get; set; } = 0;
         public int permissionId { get; set; } = 0;
+        int selectedId;
+        int selectedReqId;
+        int currentAssignedSACode;
+        int stat;
+        string currentUser;
 
         public FrmSaUser(int activeUserId)
         {
@@ -31,7 +36,6 @@ namespace Techsist
         private void RefreshRequestsData()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            
             var getRequestsQuery = (from a in dc.GetTicketTransactionList()
                                    select a).ToList();
             var getUserListQuery = from a in dc.GetTable<User>()
@@ -46,6 +50,13 @@ namespace Techsist
         private void FrmSaUser_Load(object sender, EventArgs e)
         {
             RefreshRequestsData();
+            if (LblGetID.Text == "0")
+            {
+                BtnCancel.Visible = false;
+                BtnUpdate.Visible = false;
+                BtnAssignedSA.Visible = false;
+            }
+
         }
 
         private void LblLogout_Click(object sender, EventArgs e)
@@ -55,8 +66,7 @@ namespace Techsist
             Log.Show();
         }
 
-        int selectedId;
-        int selectedReqId;
+      
 
         private void DgvGetRequests_SelectionChanged(object sender, EventArgs e)
         {
@@ -95,9 +105,11 @@ namespace Techsist
         private void DgvGetRequests_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
+            BtnCancel.Visible = true;
+            BtnUpdate.Visible = true;
+            BtnAssignedSA.Visible = true;
             if (DgvGetRequests.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                
+            {               
                 DgvGetRequests.CurrentRow.Selected = true;
                 var id = DgvGetRequests.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString();
                 var ticketid = DgvGetRequests.Rows[e.RowIndex].Cells["TicketID"].FormattedValue.ToString();
@@ -119,10 +131,23 @@ namespace Techsist
                 LblGetLastName.Text = last;
                 TxtGetNote.Text = note;
                 TxtGetIssue.Text = issue;
-                LblGetStatus.Text = status.GetStatusValueByID(Convert.ToInt32(statuscode));
+                stat = Convert.ToInt32(statuscode);
+                currentAssignedSACode = Convert.ToInt32(statuscode);
+                LblGetStatus.Text = status.GetStatusValueByID(currentAssignedSACode);
+                TxtAction.Text = actiondone;
                 string xPL = priority.GetReversePriorityValue(prioritylvl);
                 CboPriorityLevel.SelectedItem = xPL;
                 CboAssignedSA.SelectedItem = GetSALastNameByID(Convert.ToInt32(assignedsa));
+                if (stat <= 1)
+                {
+                    BtnAssignedSA.Visible = true;
+                    CboAssignedSA.Visible = false;
+                }
+                else
+                {
+                    BtnAssignedSA.Visible = false;
+                    CboAssignedSA.Visible = true;
+                }
             }
         }
 
@@ -142,9 +167,54 @@ namespace Techsist
             }
         }
 
+        private int GetSAIdByLastName(string LastName)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            var getSAID = (from a in dc.GetSAMembers()
+                                where a.LastName == LastName
+                                select a.Id).FirstOrDefault();
+            return getSAID;
+        }
+
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            TbcSaUser.Top = 500;
+            int ticketid = Convert.ToInt32(LblGetTicketID.Text);
+            int prioritynumber = priority.GetPriorityValue(CboPriorityLevel.SelectedItem.ToString());
+            int id = Convert.ToInt32(LblGetID.Text);
+            int saidcode = GetSAIdByLastName(CboAssignedSA.SelectedItem.ToString());
+            currentUser = query.GetNameByUserID(userId);
+            query.UpdateTicketTransactionList(ticketid, TxtGetIssue.Text, prioritynumber, TxtGetNote.Text, id, stat, TxtAction.Text, saidcode, currentUser);
+            RefreshRequestsData();
         }
+
+        private void BtnAssignedSA_Click(object sender, EventArgs e)
+        {
+            stat = 2;
+            CboAssignedSA.Visible = true;
+            BtnAssignedSA.Visible = false;
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            selectedId = Convert.ToInt32(LblGetID.Text);
+           
+            string cancelQuestion = "Are you sure you want to cancel this ticket transaction #" + LblGetID.Text + " ?";
+            string title = "Hi" + currentUser + " !";
+            switch (MessageBox.Show(cancelQuestion, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case DialogResult.Yes:
+                    MessageBox.Show("Successfully Cancelled.");
+                    query.CancelTicket(selectedId);
+                    break;
+                case DialogResult.No:
+                    MessageBox.Show("You pressed No.");
+                    break;
+                default:
+                    break;
+            }
+            RefreshRequestsData();                     
+        }
+
+
     }
 }

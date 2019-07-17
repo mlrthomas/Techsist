@@ -23,7 +23,6 @@ namespace Techsist
         {
             InitializeComponent();
             userId = activeUserId;
-    
         }
 
         private void LblLogout_Click(object sender, EventArgs e)
@@ -40,25 +39,19 @@ namespace Techsist
             query.InsertTicketTransaction(query.GetTicketId(userId, TxtIssue.Text), 0, "", 0, query.GetNameByUserID(userId));
             MessageBox.Show("Successfully Submitted");
         }
-
-     
-
+    
         private void RefreshData()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             var requestslinqsprocquery = (from a in dc.GetViewRequests(userId)
                                           select a).ToList();
-
             DgvViewRequests.DataSource = requestslinqsprocquery;
         }
-
-     
 
         private void FrmRegularUser_Load(object sender, EventArgs e)
         {
             RefreshData();
         }
-
 
         private void DgvViewRequests_SelectionChanged(object sender, EventArgs e)
         {

@@ -69,7 +69,7 @@
             this.LblHaveAccount.BackColor = System.Drawing.Color.Transparent;
             this.LblHaveAccount.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblHaveAccount.ForeColor = System.Drawing.Color.White;
-            this.LblHaveAccount.Location = new System.Drawing.Point(335, 377);
+            this.LblHaveAccount.Location = new System.Drawing.Point(335, 378);
             this.LblHaveAccount.Name = "LblHaveAccount";
             this.LblHaveAccount.Size = new System.Drawing.Size(150, 15);
             this.LblHaveAccount.TabIndex = 9;

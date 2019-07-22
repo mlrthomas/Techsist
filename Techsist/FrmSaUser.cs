@@ -20,10 +20,11 @@ namespace Techsist
         public int userId { get; set; } = 0;
         public int permissionId { get; set; } = 0;
         int selectedId;
-        int selectedReqId;
         int currentAssignedSACode;
         int stat;
         string currentUser;
+        int selectedIssueId;
+      
 
         public FrmSaUser(int activeUserId)
         {
@@ -31,6 +32,18 @@ namespace Techsist
             userId = activeUserId;
             permissionId = query.GetPermissionByUserId(userId);
             RefreshRequestsData();
+            if(permissionId != 2)
+            {
+                GboSAWorkSummary.Visible = false;
+                GBoUList.Visible = false;
+                BtnForReview.Visible = false;
+                BtnUnassigned.Visible = false;
+                LblUnassignedCount.Visible = false;
+                LblForReview.Visible = false;
+                GrpReqForm.Visible = false;
+                GboSAMyTasks.Visible = true;
+            }
+          
         }
 
         private void RefreshRequestsData()
@@ -41,10 +54,28 @@ namespace Techsist
             var getUserListQuery = from a in dc.GetTable<User>()
                                    select a;
             var getSAMembers = (from a in dc.GetSAMembers()
-                                select a.LastName).ToList();
+                                select a.Name).ToList();
+            var getUnassignedDataQuery = (from a in dc.GetUnassignTicket()
+                                          select a).ToList();
+            var getSAMembersList = (from a in dc.GetSAMembers()
+                                select a).ToList();
+            var getSAPendingTasks = (from a in dc.GetSATasksBySaId(userId,2)
+                                     select a).ToList();
+            var getSAOnGoingTasks = (from a in dc.GetSATasksBySaId(userId, 3)
+                                     select a).ToList();
+
             DgvGetRequests.DataSource = getRequestsQuery; 
             DgvUserList.DataSource = getUserListQuery;
             CboAssignedSA.DataSource = getSAMembers;
+            CboUAssignedSA.DataSource = getSAMembers;
+            LblUnassignedCount.Text = (query.GetCountUnassigned()).ToString();
+            LblForReview.Text = (query.GetCountDone()).ToString();
+            DgvUnassignedReview.DataSource = getUnassignedDataQuery;
+            DgvSAMembers.DataSource = getSAMembersList;
+            DgvSAPendingTasks.DataSource = getSAPendingTasks;
+            DgvSAOnGoingTasks.DataSource = getSAOnGoingTasks;
+            GboOngoingTasks.Text = "On-going Tasks: " + (query.GetCountDoneById(userId)).ToString();
+            GboPendingTasks.Text = "Pending Tasks: " + (query.GetCountInprocessById(userId)).ToString();
         }
 
         private void FrmSaUser_Load(object sender, EventArgs e)
@@ -52,11 +83,8 @@ namespace Techsist
             RefreshRequestsData();
             if (LblGetID.Text == "0")
             {
-                BtnCancel.Visible = false;
-                BtnUpdate.Visible = false;
-                BtnAssignedSA.Visible = false;
-            }
-
+                GrpReqForm.Visible = false;
+            } 
         }
 
         private void LblLogout_Click(object sender, EventArgs e)
@@ -64,25 +92,6 @@ namespace Techsist
             this.Visible = false;
             FrmLogin Log = new FrmLogin();
             Log.Show();
-        }
-
-      
-
-        private void DgvGetRequests_SelectionChanged(object sender, EventArgs e)
-        {
-            DataGridViewCell cell = null;
-            foreach (DataGridViewCell selectedCell in DgvGetRequests.SelectedCells)
-            {
-                cell = selectedCell;
-                break;
-            }
-            if (cell != null)
-            {
-                DataGridViewRow row = cell.OwningRow;
-                var x = row.Cells["Id"].Value.ToString();
-                selectedReqId = Convert.ToInt32(x);
-                LblSelectedReqID.Text = x;
-            }
         }
 
         private void DgvUserList_SelectionChanged(object sender, EventArgs e)
@@ -105,9 +114,13 @@ namespace Techsist
         private void DgvGetRequests_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
-            BtnCancel.Visible = true;
-            BtnUpdate.Visible = true;
-            BtnAssignedSA.Visible = true;
+            if(permissionId != 2)
+            {
+                GrpReqForm.Visible = false;
+            }
+            else { 
+            GrpReqForm.Visible = true;
+            }
             if (DgvGetRequests.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {               
                 DgvGetRequests.CurrentRow.Selected = true;
@@ -122,8 +135,8 @@ namespace Techsist
                 var assignedsa = DgvGetRequests.Rows[e.RowIndex].Cells["AssignedSAID"].FormattedValue.ToString();
                 var actiondone = DgvGetRequests.Rows[e.RowIndex].Cells["ActionDone"].FormattedValue.ToString();
                 var statuscode = DgvGetRequests.Rows[e.RowIndex].Cells["StatusCode"].FormattedValue.ToString();
-                selectedReqId = Convert.ToInt32(id);
-                LblSelectedReqID.Text = id;
+                selectedId = Convert.ToInt32(id);
+                LblSelectedID.Text = id;
                 LblGetDept.Text = department;
                 LblGetID.Text = id;
                 LblGetTicketID.Text = ticketid;
@@ -158,7 +171,7 @@ namespace Techsist
             {
                 var getSAMembers = (from a in dc.GetSAMembers()
                                     where a.Id == id
-                                     select a.LastName).FirstOrDefault();
+                                     select a.Name).FirstOrDefault();
                 return getSAMembers.ToString();
             }
             else
@@ -167,11 +180,11 @@ namespace Techsist
             }
         }
 
-        private int GetSAIdByLastName(string LastName)
+        private int GetSAIdByName(string Name)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             var getSAID = (from a in dc.GetSAMembers()
-                                where a.LastName == LastName
+                                where a.Name == Name
                                 select a.Id).FirstOrDefault();
             return getSAID;
         }
@@ -181,7 +194,7 @@ namespace Techsist
             int ticketid = Convert.ToInt32(LblGetTicketID.Text);
             int prioritynumber = priority.GetPriorityValue(CboPriorityLevel.SelectedItem.ToString());
             int id = Convert.ToInt32(LblGetID.Text);
-            int saidcode = GetSAIdByLastName(CboAssignedSA.SelectedItem.ToString());
+            int saidcode = GetSAIdByName(CboAssignedSA.SelectedItem.ToString());
             currentUser = query.GetNameByUserID(userId);
             query.UpdateTicketTransactionList(ticketid, TxtGetIssue.Text, prioritynumber, TxtGetNote.Text, id, stat, TxtAction.Text, saidcode, currentUser);
             RefreshRequestsData();
@@ -215,6 +228,153 @@ namespace Techsist
             RefreshRequestsData();                     
         }
 
+        private void BtnUnassigned_Click(object sender, EventArgs e)
+        {
+            RefreshRequestsData();
+            BtnUSubmit.Visible = false;
+            LblUAssignedSA.Visible = true;
+            BtnUAssignedSA.Visible = true;
+            LblUActionDone.Visible = false;
+            TxtUActionDone.Visible = false;
+            GBoUList.Text = "Unassigned Lists";
+        }
 
+        private void BtnUAssignedSA_Click(object sender, EventArgs e)
+        {
+            BtnUAssignedSA.Visible = false;
+            CboUAssignedSA.Visible = true;
+            BtnUSubmit.Visible = true;
+        }
+
+        private void DgvUnassignedReview_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in DgvUserList.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                var x = row.Cells["Id"].Value.ToString();
+                selectedId = Convert.ToInt32(x);
+                LblUGetId.Text = x;
+            }
+        }
+
+        private void DgvUnassignedReview_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex == -1) return;
+            if (DgvGetRequests.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                DgvUnassignedReview.CurrentRow.Selected = true;
+                var id = DgvUnassignedReview.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString();
+                var prioritylvl = DgvUnassignedReview.Rows[e.RowIndex].Cells["PriorityLevel"].FormattedValue.ToString();
+                var issue = DgvUnassignedReview.Rows[e.RowIndex].Cells["IssueType"].FormattedValue.ToString();
+                string xPL = priority.GetReversePriorityValue(prioritylvl);
+                LblUGetId.Text = id;
+                LblUGetIssue.Text = issue;
+                LblUGetPriority.Text = xPL;
+                BtnUAssignedSA.Visible = true;
+                BtnUSubmit.Visible = false;
+                CboUAssignedSA.Visible = false;
+            }
+        }
+
+
+
+        private void BtnUSubmit_Click(object sender, EventArgs e)
+        {
+            CboUAssignedSA.Visible = false;
+            BtnUSubmit.Visible = false;
+            BtnUAssignedSA.Visible = true;
+            BtnUSubmit.Visible = false;
+            selectedId = Convert.ToInt32(LblUGetId.Text);
+            int said = GetSAIdByName(CboAssignedSA.SelectedItem.ToString());
+            query.AssignedSAById(selectedId, said);
+            RefreshRequestsData();
+        }
+
+        private void BtnForReview_Click(object sender, EventArgs e)
+        {
+            LblUGetId.Text = "0";
+            LblUGetIssue.Text = "0";
+            LblUGetPriority.Text = "0";
+            GBoUList.Text = "For Review";
+            LblUActionDone.Visible = true;
+            TxtUActionDone.Visible = true;
+            LblUAssignedSA.Visible = false;
+            CboUAssignedSA.Visible = false;
+            BtnUAssignedSA.Visible = false;
+            DgvUnassignedReview.DataSource = query.GetCountDone();
+        }
+
+        private void BtnUApprove_Click(object sender, EventArgs e)
+        {
+            selectedId = Convert.ToInt32(LblUGetId.Text);
+            query.ApprovedTicket(selectedId);
+        }
+
+        private void DgvSAMembers_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in  DgvSAMembers.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                var name = row.Cells["Name"].Value.ToString();
+                var Id = row.Cells["Id"].Value.ToString();
+                int sId = Convert.ToInt32(Id);
+                LblGetSAName.Text = name;
+                LblGetSAAssignedWork.Text = (query.GetCountAssignedById(sId)).ToString();
+                LblGetSAInprocess.Text = (query.GetCountInprocessById(sId)).ToString();
+                LblGetApproval.Text = (query.GetCountDoneById(sId)).ToString();
+                if (LblGetSAAssignedWork.Text == "0" && LblGetSAInprocess.Text == "0")
+                {
+                    LblBusy.Text = "NOT BUSY";
+                    LblBusy.ForeColor = Color.FromArgb(0, 255, 0);
+                }
+                else
+                {
+                    LblBusy.Text = "BUSY";
+                    LblBusy.ForeColor = Color.FromArgb(255, 0, 0);
+                }
+            }
+        }
+
+        private void DgvSAPendingTasks_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in DgvSAPendingTasks.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                var xId = row.Cells["Id"].Value.ToString();
+                var xIssue = row.Cells["IssueType"].Value.ToString();
+                selectedIssueId = Convert.ToInt32(xId);
+                LblGetIssue.Text = xIssue;
+            }
+        }
+
+        private void BtnStartTasks_Click(object sender, EventArgs e)
+        {
+            query.StartTask(selectedIssueId);
+            RefreshRequestsData();
+        }
+
+        private void BtnDoneTask_Click(object sender, EventArgs e)
+        {
+            query.FinishTask(selectedIssueId, (TxtFActionDone.Text).ToString());
+            RefreshRequestsData();
+        }
     }
 }

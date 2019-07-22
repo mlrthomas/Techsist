@@ -25,6 +25,7 @@ namespace Techsist
             userId = activeUserId;
         }
 
+
         private void LblLogout_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -36,8 +37,9 @@ namespace Techsist
         {
             
             query.InsertTicketInformation(userId, TxtIssue.Text, priority.GetPriorityValue(CboPriorityLevel.Text), TxtNote.Text);
-            query.InsertTicketTransaction(query.GetTicketId(userId, TxtIssue.Text), 0, "", 0, query.GetNameByUserID(userId));
+            query.InsertTicketTransaction(query.GetTicketId(userId, TxtIssue.Text), 1, "", 0, query.GetNameByUserID(userId));
             MessageBox.Show("Successfully Submitted");
+            RefreshData();
         }
     
         private void RefreshData()

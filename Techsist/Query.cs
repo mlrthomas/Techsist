@@ -10,8 +10,9 @@ namespace Techsist
     public class Query
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
-
-        public Query() { }
+        public Query() {
+            
+        }
 
         public string GetDepartment(string userEmailInput)
         {
@@ -127,8 +128,98 @@ namespace Techsist
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             dc.CancelTicket(id);
             dc.SubmitChanges();
-            
         }
+
+        public int GetCountUnassigned()
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            int UnassignedCount = (from a in dc.GetTable<TicketTransaction>()
+                                        where a.StatusCode <= 1
+                                        select a).Count();
+            return UnassignedCount;
+        }
+
+        public int GetCountAssignedById(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            int UnassignedCount = (from a in dc.GetTable<TicketTransaction>()
+                                   where a.StatusCode <= 2 && a.AssignedSAID == id
+                                   select a).Count();
+            return UnassignedCount;
+        }
+
+        public int GetCountDone()
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            int UnassignedCount = (from a in dc.GetTable<TicketTransaction>()
+                                   where a.StatusCode == 4
+                                   select a).Count();
+            return UnassignedCount;
+        }
+
+        public int GetCountDoneById(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            int UnassignedCount = (from a in dc.GetTable<TicketTransaction>()
+                                   where a.StatusCode == 4 && a.AssignedSAID == id
+                                   select a).Count();
+            return UnassignedCount;
+        }
+
+        public int GetCountInprocess()
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            int InprocessCount = (from a in dc.GetTable<TicketTransaction>()
+                                   where a.StatusCode == 3
+                                   select a).Count();
+            return InprocessCount;
+        }
+
+        public int GetCountInprocessById(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            int InprocessCount = (from a in dc.GetTable<TicketTransaction>()
+                                  where a.StatusCode == 3 && a.AssignedSAID == id
+                                  select a).Count();
+            return InprocessCount;
+        }
+
+        public void AssignedSAById(int iId, int iAssignedSAID)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            dc.AssignedSA(iId, iAssignedSAID);
+            dc.SubmitChanges();
+        }
+
+        public void ApprovedTicket(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            TicketTransaction tickTrans = dc.TicketTransactions.Single(TicketTransaction => TicketTransaction.TicketID == id);
+            tickTrans.StatusCode = 5;
+            dc.SubmitChanges();
+        }
+
+        public void StartTask(int id)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            TicketTransaction tickTrans = dc.TicketTransactions.Single(TicketTransaction => TicketTransaction.TicketID == id);
+            tickTrans.StatusCode = 3;
+            dc.SubmitChanges();
+        }
+
+        public void FinishTask(int id, string action)
+        {
+            TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
+            TicketTransaction tickTrans = dc.TicketTransactions.Single(TicketTransaction => TicketTransaction.TicketID == id);
+            tickTrans.StatusCode = 4;
+            tickTrans.ActionDone = action;
+            dc.SubmitChanges();
+        }
+
+
+
+
     }
 }
+
 

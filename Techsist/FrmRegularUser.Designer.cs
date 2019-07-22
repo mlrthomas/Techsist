@@ -333,6 +333,7 @@
             this.LblSelectedId.Size = new System.Drawing.Size(69, 16);
             this.LblSelectedId.TabIndex = 1;
             this.LblSelectedId.Text = "SelectedId";
+            this.LblSelectedId.Visible = false;
             // 
             // DgvViewRequests
             // 

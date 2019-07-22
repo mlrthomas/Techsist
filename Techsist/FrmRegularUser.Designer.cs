@@ -130,7 +130,7 @@
             // 
             this.BtnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BtnSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSubmit.Location = new System.Drawing.Point(530, 215);
+            this.BtnSubmit.Location = new System.Drawing.Point(529, 215);
             this.BtnSubmit.Name = "BtnSubmit";
             this.BtnSubmit.Size = new System.Drawing.Size(108, 28);
             this.BtnSubmit.TabIndex = 7;

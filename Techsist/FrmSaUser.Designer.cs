@@ -934,7 +934,7 @@
             // 
             // BtnDoneTask
             // 
-            this.BtnDoneTask.Location = new System.Drawing.Point(580, 193);
+            this.BtnDoneTask.Location = new System.Drawing.Point(580, 192);
             this.BtnDoneTask.Name = "BtnDoneTask";
             this.BtnDoneTask.Size = new System.Drawing.Size(124, 23);
             this.BtnDoneTask.TabIndex = 3;

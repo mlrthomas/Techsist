@@ -24,8 +24,12 @@ namespace Techsist
         {
 
             Query query = new Query();
+            Encrypt encrypt = new Encrypt();
             string queryPassword = query.GetPassword(UserName);
             if (Password == queryPassword)
+            {
+                return true;
+            }else if (encrypt.MD5Hash(Password) == query.GetPassword(UserName))
             {
                 return true;
             }

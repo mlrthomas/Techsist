@@ -14,7 +14,7 @@ namespace Techsist
     public partial class FrmRegister : Form
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
-
+        string hashPassword;
         public FrmRegister()
         {
             InitializeComponent();
@@ -48,10 +48,12 @@ namespace Techsist
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             User newUser = new User();
             DateTime now = DateTime.Now;
+            Encrypt encrypt = new Encrypt();
             newUser.FirstName = TxtFirstName.Text;
             newUser.LastName = TxtLastName.Text;
             newUser.Email = TxtEmail.Text;
-            newUser.Password = TxtPassword.Text;
+            hashPassword = encrypt.MD5Hash(TxtPassword.Text);
+            newUser.Password = hashPassword;
             newUser.Department = CboDepartment.Text;
             if (CboDepartment.Text == "System Administrator")
             {
@@ -66,6 +68,7 @@ namespace Techsist
                     newUser.Permission = 1;
                 }
             }
+
             else
             {
                 newUser.Position = TxtPosition.Text;

@@ -10,6 +10,7 @@ namespace Techsist
     {
         public Priority() { }
 
+        //Gets integer value of priority level by priority description
         public int GetPriorityValue(string priorityText)
         {
             if (priorityText == "High")
@@ -26,6 +27,7 @@ namespace Techsist
             }
         }
 
+        //Gets string value of priority level by priority number
         public string GetReversePriorityValue(string pValue)
         {
             if (pValue == "3")

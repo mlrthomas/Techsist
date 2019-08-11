@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace Techsist
 {
+    //Start of Regular User Form
     public partial class FrmRegularUser : Form
     {
+        //Established Connection
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
         Query query = new Query();
         Priority priority = new Priority();
@@ -25,7 +27,7 @@ namespace Techsist
             userId = activeUserId;
         }
 
-
+        //Logouts the current user and loginform will display
         private void LblLogout_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -33,6 +35,7 @@ namespace Techsist
             Log.Show();
         }
         
+        //
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             
@@ -45,7 +48,7 @@ namespace Techsist
         private void RefreshData()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            var requestslinqsprocquery = (from a in dc.GetViewRequests(userId)
+            var requestslinqsprocquery = (from a in dc.GetViewRequests2(userId)
                                           select a).ToList();
             DgvViewRequests.DataSource = requestslinqsprocquery;
         }
@@ -68,13 +71,12 @@ namespace Techsist
                 DataGridViewRow row = cell.OwningRow;
                 var xId = row.Cells["Id"].Value.ToString();
                 var xIssueType = row.Cells["IssueType"].Value.ToString();
-                var xPriorityLevel = (row.Cells["PriorityLevel"]).Value.ToString();
-                string xPL = priority.GetReversePriorityValue(xPriorityLevel);
+                var xPriorityLevel = (row.Cells["Priority"]).Value.ToString();
                 var xNote = row.Cells["Note"].Value.ToString();
                 LblSelectedId.Text = xId;
                 TxtEditIssue.Text = xIssueType;
                 TxtEditNote.Text = xNote;
-                CboEditPriorityLevel.SelectedItem = xPL;
+                CboEditPriorityLevel.SelectedItem = xPriorityLevel;
                 BtnEdit.Visible = true;
             }
         }
@@ -109,6 +111,7 @@ namespace Techsist
             BtnDelete.Visible = true;
         }
 
+
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             DgvViewRequests.Visible = true;
@@ -128,6 +131,7 @@ namespace Techsist
             RefreshData();
         }
 
+        //Delete the ticket by the creator
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             int ticketid = Convert.ToInt32(LblSelectedId.Text);

@@ -11,9 +11,13 @@ using System.Windows.Forms;
 
 namespace Techsist
 {
+    //Start of Form for SA users
     public partial class FrmSaUser : Form
     {
+        //Establish Connection
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
+
+        //Creation of needed instances and declaration of necessary variables
         Query query = new Query();
         Priority priority = new Priority();
         Status status = new Status();
@@ -25,7 +29,7 @@ namespace Techsist
         string currentUser;
         int selectedIssueId;
       
-
+        //Takes userId Argument to identify the current active user from the login Form
         public FrmSaUser(int activeUserId)
         {
             InitializeComponent();
@@ -46,10 +50,11 @@ namespace Techsist
           
         }
 
+        //Refreshes the data for every changes in the database
         private void RefreshRequestsData()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
-            var getRequestsQuery = (from a in dc.GetTicketTransactionList()
+            var getRequestsQuery = (from a in dc.GetTicketTransactionList2()
                                    select a).ToList();
             var getUserListQuery = from a in dc.GetTable<User>()
                                    select a;
@@ -78,6 +83,7 @@ namespace Techsist
             GboPendingTasks.Text = "Pending Tasks: " + (query.GetCountInprocessById(userId)).ToString();
         }
 
+        //Initial Load of SA User Form
         private void FrmSaUser_Load(object sender, EventArgs e)
         {
             RefreshRequestsData();
@@ -87,6 +93,7 @@ namespace Techsist
             } 
         }
 
+        //Logout Function
         private void LblLogout_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -94,6 +101,7 @@ namespace Techsist
             Log.Show();
         }
 
+        //Selection of data once clicked for the UserList Data
         private void DgvUserList_SelectionChanged(object sender, EventArgs e)
         {
             DataGridViewCell cell = null;
@@ -111,6 +119,7 @@ namespace Techsist
             }
         }
 
+        //Selection of data once clicked for the Get Requests Data
         private void DgvGetRequests_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
@@ -124,6 +133,7 @@ namespace Techsist
             if (DgvGetRequests.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {               
                 DgvGetRequests.CurrentRow.Selected = true;
+                //Assigned data to temporary variables for update or delete functions
                 var id = DgvGetRequests.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString();
                 var ticketid = DgvGetRequests.Rows[e.RowIndex].Cells["TicketID"].FormattedValue.ToString();
                 var first = DgvGetRequests.Rows[e.RowIndex].Cells["FirstName"].FormattedValue.ToString();
@@ -135,6 +145,8 @@ namespace Techsist
                 var assignedsa = DgvGetRequests.Rows[e.RowIndex].Cells["AssignedSAID"].FormattedValue.ToString();
                 var actiondone = DgvGetRequests.Rows[e.RowIndex].Cells["ActionDone"].FormattedValue.ToString();
                 var statuscode = DgvGetRequests.Rows[e.RowIndex].Cells["StatusCode"].FormattedValue.ToString();
+
+                //Displays Data once selected
                 selectedId = Convert.ToInt32(id);
                 LblSelectedID.Text = id;
                 LblGetDept.Text = department;
@@ -144,13 +156,14 @@ namespace Techsist
                 LblGetLastName.Text = last;
                 TxtGetNote.Text = note;
                 TxtGetIssue.Text = issue;
-                stat = Convert.ToInt32(statuscode);
-                currentAssignedSACode = Convert.ToInt32(statuscode);
-                LblGetStatus.Text = status.GetStatusValueByID(currentAssignedSACode);
+                stat = status.GetStatusCodeByString(statuscode);
+                currentAssignedSACode = Convert.ToInt32(assignedsa);
+                LblGetStatus.Text = statuscode;
                 TxtAction.Text = actiondone;
-                string xPL = priority.GetReversePriorityValue(prioritylvl);
-                CboPriorityLevel.SelectedItem = xPL;
-                CboAssignedSA.SelectedItem = GetSALastNameByID(Convert.ToInt32(assignedsa));
+                CboPriorityLevel.SelectedItem = prioritylvl;
+                CboAssignedSA.SelectedItem = GetSALastNameByID(currentAssignedSACode);
+
+                //Verifies if the current ticket is already assigned
                 if (stat <= 1)
                 {
                     BtnAssignedSA.Visible = true;
@@ -164,6 +177,7 @@ namespace Techsist
             }
         }
 
+        //Function for getting SA lastname by userId
         private string GetSALastNameByID(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -180,6 +194,7 @@ namespace Techsist
             }
         }
 
+        //Function for getting the UserId by Name
         private int GetSAIdByName(string Name)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -189,6 +204,7 @@ namespace Techsist
             return getSAID;
         }
 
+        //Update Button Function
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
             int ticketid = Convert.ToInt32(LblGetTicketID.Text);
@@ -200,13 +216,15 @@ namespace Techsist
             RefreshRequestsData();
         }
 
+        //Assigned function button where the status changed to assigned
         private void BtnAssignedSA_Click(object sender, EventArgs e)
         {
-            stat = 2;
+            stat = 2; //2 == Assigned
             CboAssignedSA.Visible = true;
             BtnAssignedSA.Visible = false;
         }
 
+        //Cancel Function Button
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             selectedId = Convert.ToInt32(LblGetID.Text);
@@ -228,6 +246,7 @@ namespace Techsist
             RefreshRequestsData();                     
         }
 
+        //User assigned button click function
         private void BtnUnassigned_Click(object sender, EventArgs e)
         {
             RefreshRequestsData();
@@ -246,6 +265,7 @@ namespace Techsist
             BtnUSubmit.Visible = true;
         }
 
+        //Selection for Unassigned lists
         private void DgvUnassignedReview_SelectionChanged(object sender, EventArgs e)
         {
             DataGridViewCell cell = null;
@@ -282,8 +302,7 @@ namespace Techsist
             }
         }
 
-
-
+        //Submit function
         private void BtnUSubmit_Click(object sender, EventArgs e)
         {
             CboUAssignedSA.Visible = false;
@@ -296,6 +315,7 @@ namespace Techsist
             RefreshRequestsData();
         }
 
+        //For review Button Function
         private void BtnForReview_Click(object sender, EventArgs e)
         {
             LblUGetId.Text = "0";
@@ -310,12 +330,14 @@ namespace Techsist
             DgvUnassignedReview.DataSource = query.GetCountDone();
         }
 
+        //Approved button function
         private void BtnUApprove_Click(object sender, EventArgs e)
         {
             selectedId = Convert.ToInt32(LblUGetId.Text);
             query.ApprovedTicket(selectedId);
         }
 
+        //SA Members selection for Admin
         private void DgvSAMembers_SelectionChanged(object sender, EventArgs e)
         {
             DataGridViewCell cell = null;
@@ -347,6 +369,7 @@ namespace Techsist
             }
         }
 
+        //Cell clicked function for Pending tasks of SA
         private void DgvSAPendingTasks_SelectionChanged(object sender, EventArgs e)
         {
             DataGridViewCell cell = null;
@@ -365,16 +388,23 @@ namespace Techsist
             }
         }
 
+        //Start Task Button for SA and then refresh the data
         private void BtnStartTasks_Click(object sender, EventArgs e)
         {
             query.StartTask(selectedIssueId);
             RefreshRequestsData();
         }
 
+        //Done Task Function and then refresh the data.
         private void BtnDoneTask_Click(object sender, EventArgs e)
         {
             query.FinishTask(selectedIssueId, (TxtFActionDone.Text).ToString());
             RefreshRequestsData();
+        }
+
+        private void LblSelectedID_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

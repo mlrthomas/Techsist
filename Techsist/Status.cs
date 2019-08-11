@@ -10,7 +10,7 @@ namespace Techsist
     {
         public Status() { }
 
-
+        //Gets status value by status code ID
         public string GetStatusValueByID(int id)
         {
             if (id == 6)
@@ -27,18 +27,19 @@ namespace Techsist
             }
             else if (id == 3)
             {
-                return "in-process";
+                return "In-process";
             }
             else if (id == 2)
             {
-                return "assigned";
+                return "Assigned";
             }
             else
             {
-                return "unassigned";
+                return "Unassign";
             }
         }
 
+        //Get Status id by status value
         public int GetStatusCodeByString(string status)
         {
             if (status == "Cancelled")
@@ -49,15 +50,15 @@ namespace Techsist
             {
                 return 5;
             }
-            else if (status == "done")
+            else if (status == "Done")
             {
                 return 4;
             }
-            else if (status == "in-process")
+            else if (status == "In-process")
             {
                 return 3;
             }
-            else if (status == "assigned")
+            else if (status == "Assigned")
             {
                 return 2;
             }

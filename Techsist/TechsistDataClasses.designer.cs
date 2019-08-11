@@ -35,6 +35,12 @@ namespace Techsist
     partial void DeleteUser(User instance);
     partial void UpdateTicketTransaction(TicketTransaction instance);
     partial void DeleteTicketTransaction(TicketTransaction instance);
+    partial void InsertLUPriority(LUPriority instance);
+    partial void UpdateLUPriority(LUPriority instance);
+    partial void DeleteLUPriority(LUPriority instance);
+    partial void InsertLUStatus(LUStatus instance);
+    partial void UpdateLUStatus(LUStatus instance);
+    partial void DeleteLUStatus(LUStatus instance);
     #endregion
 		
 		public TechsistDataClassesDataContext() : 
@@ -88,6 +94,22 @@ namespace Techsist
 			get
 			{
 				return this.GetTable<TicketTransaction>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LUPriority> LUPriorities
+		{
+			get
+			{
+				return this.GetTable<LUPriority>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LUStatus> LUStatus
+		{
+			get
+			{
+				return this.GetTable<LUStatus>();
 			}
 		}
 		
@@ -207,6 +229,20 @@ namespace Techsist
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id, statuscode);
 			return ((ISingleResult<GetSATasksBySaIdResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetViewRequests2")]
+		public ISingleResult<GetViewRequests2Result> GetViewRequests2([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> userid)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userid);
+			return ((ISingleResult<GetViewRequests2Result>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetTicketTransactionList2")]
+		public ISingleResult<GetTicketTransactionList2Result> GetTicketTransactionList2()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<GetTicketTransactionList2Result>)(result.ReturnValue));
 		}
 	}
 	
@@ -827,6 +863,178 @@ namespace Techsist
 					this._ModifiedDate = value;
 					this.SendPropertyChanged("ModifiedDate");
 					this.OnModifiedDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LUPriority")]
+	public partial class LUPriority : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _PriorityDescription;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnPriorityDescriptionChanging(string value);
+    partial void OnPriorityDescriptionChanged();
+    #endregion
+		
+		public LUPriority()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriorityDescription", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PriorityDescription
+		{
+			get
+			{
+				return this._PriorityDescription;
+			}
+			set
+			{
+				if ((this._PriorityDescription != value))
+				{
+					this.OnPriorityDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._PriorityDescription = value;
+					this.SendPropertyChanged("PriorityDescription");
+					this.OnPriorityDescriptionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LUStatus")]
+	public partial class LUStatus : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public LUStatus()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
 				}
 			}
 		}
@@ -1641,6 +1849,382 @@ namespace Techsist
 				if ((this._ActionDone != value))
 				{
 					this._ActionDone = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetViewRequests2Result
+	{
+		
+		private int _Id;
+		
+		private string _IssueType;
+		
+		private string _Status;
+		
+		private string _Priority;
+		
+		private string _Note;
+		
+		private System.DateTime _CreationTime;
+		
+		public GetViewRequests2Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IssueType
+		{
+			get
+			{
+				return this._IssueType;
+			}
+			set
+			{
+				if ((this._IssueType != value))
+				{
+					this._IssueType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Priority
+		{
+			get
+			{
+				return this._Priority;
+			}
+			set
+			{
+				if ((this._Priority != value))
+				{
+					this._Priority = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this._Note = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreationTime
+		{
+			get
+			{
+				return this._CreationTime;
+			}
+			set
+			{
+				if ((this._CreationTime != value))
+				{
+					this._CreationTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetTicketTransactionList2Result
+	{
+		
+		private int _Id;
+		
+		private int _TicketID;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Department;
+		
+		private string _IssueType;
+		
+		private string _PriorityLevel;
+		
+		private string _Note;
+		
+		private System.DateTime _CreationTime;
+		
+		private string _StatusCode;
+		
+		private string _ActionDone;
+		
+		private System.Nullable<int> _AssignedSAID;
+		
+		private string _ModifiedBy;
+		
+		private System.DateTime _ModifiedDate;
+		
+		public GetTicketTransactionList2Result()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL")]
+		public int TicketID
+		{
+			get
+			{
+				return this._TicketID;
+			}
+			set
+			{
+				if ((this._TicketID != value))
+				{
+					this._TicketID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					this._Department = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IssueType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string IssueType
+		{
+			get
+			{
+				return this._IssueType;
+			}
+			set
+			{
+				if ((this._IssueType != value))
+				{
+					this._IssueType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriorityLevel", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PriorityLevel
+		{
+			get
+			{
+				return this._PriorityLevel;
+			}
+			set
+			{
+				if ((this._PriorityLevel != value))
+				{
+					this._PriorityLevel = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this._Note = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreationTime", DbType="DateTime NOT NULL")]
+		public System.DateTime CreationTime
+		{
+			get
+			{
+				return this._CreationTime;
+			}
+			set
+			{
+				if ((this._CreationTime != value))
+				{
+					this._CreationTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusCode", DbType="NVarChar(50)")]
+		public string StatusCode
+		{
+			get
+			{
+				return this._StatusCode;
+			}
+			set
+			{
+				if ((this._StatusCode != value))
+				{
+					this._StatusCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDone", DbType="NVarChar(MAX)")]
+		public string ActionDone
+		{
+			get
+			{
+				return this._ActionDone;
+			}
+			set
+			{
+				if ((this._ActionDone != value))
+				{
+					this._ActionDone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssignedSAID", DbType="Int")]
+		public System.Nullable<int> AssignedSAID
+		{
+			get
+			{
+				return this._AssignedSAID;
+			}
+			set
+			{
+				if ((this._AssignedSAID != value))
+				{
+					this._AssignedSAID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedBy", DbType="NVarChar(50)")]
+		public string ModifiedBy
+		{
+			get
+			{
+				return this._ModifiedBy;
+			}
+			set
+			{
+				if ((this._ModifiedBy != value))
+				{
+					this._ModifiedBy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifiedDate", DbType="DateTime NOT NULL")]
+		public System.DateTime ModifiedDate
+		{
+			get
+			{
+				return this._ModifiedDate;
+			}
+			set
+			{
+				if ((this._ModifiedDate != value))
+				{
+					this._ModifiedDate = value;
 				}
 			}
 		}

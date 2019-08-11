@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblLogout = new System.Windows.Forms.Label();
             this.LblWelcomeSA = new System.Windows.Forms.Label();
             this.PicLogo = new System.Windows.Forms.PictureBox();
@@ -61,68 +65,67 @@
             this.BtnUpdate = new System.Windows.Forms.Button();
             this.DgvGetRequests = new System.Windows.Forms.DataGridView();
             this.TbpSATasks = new System.Windows.Forms.TabPage();
+            this.GboSAMyTasks = new System.Windows.Forms.GroupBox();
+            this.GboOngoingTasks = new System.Windows.Forms.GroupBox();
+            this.BtnDoneTask = new System.Windows.Forms.Button();
+            this.TxtFActionDone = new System.Windows.Forms.TextBox();
+            this.LblOngoingActionDone = new System.Windows.Forms.Label();
+            this.DgvSAOnGoingTasks = new System.Windows.Forms.DataGridView();
+            this.GboPendingTasks = new System.Windows.Forms.GroupBox();
+            this.BtnStartTasks = new System.Windows.Forms.Button();
+            this.LblGetIssue = new System.Windows.Forms.Label();
+            this.DgvSAPendingTasks = new System.Windows.Forms.DataGridView();
+            this.BtnForReview = new System.Windows.Forms.Button();
+            this.LblForReview = new System.Windows.Forms.Label();
+            this.LblUnassignedCount = new System.Windows.Forms.Label();
+            this.BtnUnassigned = new System.Windows.Forms.Button();
             this.GboSAWorkSummary = new System.Windows.Forms.GroupBox();
+            this.LblBusy = new System.Windows.Forms.Label();
+            this.LblGetApproval = new System.Windows.Forms.Label();
+            this.LblGetSAInprocess = new System.Windows.Forms.Label();
+            this.LblGetSAAssignedWork = new System.Windows.Forms.Label();
+            this.LblNumberOf = new System.Windows.Forms.Label();
+            this.LblCompleteWork = new System.Windows.Forms.Label();
+            this.LblInprocess = new System.Windows.Forms.Label();
+            this.LblSAName = new System.Windows.Forms.Label();
+            this.LblSAAssigned = new System.Windows.Forms.Label();
+            this.LblGetSAName = new System.Windows.Forms.Label();
             this.DgvSAMembers = new System.Windows.Forms.DataGridView();
-            this.TbpSummary = new System.Windows.Forms.TabPage();
+            this.GBoUList = new System.Windows.Forms.GroupBox();
+            this.BtnUApprove = new System.Windows.Forms.Button();
+            this.TxtUActionDone = new System.Windows.Forms.TextBox();
+            this.LblUActionDone = new System.Windows.Forms.Label();
+            this.LblUGetIssue = new System.Windows.Forms.Label();
+            this.LblUIssue = new System.Windows.Forms.Label();
+            this.BtnUSubmit = new System.Windows.Forms.Button();
+            this.CboUAssignedSA = new System.Windows.Forms.ComboBox();
+            this.LblUGetPriority = new System.Windows.Forms.Label();
+            this.LblUGetId = new System.Windows.Forms.Label();
+            this.BtnUAssignedSA = new System.Windows.Forms.Button();
+            this.LblUAssignedSA = new System.Windows.Forms.Label();
+            this.LblUPriorityLvl = new System.Windows.Forms.Label();
+            this.LblUTicketId = new System.Windows.Forms.Label();
+            this.DgvUnassignedReview = new System.Windows.Forms.DataGridView();
             this.TbpUserLists = new System.Windows.Forms.TabPage();
             this.LblSelectedID = new System.Windows.Forms.Label();
             this.DgvUserList = new System.Windows.Forms.DataGridView();
-            this.LblGetSAName = new System.Windows.Forms.Label();
-            this.LblSAAssigned = new System.Windows.Forms.Label();
-            this.LblSAName = new System.Windows.Forms.Label();
-            this.LblInprocess = new System.Windows.Forms.Label();
-            this.LblCompleteWork = new System.Windows.Forms.Label();
-            this.LblNumberOf = new System.Windows.Forms.Label();
-            this.LblGetSAAssignedWork = new System.Windows.Forms.Label();
-            this.LblGetSAInprocess = new System.Windows.Forms.Label();
-            this.LblGetApproval = new System.Windows.Forms.Label();
-            this.LblBusy = new System.Windows.Forms.Label();
-            this.GBoUList = new System.Windows.Forms.GroupBox();
-            this.DgvUnassignedReview = new System.Windows.Forms.DataGridView();
-            this.LblUTicketId = new System.Windows.Forms.Label();
-            this.LblUPriorityLvl = new System.Windows.Forms.Label();
-            this.LblUAssignedSA = new System.Windows.Forms.Label();
-            this.BtnUAssignedSA = new System.Windows.Forms.Button();
-            this.LblUGetId = new System.Windows.Forms.Label();
-            this.LblUGetPriority = new System.Windows.Forms.Label();
-            this.CboUAssignedSA = new System.Windows.Forms.ComboBox();
-            this.BtnUSubmit = new System.Windows.Forms.Button();
-            this.LblUIssue = new System.Windows.Forms.Label();
-            this.LblUGetIssue = new System.Windows.Forms.Label();
-            this.LblUActionDone = new System.Windows.Forms.Label();
-            this.TxtUActionDone = new System.Windows.Forms.TextBox();
-            this.BtnUApprove = new System.Windows.Forms.Button();
-            this.BtnUnassigned = new System.Windows.Forms.Button();
-            this.LblUnassignedCount = new System.Windows.Forms.Label();
-            this.LblForReview = new System.Windows.Forms.Label();
-            this.BtnForReview = new System.Windows.Forms.Button();
-            this.GboSAMyTasks = new System.Windows.Forms.GroupBox();
-            this.GboOngoingTasks = new System.Windows.Forms.GroupBox();
-            this.DgvSAPendingTasks = new System.Windows.Forms.DataGridView();
-            this.GboPendingTasks = new System.Windows.Forms.GroupBox();
-            this.LblGetIssue = new System.Windows.Forms.Label();
-            this.BtnStartTasks = new System.Windows.Forms.Button();
-            this.DgvSAOnGoingTasks = new System.Windows.Forms.DataGridView();
-            this.LblOngoingActionDone = new System.Windows.Forms.Label();
-            this.TxtFActionDone = new System.Windows.Forms.TextBox();
-            this.BtnDoneTask = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcSaUser.SuspendLayout();
             this.TbpRequests.SuspendLayout();
             this.GrpReqForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvGetRequests)).BeginInit();
             this.TbpSATasks.SuspendLayout();
-            this.GboSAWorkSummary.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvSAMembers)).BeginInit();
-            this.TbpUserLists.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).BeginInit();
-            this.GBoUList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUnassignedReview)).BeginInit();
             this.GboSAMyTasks.SuspendLayout();
             this.GboOngoingTasks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvSAPendingTasks)).BeginInit();
-            this.GboPendingTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSAOnGoingTasks)).BeginInit();
+            this.GboPendingTasks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvSAPendingTasks)).BeginInit();
+            this.GboSAWorkSummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvSAMembers)).BeginInit();
+            this.GBoUList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvUnassignedReview)).BeginInit();
+            this.TbpUserLists.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).BeginInit();
             this.SuspendLayout();
             // 
             // LblLogout
@@ -165,7 +168,6 @@
             // 
             this.TbcSaUser.Controls.Add(this.TbpRequests);
             this.TbcSaUser.Controls.Add(this.TbpSATasks);
-            this.TbcSaUser.Controls.Add(this.TbpSummary);
             this.TbcSaUser.Controls.Add(this.TbpUserLists);
             this.TbcSaUser.Font = new System.Drawing.Font("Arial", 9.25F);
             this.TbcSaUser.Location = new System.Drawing.Point(12, 115);
@@ -221,7 +223,7 @@
             // 
             // BtnAssignedSA
             // 
-            this.BtnAssignedSA.Location = new System.Drawing.Point(419, 185);
+            this.BtnAssignedSA.Location = new System.Drawing.Point(417, 185);
             this.BtnAssignedSA.Name = "BtnAssignedSA";
             this.BtnAssignedSA.Size = new System.Drawing.Size(175, 22);
             this.BtnAssignedSA.TabIndex = 31;
@@ -459,9 +461,15 @@
             // 
             // DgvGetRequests
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            this.DgvGetRequests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvGetRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvGetRequests.Location = new System.Drawing.Point(17, 22);
             this.DgvGetRequests.Name = "DgvGetRequests";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.DgvGetRequests.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DgvGetRequests.Size = new System.Drawing.Size(747, 217);
             this.DgvGetRequests.TabIndex = 0;
             this.DgvGetRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGetRequests_CellClick);
@@ -482,366 +490,6 @@
             this.TbpSATasks.Size = new System.Drawing.Size(770, 545);
             this.TbpSATasks.TabIndex = 1;
             this.TbpSATasks.Text = "My Tasks";
-            // 
-            // GboSAWorkSummary
-            // 
-            this.GboSAWorkSummary.Controls.Add(this.LblBusy);
-            this.GboSAWorkSummary.Controls.Add(this.LblGetApproval);
-            this.GboSAWorkSummary.Controls.Add(this.LblGetSAInprocess);
-            this.GboSAWorkSummary.Controls.Add(this.LblGetSAAssignedWork);
-            this.GboSAWorkSummary.Controls.Add(this.LblNumberOf);
-            this.GboSAWorkSummary.Controls.Add(this.LblCompleteWork);
-            this.GboSAWorkSummary.Controls.Add(this.LblInprocess);
-            this.GboSAWorkSummary.Controls.Add(this.LblSAName);
-            this.GboSAWorkSummary.Controls.Add(this.LblSAAssigned);
-            this.GboSAWorkSummary.Controls.Add(this.LblGetSAName);
-            this.GboSAWorkSummary.Controls.Add(this.DgvSAMembers);
-            this.GboSAWorkSummary.Location = new System.Drawing.Point(399, 25);
-            this.GboSAWorkSummary.Name = "GboSAWorkSummary";
-            this.GboSAWorkSummary.Size = new System.Drawing.Size(354, 487);
-            this.GboSAWorkSummary.TabIndex = 1;
-            this.GboSAWorkSummary.TabStop = false;
-            this.GboSAWorkSummary.Text = "SA Tasks Summary";
-            // 
-            // DgvSAMembers
-            // 
-            this.DgvSAMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvSAMembers.Location = new System.Drawing.Point(8, 73);
-            this.DgvSAMembers.Name = "DgvSAMembers";
-            this.DgvSAMembers.Size = new System.Drawing.Size(341, 150);
-            this.DgvSAMembers.TabIndex = 0;
-            this.DgvSAMembers.SelectionChanged += new System.EventHandler(this.DgvSAMembers_SelectionChanged);
-            // 
-            // TbpSummary
-            // 
-            this.TbpSummary.BackColor = System.Drawing.Color.Teal;
-            this.TbpSummary.Location = new System.Drawing.Point(4, 24);
-            this.TbpSummary.Name = "TbpSummary";
-            this.TbpSummary.Size = new System.Drawing.Size(770, 545);
-            this.TbpSummary.TabIndex = 2;
-            this.TbpSummary.Text = "Summary";
-            // 
-            // TbpUserLists
-            // 
-            this.TbpUserLists.Controls.Add(this.LblSelectedID);
-            this.TbpUserLists.Controls.Add(this.DgvUserList);
-            this.TbpUserLists.Location = new System.Drawing.Point(4, 24);
-            this.TbpUserLists.Name = "TbpUserLists";
-            this.TbpUserLists.Size = new System.Drawing.Size(770, 545);
-            this.TbpUserLists.TabIndex = 3;
-            this.TbpUserLists.Text = "UserLists";
-            this.TbpUserLists.UseVisualStyleBackColor = true;
-            this.TbpUserLists.Click += new System.EventHandler(this.FrmSaUser_Load);
-            // 
-            // LblSelectedID
-            // 
-            this.LblSelectedID.AutoSize = true;
-            this.LblSelectedID.Location = new System.Drawing.Point(34, 195);
-            this.LblSelectedID.Name = "LblSelectedID";
-            this.LblSelectedID.Size = new System.Drawing.Size(71, 16);
-            this.LblSelectedID.TabIndex = 1;
-            this.LblSelectedID.Text = "SelectedID";
-            // 
-            // DgvUserList
-            // 
-            this.DgvUserList.AllowUserToOrderColumns = true;
-            this.DgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUserList.Location = new System.Drawing.Point(33, 20);
-            this.DgvUserList.Name = "DgvUserList";
-            this.DgvUserList.Size = new System.Drawing.Size(590, 154);
-            this.DgvUserList.TabIndex = 0;
-            this.DgvUserList.SelectionChanged += new System.EventHandler(this.DgvUserList_SelectionChanged);
-            // 
-            // LblGetSAName
-            // 
-            this.LblGetSAName.AutoSize = true;
-            this.LblGetSAName.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGetSAName.Location = new System.Drawing.Point(167, 33);
-            this.LblGetSAName.Name = "LblGetSAName";
-            this.LblGetSAName.Size = new System.Drawing.Size(25, 27);
-            this.LblGetSAName.TabIndex = 1;
-            this.LblGetSAName.Text = "0";
-            // 
-            // LblSAAssigned
-            // 
-            this.LblSAAssigned.AutoSize = true;
-            this.LblSAAssigned.Location = new System.Drawing.Point(91, 335);
-            this.LblSAAssigned.Name = "LblSAAssigned";
-            this.LblSAAssigned.Size = new System.Drawing.Size(101, 16);
-            this.LblSAAssigned.TabIndex = 2;
-            this.LblSAAssigned.Text = "Assigned Work:";
-            // 
-            // LblSAName
-            // 
-            this.LblSAName.AutoSize = true;
-            this.LblSAName.Location = new System.Drawing.Point(31, 33);
-            this.LblSAName.Name = "LblSAName";
-            this.LblSAName.Size = new System.Drawing.Size(0, 16);
-            this.LblSAName.TabIndex = 3;
-            // 
-            // LblInprocess
-            // 
-            this.LblInprocess.AutoSize = true;
-            this.LblInprocess.Location = new System.Drawing.Point(91, 364);
-            this.LblInprocess.Name = "LblInprocess";
-            this.LblInprocess.Size = new System.Drawing.Size(72, 16);
-            this.LblInprocess.TabIndex = 4;
-            this.LblInprocess.Text = "In-process:";
-            // 
-            // LblCompleteWork
-            // 
-            this.LblCompleteWork.AutoSize = true;
-            this.LblCompleteWork.Location = new System.Drawing.Point(91, 391);
-            this.LblCompleteWork.Name = "LblCompleteWork";
-            this.LblCompleteWork.Size = new System.Drawing.Size(109, 16);
-            this.LblCompleteWork.TabIndex = 6;
-            this.LblCompleteWork.Text = "Completed Work:";
-            // 
-            // LblNumberOf
-            // 
-            this.LblNumberOf.AutoSize = true;
-            this.LblNumberOf.Font = new System.Drawing.Font("Arial", 9.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.LblNumberOf.Location = new System.Drawing.Point(106, 304);
-            this.LblNumberOf.Name = "LblNumberOf";
-            this.LblNumberOf.Size = new System.Drawing.Size(74, 16);
-            this.LblNumberOf.TabIndex = 7;
-            this.LblNumberOf.Text = "Number of";
-            // 
-            // LblGetSAAssignedWork
-            // 
-            this.LblGetSAAssignedWork.AutoSize = true;
-            this.LblGetSAAssignedWork.Location = new System.Drawing.Point(255, 335);
-            this.LblGetSAAssignedWork.Name = "LblGetSAAssignedWork";
-            this.LblGetSAAssignedWork.Size = new System.Drawing.Size(15, 16);
-            this.LblGetSAAssignedWork.TabIndex = 8;
-            this.LblGetSAAssignedWork.Text = "0";
-            // 
-            // LblGetSAInprocess
-            // 
-            this.LblGetSAInprocess.AutoSize = true;
-            this.LblGetSAInprocess.Location = new System.Drawing.Point(255, 364);
-            this.LblGetSAInprocess.Name = "LblGetSAInprocess";
-            this.LblGetSAInprocess.Size = new System.Drawing.Size(15, 16);
-            this.LblGetSAInprocess.TabIndex = 9;
-            this.LblGetSAInprocess.Text = "0";
-            // 
-            // LblGetApproval
-            // 
-            this.LblGetApproval.AutoSize = true;
-            this.LblGetApproval.Location = new System.Drawing.Point(255, 391);
-            this.LblGetApproval.Name = "LblGetApproval";
-            this.LblGetApproval.Size = new System.Drawing.Size(15, 16);
-            this.LblGetApproval.TabIndex = 11;
-            this.LblGetApproval.Text = "0";
-            // 
-            // LblBusy
-            // 
-            this.LblBusy.AutoSize = true;
-            this.LblBusy.Location = new System.Drawing.Point(150, 243);
-            this.LblBusy.Name = "LblBusy";
-            this.LblBusy.Size = new System.Drawing.Size(0, 16);
-            this.LblBusy.TabIndex = 12;
-            // 
-            // GBoUList
-            // 
-            this.GBoUList.Controls.Add(this.BtnUApprove);
-            this.GBoUList.Controls.Add(this.TxtUActionDone);
-            this.GBoUList.Controls.Add(this.LblUActionDone);
-            this.GBoUList.Controls.Add(this.LblUGetIssue);
-            this.GBoUList.Controls.Add(this.LblUIssue);
-            this.GBoUList.Controls.Add(this.BtnUSubmit);
-            this.GBoUList.Controls.Add(this.CboUAssignedSA);
-            this.GBoUList.Controls.Add(this.LblUGetPriority);
-            this.GBoUList.Controls.Add(this.LblUGetId);
-            this.GBoUList.Controls.Add(this.BtnUAssignedSA);
-            this.GBoUList.Controls.Add(this.LblUAssignedSA);
-            this.GBoUList.Controls.Add(this.LblUPriorityLvl);
-            this.GBoUList.Controls.Add(this.LblUTicketId);
-            this.GBoUList.Controls.Add(this.DgvUnassignedReview);
-            this.GBoUList.Location = new System.Drawing.Point(30, 147);
-            this.GBoUList.Name = "GBoUList";
-            this.GBoUList.Size = new System.Drawing.Size(354, 365);
-            this.GBoUList.TabIndex = 0;
-            this.GBoUList.TabStop = false;
-            this.GBoUList.Text = "Unassigned Lists";
-            // 
-            // DgvUnassignedReview
-            // 
-            this.DgvUnassignedReview.AllowUserToOrderColumns = true;
-            this.DgvUnassignedReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUnassignedReview.Location = new System.Drawing.Point(13, 25);
-            this.DgvUnassignedReview.Name = "DgvUnassignedReview";
-            this.DgvUnassignedReview.Size = new System.Drawing.Size(329, 170);
-            this.DgvUnassignedReview.TabIndex = 0;
-            this.DgvUnassignedReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUnassignedReview_CellClick);
-            // 
-            // LblUTicketId
-            // 
-            this.LblUTicketId.AutoSize = true;
-            this.LblUTicketId.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUTicketId.Location = new System.Drawing.Point(16, 215);
-            this.LblUTicketId.Name = "LblUTicketId";
-            this.LblUTicketId.Size = new System.Drawing.Size(62, 16);
-            this.LblUTicketId.TabIndex = 1;
-            this.LblUTicketId.Text = "TicketId:";
-            // 
-            // LblUPriorityLvl
-            // 
-            this.LblUPriorityLvl.AutoSize = true;
-            this.LblUPriorityLvl.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUPriorityLvl.Location = new System.Drawing.Point(173, 215);
-            this.LblUPriorityLvl.Name = "LblUPriorityLvl";
-            this.LblUPriorityLvl.Size = new System.Drawing.Size(58, 16);
-            this.LblUPriorityLvl.TabIndex = 2;
-            this.LblUPriorityLvl.Text = "Priority:";
-            // 
-            // LblUAssignedSA
-            // 
-            this.LblUAssignedSA.AutoSize = true;
-            this.LblUAssignedSA.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUAssignedSA.Location = new System.Drawing.Point(16, 272);
-            this.LblUAssignedSA.Name = "LblUAssignedSA";
-            this.LblUAssignedSA.Size = new System.Drawing.Size(87, 16);
-            this.LblUAssignedSA.TabIndex = 3;
-            this.LblUAssignedSA.Text = "AssignedSA:";
-            // 
-            // BtnUAssignedSA
-            // 
-            this.BtnUAssignedSA.Location = new System.Drawing.Point(119, 270);
-            this.BtnUAssignedSA.Name = "BtnUAssignedSA";
-            this.BtnUAssignedSA.Size = new System.Drawing.Size(175, 22);
-            this.BtnUAssignedSA.TabIndex = 32;
-            this.BtnUAssignedSA.Text = "Click to assigned SA";
-            this.BtnUAssignedSA.UseVisualStyleBackColor = true;
-            this.BtnUAssignedSA.Click += new System.EventHandler(this.BtnUAssignedSA_Click);
-            // 
-            // LblUGetId
-            // 
-            this.LblUGetId.AutoSize = true;
-            this.LblUGetId.Location = new System.Drawing.Point(116, 215);
-            this.LblUGetId.Name = "LblUGetId";
-            this.LblUGetId.Size = new System.Drawing.Size(15, 16);
-            this.LblUGetId.TabIndex = 33;
-            this.LblUGetId.Text = "0";
-            // 
-            // LblUGetPriority
-            // 
-            this.LblUGetPriority.AutoSize = true;
-            this.LblUGetPriority.Location = new System.Drawing.Point(273, 215);
-            this.LblUGetPriority.Name = "LblUGetPriority";
-            this.LblUGetPriority.Size = new System.Drawing.Size(15, 16);
-            this.LblUGetPriority.TabIndex = 34;
-            this.LblUGetPriority.Text = "0";
-            // 
-            // CboUAssignedSA
-            // 
-            this.CboUAssignedSA.FormattingEnabled = true;
-            this.CboUAssignedSA.Location = new System.Drawing.Point(120, 269);
-            this.CboUAssignedSA.Name = "CboUAssignedSA";
-            this.CboUAssignedSA.Size = new System.Drawing.Size(171, 23);
-            this.CboUAssignedSA.TabIndex = 35;
-            this.CboUAssignedSA.Visible = false;
-            // 
-            // BtnUSubmit
-            // 
-            this.BtnUSubmit.Location = new System.Drawing.Point(208, 324);
-            this.BtnUSubmit.Name = "BtnUSubmit";
-            this.BtnUSubmit.Size = new System.Drawing.Size(114, 28);
-            this.BtnUSubmit.TabIndex = 36;
-            this.BtnUSubmit.Text = "Assign";
-            this.BtnUSubmit.UseVisualStyleBackColor = true;
-            this.BtnUSubmit.Visible = false;
-            this.BtnUSubmit.Click += new System.EventHandler(this.BtnUSubmit_Click);
-            // 
-            // LblUIssue
-            // 
-            this.LblUIssue.AutoSize = true;
-            this.LblUIssue.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUIssue.Location = new System.Drawing.Point(16, 244);
-            this.LblUIssue.Name = "LblUIssue";
-            this.LblUIssue.Size = new System.Drawing.Size(44, 16);
-            this.LblUIssue.TabIndex = 37;
-            this.LblUIssue.Text = "Issue:";
-            // 
-            // LblUGetIssue
-            // 
-            this.LblUGetIssue.AutoSize = true;
-            this.LblUGetIssue.Location = new System.Drawing.Point(116, 244);
-            this.LblUGetIssue.Name = "LblUGetIssue";
-            this.LblUGetIssue.Size = new System.Drawing.Size(15, 16);
-            this.LblUGetIssue.TabIndex = 38;
-            this.LblUGetIssue.Text = "0";
-            // 
-            // LblUActionDone
-            // 
-            this.LblUActionDone.AutoSize = true;
-            this.LblUActionDone.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUActionDone.Location = new System.Drawing.Point(16, 274);
-            this.LblUActionDone.Name = "LblUActionDone";
-            this.LblUActionDone.Size = new System.Drawing.Size(89, 16);
-            this.LblUActionDone.TabIndex = 39;
-            this.LblUActionDone.Text = "Action Done:";
-            this.LblUActionDone.Visible = false;
-            // 
-            // TxtUActionDone
-            // 
-            this.TxtUActionDone.Location = new System.Drawing.Point(119, 268);
-            this.TxtUActionDone.Multiline = true;
-            this.TxtUActionDone.Name = "TxtUActionDone";
-            this.TxtUActionDone.Size = new System.Drawing.Size(202, 50);
-            this.TxtUActionDone.TabIndex = 40;
-            this.TxtUActionDone.Visible = false;
-            // 
-            // BtnUApprove
-            // 
-            this.BtnUApprove.Location = new System.Drawing.Point(207, 324);
-            this.BtnUApprove.Name = "BtnUApprove";
-            this.BtnUApprove.Size = new System.Drawing.Size(114, 28);
-            this.BtnUApprove.TabIndex = 41;
-            this.BtnUApprove.Text = "Approve";
-            this.BtnUApprove.UseVisualStyleBackColor = true;
-            this.BtnUApprove.Visible = false;
-            this.BtnUApprove.Click += new System.EventHandler(this.BtnUApprove_Click);
-            // 
-            // BtnUnassigned
-            // 
-            this.BtnUnassigned.Location = new System.Drawing.Point(69, 114);
-            this.BtnUnassigned.Name = "BtnUnassigned";
-            this.BtnUnassigned.Size = new System.Drawing.Size(125, 27);
-            this.BtnUnassigned.TabIndex = 2;
-            this.BtnUnassigned.Text = "Unassigned Lists";
-            this.BtnUnassigned.UseVisualStyleBackColor = true;
-            this.BtnUnassigned.Click += new System.EventHandler(this.BtnUnassigned_Click);
-            // 
-            // LblUnassignedCount
-            // 
-            this.LblUnassignedCount.AutoSize = true;
-            this.LblUnassignedCount.Font = new System.Drawing.Font("Arial", 55F);
-            this.LblUnassignedCount.Location = new System.Drawing.Point(97, 25);
-            this.LblUnassignedCount.Name = "LblUnassignedCount";
-            this.LblUnassignedCount.Size = new System.Drawing.Size(76, 82);
-            this.LblUnassignedCount.TabIndex = 4;
-            this.LblUnassignedCount.Text = "0";
-            // 
-            // LblForReview
-            // 
-            this.LblForReview.AutoSize = true;
-            this.LblForReview.Font = new System.Drawing.Font("Arial", 55F);
-            this.LblForReview.Location = new System.Drawing.Point(245, 25);
-            this.LblForReview.Name = "LblForReview";
-            this.LblForReview.Size = new System.Drawing.Size(76, 82);
-            this.LblForReview.TabIndex = 5;
-            this.LblForReview.Text = "0";
-            // 
-            // BtnForReview
-            // 
-            this.BtnForReview.Location = new System.Drawing.Point(211, 114);
-            this.BtnForReview.Name = "BtnForReview";
-            this.BtnForReview.Size = new System.Drawing.Size(125, 27);
-            this.BtnForReview.TabIndex = 6;
-            this.BtnForReview.Text = "For Review";
-            this.BtnForReview.UseVisualStyleBackColor = true;
-            this.BtnForReview.Click += new System.EventHandler(this.BtnForReview_Click);
             // 
             // GboSAMyTasks
             // 
@@ -867,14 +515,40 @@
             this.GboOngoingTasks.TabStop = false;
             this.GboOngoingTasks.Text = "On-Going Tasks";
             // 
-            // DgvSAPendingTasks
+            // BtnDoneTask
             // 
-            this.DgvSAPendingTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvSAPendingTasks.Location = new System.Drawing.Point(9, 27);
-            this.DgvSAPendingTasks.Name = "DgvSAPendingTasks";
-            this.DgvSAPendingTasks.Size = new System.Drawing.Size(697, 151);
-            this.DgvSAPendingTasks.TabIndex = 0;
-            this.DgvSAPendingTasks.SelectionChanged += new System.EventHandler(this.DgvSAPendingTasks_SelectionChanged);
+            this.BtnDoneTask.Location = new System.Drawing.Point(580, 192);
+            this.BtnDoneTask.Name = "BtnDoneTask";
+            this.BtnDoneTask.Size = new System.Drawing.Size(124, 23);
+            this.BtnDoneTask.TabIndex = 3;
+            this.BtnDoneTask.Text = "Finish Task";
+            this.BtnDoneTask.UseVisualStyleBackColor = true;
+            this.BtnDoneTask.Click += new System.EventHandler(this.BtnDoneTask_Click);
+            // 
+            // TxtFActionDone
+            // 
+            this.TxtFActionDone.Location = new System.Drawing.Point(102, 181);
+            this.TxtFActionDone.Multiline = true;
+            this.TxtFActionDone.Name = "TxtFActionDone";
+            this.TxtFActionDone.Size = new System.Drawing.Size(255, 56);
+            this.TxtFActionDone.TabIndex = 5;
+            // 
+            // LblOngoingActionDone
+            // 
+            this.LblOngoingActionDone.AutoSize = true;
+            this.LblOngoingActionDone.Location = new System.Drawing.Point(15, 179);
+            this.LblOngoingActionDone.Name = "LblOngoingActionDone";
+            this.LblOngoingActionDone.Size = new System.Drawing.Size(83, 16);
+            this.LblOngoingActionDone.TabIndex = 4;
+            this.LblOngoingActionDone.Text = "Action Done:";
+            // 
+            // DgvSAOnGoingTasks
+            // 
+            this.DgvSAOnGoingTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvSAOnGoingTasks.Location = new System.Drawing.Point(7, 21);
+            this.DgvSAOnGoingTasks.Name = "DgvSAOnGoingTasks";
+            this.DgvSAOnGoingTasks.Size = new System.Drawing.Size(697, 151);
+            this.DgvSAOnGoingTasks.TabIndex = 3;
             // 
             // GboPendingTasks
             // 
@@ -888,15 +562,6 @@
             this.GboPendingTasks.TabStop = false;
             this.GboPendingTasks.Text = "Pending Tasks";
             // 
-            // LblGetIssue
-            // 
-            this.LblGetIssue.AutoSize = true;
-            this.LblGetIssue.Location = new System.Drawing.Point(16, 198);
-            this.LblGetIssue.Name = "LblGetIssue";
-            this.LblGetIssue.Size = new System.Drawing.Size(15, 16);
-            this.LblGetIssue.TabIndex = 1;
-            this.LblGetIssue.Text = "0";
-            // 
             // BtnStartTasks
             // 
             this.BtnStartTasks.Location = new System.Drawing.Point(581, 193);
@@ -907,40 +572,386 @@
             this.BtnStartTasks.UseVisualStyleBackColor = true;
             this.BtnStartTasks.Click += new System.EventHandler(this.BtnStartTasks_Click);
             // 
-            // DgvSAOnGoingTasks
+            // LblGetIssue
             // 
-            this.DgvSAOnGoingTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvSAOnGoingTasks.Location = new System.Drawing.Point(7, 21);
-            this.DgvSAOnGoingTasks.Name = "DgvSAOnGoingTasks";
-            this.DgvSAOnGoingTasks.Size = new System.Drawing.Size(697, 151);
-            this.DgvSAOnGoingTasks.TabIndex = 3;
+            this.LblGetIssue.AutoSize = true;
+            this.LblGetIssue.Location = new System.Drawing.Point(16, 198);
+            this.LblGetIssue.Name = "LblGetIssue";
+            this.LblGetIssue.Size = new System.Drawing.Size(15, 16);
+            this.LblGetIssue.TabIndex = 1;
+            this.LblGetIssue.Text = "0";
             // 
-            // LblOngoingActionDone
+            // DgvSAPendingTasks
             // 
-            this.LblOngoingActionDone.AutoSize = true;
-            this.LblOngoingActionDone.Location = new System.Drawing.Point(15, 179);
-            this.LblOngoingActionDone.Name = "LblOngoingActionDone";
-            this.LblOngoingActionDone.Size = new System.Drawing.Size(83, 16);
-            this.LblOngoingActionDone.TabIndex = 4;
-            this.LblOngoingActionDone.Text = "Action Done:";
+            this.DgvSAPendingTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvSAPendingTasks.Location = new System.Drawing.Point(9, 27);
+            this.DgvSAPendingTasks.Name = "DgvSAPendingTasks";
+            this.DgvSAPendingTasks.Size = new System.Drawing.Size(697, 151);
+            this.DgvSAPendingTasks.TabIndex = 0;
+            this.DgvSAPendingTasks.SelectionChanged += new System.EventHandler(this.DgvSAPendingTasks_SelectionChanged);
             // 
-            // TxtFActionDone
+            // BtnForReview
             // 
-            this.TxtFActionDone.Location = new System.Drawing.Point(102, 181);
-            this.TxtFActionDone.Multiline = true;
-            this.TxtFActionDone.Name = "TxtFActionDone";
-            this.TxtFActionDone.Size = new System.Drawing.Size(255, 56);
-            this.TxtFActionDone.TabIndex = 5;
+            this.BtnForReview.Location = new System.Drawing.Point(211, 114);
+            this.BtnForReview.Name = "BtnForReview";
+            this.BtnForReview.Size = new System.Drawing.Size(125, 27);
+            this.BtnForReview.TabIndex = 6;
+            this.BtnForReview.Text = "For Review";
+            this.BtnForReview.UseVisualStyleBackColor = true;
+            this.BtnForReview.Click += new System.EventHandler(this.BtnForReview_Click);
             // 
-            // BtnDoneTask
+            // LblForReview
             // 
-            this.BtnDoneTask.Location = new System.Drawing.Point(580, 192);
-            this.BtnDoneTask.Name = "BtnDoneTask";
-            this.BtnDoneTask.Size = new System.Drawing.Size(124, 23);
-            this.BtnDoneTask.TabIndex = 3;
-            this.BtnDoneTask.Text = "Finish Task";
-            this.BtnDoneTask.UseVisualStyleBackColor = true;
-            this.BtnDoneTask.Click += new System.EventHandler(this.BtnDoneTask_Click);
+            this.LblForReview.AutoSize = true;
+            this.LblForReview.Font = new System.Drawing.Font("Arial", 55F);
+            this.LblForReview.Location = new System.Drawing.Point(245, 25);
+            this.LblForReview.Name = "LblForReview";
+            this.LblForReview.Size = new System.Drawing.Size(76, 82);
+            this.LblForReview.TabIndex = 5;
+            this.LblForReview.Text = "0";
+            // 
+            // LblUnassignedCount
+            // 
+            this.LblUnassignedCount.AutoSize = true;
+            this.LblUnassignedCount.Font = new System.Drawing.Font("Arial", 55F);
+            this.LblUnassignedCount.Location = new System.Drawing.Point(97, 25);
+            this.LblUnassignedCount.Name = "LblUnassignedCount";
+            this.LblUnassignedCount.Size = new System.Drawing.Size(76, 82);
+            this.LblUnassignedCount.TabIndex = 4;
+            this.LblUnassignedCount.Text = "0";
+            // 
+            // BtnUnassigned
+            // 
+            this.BtnUnassigned.Location = new System.Drawing.Point(69, 114);
+            this.BtnUnassigned.Name = "BtnUnassigned";
+            this.BtnUnassigned.Size = new System.Drawing.Size(125, 27);
+            this.BtnUnassigned.TabIndex = 2;
+            this.BtnUnassigned.Text = "Unassigned Lists";
+            this.BtnUnassigned.UseVisualStyleBackColor = true;
+            this.BtnUnassigned.Click += new System.EventHandler(this.BtnUnassigned_Click);
+            // 
+            // GboSAWorkSummary
+            // 
+            this.GboSAWorkSummary.Controls.Add(this.LblBusy);
+            this.GboSAWorkSummary.Controls.Add(this.LblGetApproval);
+            this.GboSAWorkSummary.Controls.Add(this.LblGetSAInprocess);
+            this.GboSAWorkSummary.Controls.Add(this.LblGetSAAssignedWork);
+            this.GboSAWorkSummary.Controls.Add(this.LblNumberOf);
+            this.GboSAWorkSummary.Controls.Add(this.LblCompleteWork);
+            this.GboSAWorkSummary.Controls.Add(this.LblInprocess);
+            this.GboSAWorkSummary.Controls.Add(this.LblSAName);
+            this.GboSAWorkSummary.Controls.Add(this.LblSAAssigned);
+            this.GboSAWorkSummary.Controls.Add(this.LblGetSAName);
+            this.GboSAWorkSummary.Controls.Add(this.DgvSAMembers);
+            this.GboSAWorkSummary.Location = new System.Drawing.Point(399, 25);
+            this.GboSAWorkSummary.Name = "GboSAWorkSummary";
+            this.GboSAWorkSummary.Size = new System.Drawing.Size(354, 487);
+            this.GboSAWorkSummary.TabIndex = 1;
+            this.GboSAWorkSummary.TabStop = false;
+            this.GboSAWorkSummary.Text = "SA Tasks Summary";
+            // 
+            // LblBusy
+            // 
+            this.LblBusy.AutoSize = true;
+            this.LblBusy.Location = new System.Drawing.Point(150, 243);
+            this.LblBusy.Name = "LblBusy";
+            this.LblBusy.Size = new System.Drawing.Size(0, 16);
+            this.LblBusy.TabIndex = 12;
+            // 
+            // LblGetApproval
+            // 
+            this.LblGetApproval.AutoSize = true;
+            this.LblGetApproval.Location = new System.Drawing.Point(255, 391);
+            this.LblGetApproval.Name = "LblGetApproval";
+            this.LblGetApproval.Size = new System.Drawing.Size(15, 16);
+            this.LblGetApproval.TabIndex = 11;
+            this.LblGetApproval.Text = "0";
+            // 
+            // LblGetSAInprocess
+            // 
+            this.LblGetSAInprocess.AutoSize = true;
+            this.LblGetSAInprocess.Location = new System.Drawing.Point(255, 364);
+            this.LblGetSAInprocess.Name = "LblGetSAInprocess";
+            this.LblGetSAInprocess.Size = new System.Drawing.Size(15, 16);
+            this.LblGetSAInprocess.TabIndex = 9;
+            this.LblGetSAInprocess.Text = "0";
+            // 
+            // LblGetSAAssignedWork
+            // 
+            this.LblGetSAAssignedWork.AutoSize = true;
+            this.LblGetSAAssignedWork.Location = new System.Drawing.Point(255, 335);
+            this.LblGetSAAssignedWork.Name = "LblGetSAAssignedWork";
+            this.LblGetSAAssignedWork.Size = new System.Drawing.Size(15, 16);
+            this.LblGetSAAssignedWork.TabIndex = 8;
+            this.LblGetSAAssignedWork.Text = "0";
+            // 
+            // LblNumberOf
+            // 
+            this.LblNumberOf.AutoSize = true;
+            this.LblNumberOf.Font = new System.Drawing.Font("Arial", 9.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.LblNumberOf.Location = new System.Drawing.Point(106, 304);
+            this.LblNumberOf.Name = "LblNumberOf";
+            this.LblNumberOf.Size = new System.Drawing.Size(74, 16);
+            this.LblNumberOf.TabIndex = 7;
+            this.LblNumberOf.Text = "Number of";
+            // 
+            // LblCompleteWork
+            // 
+            this.LblCompleteWork.AutoSize = true;
+            this.LblCompleteWork.Location = new System.Drawing.Point(91, 391);
+            this.LblCompleteWork.Name = "LblCompleteWork";
+            this.LblCompleteWork.Size = new System.Drawing.Size(109, 16);
+            this.LblCompleteWork.TabIndex = 6;
+            this.LblCompleteWork.Text = "Completed Work:";
+            // 
+            // LblInprocess
+            // 
+            this.LblInprocess.AutoSize = true;
+            this.LblInprocess.Location = new System.Drawing.Point(91, 364);
+            this.LblInprocess.Name = "LblInprocess";
+            this.LblInprocess.Size = new System.Drawing.Size(72, 16);
+            this.LblInprocess.TabIndex = 4;
+            this.LblInprocess.Text = "In-process:";
+            // 
+            // LblSAName
+            // 
+            this.LblSAName.AutoSize = true;
+            this.LblSAName.Location = new System.Drawing.Point(31, 33);
+            this.LblSAName.Name = "LblSAName";
+            this.LblSAName.Size = new System.Drawing.Size(0, 16);
+            this.LblSAName.TabIndex = 3;
+            // 
+            // LblSAAssigned
+            // 
+            this.LblSAAssigned.AutoSize = true;
+            this.LblSAAssigned.Location = new System.Drawing.Point(91, 335);
+            this.LblSAAssigned.Name = "LblSAAssigned";
+            this.LblSAAssigned.Size = new System.Drawing.Size(101, 16);
+            this.LblSAAssigned.TabIndex = 2;
+            this.LblSAAssigned.Text = "Assigned Work:";
+            // 
+            // LblGetSAName
+            // 
+            this.LblGetSAName.AutoSize = true;
+            this.LblGetSAName.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblGetSAName.Location = new System.Drawing.Point(167, 33);
+            this.LblGetSAName.Name = "LblGetSAName";
+            this.LblGetSAName.Size = new System.Drawing.Size(25, 27);
+            this.LblGetSAName.TabIndex = 1;
+            this.LblGetSAName.Text = "0";
+            // 
+            // DgvSAMembers
+            // 
+            this.DgvSAMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvSAMembers.Location = new System.Drawing.Point(8, 73);
+            this.DgvSAMembers.Name = "DgvSAMembers";
+            this.DgvSAMembers.Size = new System.Drawing.Size(341, 150);
+            this.DgvSAMembers.TabIndex = 0;
+            this.DgvSAMembers.SelectionChanged += new System.EventHandler(this.DgvSAMembers_SelectionChanged);
+            // 
+            // GBoUList
+            // 
+            this.GBoUList.Controls.Add(this.BtnUApprove);
+            this.GBoUList.Controls.Add(this.TxtUActionDone);
+            this.GBoUList.Controls.Add(this.LblUActionDone);
+            this.GBoUList.Controls.Add(this.LblUGetIssue);
+            this.GBoUList.Controls.Add(this.LblUIssue);
+            this.GBoUList.Controls.Add(this.BtnUSubmit);
+            this.GBoUList.Controls.Add(this.CboUAssignedSA);
+            this.GBoUList.Controls.Add(this.LblUGetPriority);
+            this.GBoUList.Controls.Add(this.LblUGetId);
+            this.GBoUList.Controls.Add(this.BtnUAssignedSA);
+            this.GBoUList.Controls.Add(this.LblUAssignedSA);
+            this.GBoUList.Controls.Add(this.LblUPriorityLvl);
+            this.GBoUList.Controls.Add(this.LblUTicketId);
+            this.GBoUList.Controls.Add(this.DgvUnassignedReview);
+            this.GBoUList.Location = new System.Drawing.Point(30, 147);
+            this.GBoUList.Name = "GBoUList";
+            this.GBoUList.Size = new System.Drawing.Size(354, 365);
+            this.GBoUList.TabIndex = 0;
+            this.GBoUList.TabStop = false;
+            this.GBoUList.Text = "Unassigned Lists";
+            // 
+            // BtnUApprove
+            // 
+            this.BtnUApprove.Location = new System.Drawing.Point(207, 324);
+            this.BtnUApprove.Name = "BtnUApprove";
+            this.BtnUApprove.Size = new System.Drawing.Size(114, 28);
+            this.BtnUApprove.TabIndex = 41;
+            this.BtnUApprove.Text = "Approve";
+            this.BtnUApprove.UseVisualStyleBackColor = true;
+            this.BtnUApprove.Visible = false;
+            this.BtnUApprove.Click += new System.EventHandler(this.BtnUApprove_Click);
+            // 
+            // TxtUActionDone
+            // 
+            this.TxtUActionDone.Location = new System.Drawing.Point(119, 268);
+            this.TxtUActionDone.Multiline = true;
+            this.TxtUActionDone.Name = "TxtUActionDone";
+            this.TxtUActionDone.Size = new System.Drawing.Size(202, 50);
+            this.TxtUActionDone.TabIndex = 40;
+            this.TxtUActionDone.Visible = false;
+            // 
+            // LblUActionDone
+            // 
+            this.LblUActionDone.AutoSize = true;
+            this.LblUActionDone.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LblUActionDone.Location = new System.Drawing.Point(16, 274);
+            this.LblUActionDone.Name = "LblUActionDone";
+            this.LblUActionDone.Size = new System.Drawing.Size(89, 16);
+            this.LblUActionDone.TabIndex = 39;
+            this.LblUActionDone.Text = "Action Done:";
+            this.LblUActionDone.Visible = false;
+            // 
+            // LblUGetIssue
+            // 
+            this.LblUGetIssue.AutoSize = true;
+            this.LblUGetIssue.Location = new System.Drawing.Point(116, 244);
+            this.LblUGetIssue.Name = "LblUGetIssue";
+            this.LblUGetIssue.Size = new System.Drawing.Size(15, 16);
+            this.LblUGetIssue.TabIndex = 38;
+            this.LblUGetIssue.Text = "0";
+            // 
+            // LblUIssue
+            // 
+            this.LblUIssue.AutoSize = true;
+            this.LblUIssue.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LblUIssue.Location = new System.Drawing.Point(16, 244);
+            this.LblUIssue.Name = "LblUIssue";
+            this.LblUIssue.Size = new System.Drawing.Size(44, 16);
+            this.LblUIssue.TabIndex = 37;
+            this.LblUIssue.Text = "Issue:";
+            // 
+            // BtnUSubmit
+            // 
+            this.BtnUSubmit.Location = new System.Drawing.Point(208, 324);
+            this.BtnUSubmit.Name = "BtnUSubmit";
+            this.BtnUSubmit.Size = new System.Drawing.Size(114, 28);
+            this.BtnUSubmit.TabIndex = 36;
+            this.BtnUSubmit.Text = "Assign";
+            this.BtnUSubmit.UseVisualStyleBackColor = true;
+            this.BtnUSubmit.Visible = false;
+            this.BtnUSubmit.Click += new System.EventHandler(this.BtnUSubmit_Click);
+            // 
+            // CboUAssignedSA
+            // 
+            this.CboUAssignedSA.FormattingEnabled = true;
+            this.CboUAssignedSA.Location = new System.Drawing.Point(120, 269);
+            this.CboUAssignedSA.Name = "CboUAssignedSA";
+            this.CboUAssignedSA.Size = new System.Drawing.Size(171, 23);
+            this.CboUAssignedSA.TabIndex = 35;
+            this.CboUAssignedSA.Visible = false;
+            // 
+            // LblUGetPriority
+            // 
+            this.LblUGetPriority.AutoSize = true;
+            this.LblUGetPriority.Location = new System.Drawing.Point(273, 215);
+            this.LblUGetPriority.Name = "LblUGetPriority";
+            this.LblUGetPriority.Size = new System.Drawing.Size(15, 16);
+            this.LblUGetPriority.TabIndex = 34;
+            this.LblUGetPriority.Text = "0";
+            // 
+            // LblUGetId
+            // 
+            this.LblUGetId.AutoSize = true;
+            this.LblUGetId.Location = new System.Drawing.Point(116, 215);
+            this.LblUGetId.Name = "LblUGetId";
+            this.LblUGetId.Size = new System.Drawing.Size(15, 16);
+            this.LblUGetId.TabIndex = 33;
+            this.LblUGetId.Text = "0";
+            // 
+            // BtnUAssignedSA
+            // 
+            this.BtnUAssignedSA.Location = new System.Drawing.Point(119, 270);
+            this.BtnUAssignedSA.Name = "BtnUAssignedSA";
+            this.BtnUAssignedSA.Size = new System.Drawing.Size(175, 22);
+            this.BtnUAssignedSA.TabIndex = 32;
+            this.BtnUAssignedSA.Text = "Click to assigned SA";
+            this.BtnUAssignedSA.UseVisualStyleBackColor = true;
+            this.BtnUAssignedSA.Click += new System.EventHandler(this.BtnUAssignedSA_Click);
+            // 
+            // LblUAssignedSA
+            // 
+            this.LblUAssignedSA.AutoSize = true;
+            this.LblUAssignedSA.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LblUAssignedSA.Location = new System.Drawing.Point(16, 272);
+            this.LblUAssignedSA.Name = "LblUAssignedSA";
+            this.LblUAssignedSA.Size = new System.Drawing.Size(87, 16);
+            this.LblUAssignedSA.TabIndex = 3;
+            this.LblUAssignedSA.Text = "AssignedSA:";
+            // 
+            // LblUPriorityLvl
+            // 
+            this.LblUPriorityLvl.AutoSize = true;
+            this.LblUPriorityLvl.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LblUPriorityLvl.Location = new System.Drawing.Point(173, 215);
+            this.LblUPriorityLvl.Name = "LblUPriorityLvl";
+            this.LblUPriorityLvl.Size = new System.Drawing.Size(58, 16);
+            this.LblUPriorityLvl.TabIndex = 2;
+            this.LblUPriorityLvl.Text = "Priority:";
+            // 
+            // LblUTicketId
+            // 
+            this.LblUTicketId.AutoSize = true;
+            this.LblUTicketId.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
+            this.LblUTicketId.Location = new System.Drawing.Point(16, 215);
+            this.LblUTicketId.Name = "LblUTicketId";
+            this.LblUTicketId.Size = new System.Drawing.Size(62, 16);
+            this.LblUTicketId.TabIndex = 1;
+            this.LblUTicketId.Text = "TicketId:";
+            // 
+            // DgvUnassignedReview
+            // 
+            this.DgvUnassignedReview.AllowUserToOrderColumns = true;
+            this.DgvUnassignedReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvUnassignedReview.Location = new System.Drawing.Point(13, 25);
+            this.DgvUnassignedReview.Name = "DgvUnassignedReview";
+            this.DgvUnassignedReview.Size = new System.Drawing.Size(329, 170);
+            this.DgvUnassignedReview.TabIndex = 0;
+            this.DgvUnassignedReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUnassignedReview_CellClick);
+            // 
+            // TbpUserLists
+            // 
+            this.TbpUserLists.Controls.Add(this.LblSelectedID);
+            this.TbpUserLists.Controls.Add(this.DgvUserList);
+            this.TbpUserLists.Location = new System.Drawing.Point(4, 24);
+            this.TbpUserLists.Name = "TbpUserLists";
+            this.TbpUserLists.Size = new System.Drawing.Size(770, 545);
+            this.TbpUserLists.TabIndex = 3;
+            this.TbpUserLists.Text = "UserLists";
+            this.TbpUserLists.UseVisualStyleBackColor = true;
+            this.TbpUserLists.Click += new System.EventHandler(this.FrmSaUser_Load);
+            // 
+            // LblSelectedID
+            // 
+            this.LblSelectedID.AutoSize = true;
+            this.LblSelectedID.Location = new System.Drawing.Point(30, 491);
+            this.LblSelectedID.Name = "LblSelectedID";
+            this.LblSelectedID.Size = new System.Drawing.Size(71, 16);
+            this.LblSelectedID.TabIndex = 1;
+            this.LblSelectedID.Text = "SelectedID";
+            this.LblSelectedID.Visible = false;
+            this.LblSelectedID.Click += new System.EventHandler(this.LblSelectedID_Click);
+            // 
+            // DgvUserList
+            // 
+            this.DgvUserList.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvUserList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvUserList.Location = new System.Drawing.Point(33, 20);
+            this.DgvUserList.Name = "DgvUserList";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.DgvUserList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DgvUserList.Size = new System.Drawing.Size(709, 444);
+            this.DgvUserList.TabIndex = 0;
+            this.DgvUserList.SelectionChanged += new System.EventHandler(this.DgvUserList_SelectionChanged);
             // 
             // FrmSaUser
             // 
@@ -965,22 +976,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvGetRequests)).EndInit();
             this.TbpSATasks.ResumeLayout(false);
             this.TbpSATasks.PerformLayout();
-            this.GboSAWorkSummary.ResumeLayout(false);
-            this.GboSAWorkSummary.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvSAMembers)).EndInit();
-            this.TbpUserLists.ResumeLayout(false);
-            this.TbpUserLists.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).EndInit();
-            this.GBoUList.ResumeLayout(false);
-            this.GBoUList.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvUnassignedReview)).EndInit();
             this.GboSAMyTasks.ResumeLayout(false);
             this.GboOngoingTasks.ResumeLayout(false);
             this.GboOngoingTasks.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvSAPendingTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvSAOnGoingTasks)).EndInit();
             this.GboPendingTasks.ResumeLayout(false);
             this.GboPendingTasks.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvSAOnGoingTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvSAPendingTasks)).EndInit();
+            this.GboSAWorkSummary.ResumeLayout(false);
+            this.GboSAWorkSummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvSAMembers)).EndInit();
+            this.GBoUList.ResumeLayout(false);
+            this.GBoUList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvUnassignedReview)).EndInit();
+            this.TbpUserLists.ResumeLayout(false);
+            this.TbpUserLists.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,7 +1005,6 @@
         private System.Windows.Forms.TabControl TbcSaUser;
         private System.Windows.Forms.TabPage TbpRequests;
         private System.Windows.Forms.TabPage TbpSATasks;
-        private System.Windows.Forms.TabPage TbpSummary;
         private System.Windows.Forms.TabPage TbpUserLists;
         private System.Windows.Forms.DataGridView DgvUserList;
         private System.Windows.Forms.Label LblSelectedID;

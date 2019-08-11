@@ -11,10 +11,15 @@ using System.Windows.Forms;
 
 namespace Techsist
 {
+    //Start of Form Register
     public partial class FrmRegister : Form
     {
+        //Established database connection
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\maria\source\repos\Techsist\Techsist\TechsistDatabase.mdf;Integrated Security=True");
+        
+        //Declaration of public variables
         string hashPassword;
+
         public FrmRegister()
         {
             InitializeComponent();
@@ -23,13 +28,16 @@ namespace Techsist
             TxtPosition.Hide();
             TxtPassword.PasswordChar = '*';
         }
+
         FrmLogin login = new FrmLogin();
+
         private void LblHaveAccount_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             login.Show();
         }
 
+        //Verifies department and displays appropriate function
         private void CboDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
             LblPosition.Show();
@@ -43,6 +51,7 @@ namespace Techsist
             }
         }
 
+        //Register button for new user
         private void BtnRegister_Click(object sender, EventArgs e)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);

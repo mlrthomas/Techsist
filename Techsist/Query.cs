@@ -14,6 +14,7 @@ namespace Techsist
             
         }
 
+        //Gets the department by email
         public string GetDepartment(string userEmailInput)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -24,6 +25,7 @@ namespace Techsist
             return queryDepartment;
         }
 
+        //Gets Password by email
         public string GetPassword(string userEmailInput)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -34,6 +36,7 @@ namespace Techsist
             return queryPassword;
         }
 
+        //Gets UserId by email
         public int GetUserId(string userEmailInput)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -44,6 +47,7 @@ namespace Techsist
             return queryUserId;
         }
 
+        //GetsPermissionByUserId
         public int GetPermissionByUserId(int userIdInput)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -54,6 +58,7 @@ namespace Techsist
             return queryPermission;
         }
 
+        //Gets the name by user id as an argument
         public string GetNameByUserID(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -64,6 +69,7 @@ namespace Techsist
             return queryUserName;
         }
 
+        //Gets the ticket id by userid and issue
         public int GetTicketId(int userid, string issue)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -74,6 +80,7 @@ namespace Techsist
             return queryTicketID;
         }
 
+        //Insert TicketInformation
         public void InsertTicketInformation(int id, string issue, int priority, string note)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -81,6 +88,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Insert TicketInformation
         public void InsertTicketTransaction(int id, int status, string actiondone, int SaId, string modBy)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -88,6 +96,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Update Ticket information
         public void UpdateTicket(int ticketid, string issue, int priority, string note)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -95,6 +104,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Delete Ticket Information
         public void DeleteTicket(int ticketid)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -102,6 +112,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Get TicketTransactionList
         public void GetTicketTransactionList()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -109,12 +120,14 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Get SA Members
         public void GetSAMembers()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
             dc.GetSAMembers();
         }
 
+        //Updates the TicketTransaction list
         public void UpdateTicketTransactionList(int ticketid, string issue, int priority, string note, int id, int status, string action, int said, string modby)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -123,6 +136,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Cancel or deletes the ticket
         public void CancelTicket(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -130,6 +144,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Counts the number of Unassign tickets
         public int GetCountUnassigned()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -139,6 +154,7 @@ namespace Techsist
             return UnassignedCount;
         }
 
+        //Counts the number of assign tickets
         public int GetCountAssignedById(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -148,6 +164,7 @@ namespace Techsist
             return UnassignedCount;
         }
 
+        //Counts the tickets with the status "Done"
         public int GetCountDone()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -157,6 +174,7 @@ namespace Techsist
             return UnassignedCount;
         }
 
+        //Counts the Done status by userId
         public int GetCountDoneById(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -166,6 +184,7 @@ namespace Techsist
             return UnassignedCount;
         }
 
+        //Counts the total Inprocess tickets
         public int GetCountInprocess()
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -175,6 +194,7 @@ namespace Techsist
             return InprocessCount;
         }
 
+        //Counts the inprocess ticket by id 
         public int GetCountInprocessById(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -184,6 +204,7 @@ namespace Techsist
             return InprocessCount;
         }
 
+        //Assign sa by using ticket id and SA id as an arguments
         public void AssignedSAById(int iId, int iAssignedSAID)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -191,6 +212,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Approved the ticket and change the status code
         public void ApprovedTicket(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -199,6 +221,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Start the task function and change the status code to 3
         public void StartTask(int id)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -207,6 +230,7 @@ namespace Techsist
             dc.SubmitChanges();
         }
 
+        //Finish task function and change the status code to 4
         public void FinishTask(int id, string action)
         {
             TechsistDataClassesDataContext dc = new TechsistDataClassesDataContext(con);
@@ -215,9 +239,6 @@ namespace Techsist
             tickTrans.ActionDone = action;
             dc.SubmitChanges();
         }
-
-
-
 
     }
 }

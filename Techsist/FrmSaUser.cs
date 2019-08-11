@@ -79,8 +79,8 @@ namespace Techsist
             DgvSAMembers.DataSource = getSAMembersList;
             DgvSAPendingTasks.DataSource = getSAPendingTasks;
             DgvSAOnGoingTasks.DataSource = getSAOnGoingTasks;
-            GboOngoingTasks.Text = "On-going Tasks: " + (query.GetCountDoneById(userId)).ToString();
-            GboPendingTasks.Text = "Pending Tasks: " + (query.GetCountInprocessById(userId)).ToString();
+            GboOngoingTasks.Text = "On-going Tasks: " + (query.GetCountInprocessById(userId)).ToString();
+            GboPendingTasks.Text = "Pending Tasks: " + (query.GetCountAssignedById(userId)).ToString();
         }
 
         //Initial Load of SA User Form

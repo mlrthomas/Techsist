@@ -28,7 +28,7 @@ namespace Techsist
         int stat;
         string currentUser;
         int selectedIssueId;
-      
+        int oselectedIssueId;
         //Takes userId Argument to identify the current active user from the login Form
         public FrmSaUser(int activeUserId)
         {
@@ -62,20 +62,22 @@ namespace Techsist
                                 select a.Name).ToList();
             var getUnassignedDataQuery = (from a in dc.GetUnassignTicket()
                                           select a).ToList();
+            var getForReviewDataQuery = (from a in dc.GetForReviewTicket()
+                                          select a).ToList();
             var getSAMembersList = (from a in dc.GetSAMembers()
                                 select a).ToList();
             var getSAPendingTasks = (from a in dc.GetSATasksBySaId(userId,2)
                                      select a).ToList();
-            var getSAOnGoingTasks = (from a in dc.GetSATasksBySaId(userId, 3)
+            var getSAOnGoingTasks = (from a in dc.GetSATasksBySaId(userId,3)
                                      select a).ToList();
 
             DgvGetRequests.DataSource = getRequestsQuery; 
             DgvUserList.DataSource = getUserListQuery;
             CboAssignedSA.DataSource = getSAMembers;
-            CboUAssignedSA.DataSource = getSAMembers;
             LblUnassignedCount.Text = (query.GetCountUnassigned()).ToString();
             LblForReview.Text = (query.GetCountDone()).ToString();
             DgvUnassignedReview.DataSource = getUnassignedDataQuery;
+            DgvForReview.DataSource = getForReviewDataQuery;
             DgvSAMembers.DataSource = getSAMembersList;
             DgvSAPendingTasks.DataSource = getSAPendingTasks;
             DgvSAOnGoingTasks.DataSource = getSAOnGoingTasks;
@@ -222,6 +224,7 @@ namespace Techsist
             stat = 2; //2 == Assigned
             CboAssignedSA.Visible = true;
             BtnAssignedSA.Visible = false;
+           
         }
 
         //Cancel Function Button
@@ -250,20 +253,15 @@ namespace Techsist
         private void BtnUnassigned_Click(object sender, EventArgs e)
         {
             RefreshRequestsData();
-            BtnUSubmit.Visible = false;
-            LblUAssignedSA.Visible = true;
-            BtnUAssignedSA.Visible = true;
+         
             LblUActionDone.Visible = false;
             TxtUActionDone.Visible = false;
             GBoUList.Text = "Unassigned Lists";
+            DgvForReview.Visible = false;
+            DgvUnassignedReview.Visible = true;
+            BtnUApprove.Visible = false;
         }
 
-        private void BtnUAssignedSA_Click(object sender, EventArgs e)
-        {
-            BtnUAssignedSA.Visible = false;
-            CboUAssignedSA.Visible = true;
-            BtnUSubmit.Visible = true;
-        }
 
         //Selection for Unassigned lists
         private void DgvUnassignedReview_SelectionChanged(object sender, EventArgs e)
@@ -296,24 +294,10 @@ namespace Techsist
                 LblUGetId.Text = id;
                 LblUGetIssue.Text = issue;
                 LblUGetPriority.Text = xPL;
-                BtnUAssignedSA.Visible = true;
-                BtnUSubmit.Visible = false;
-                CboUAssignedSA.Visible = false;
+             
             }
         }
 
-        //Submit function
-        private void BtnUSubmit_Click(object sender, EventArgs e)
-        {
-            CboUAssignedSA.Visible = false;
-            BtnUSubmit.Visible = false;
-            BtnUAssignedSA.Visible = true;
-            BtnUSubmit.Visible = false;
-            selectedId = Convert.ToInt32(LblUGetId.Text);
-            int said = GetSAIdByName(CboAssignedSA.SelectedItem.ToString());
-            query.AssignedSAById(selectedId, said);
-            RefreshRequestsData();
-        }
 
         //For review Button Function
         private void BtnForReview_Click(object sender, EventArgs e)
@@ -322,12 +306,13 @@ namespace Techsist
             LblUGetIssue.Text = "0";
             LblUGetPriority.Text = "0";
             GBoUList.Text = "For Review";
-            LblUActionDone.Visible = true;
-            TxtUActionDone.Visible = true;
-            LblUAssignedSA.Visible = false;
-            CboUAssignedSA.Visible = false;
-            BtnUAssignedSA.Visible = false;
-            DgvUnassignedReview.DataSource = query.GetCountDone();
+            LblUActionDone.Visible = false;
+            TxtUActionDone.Visible = false;
+           
+            DgvUnassignedReview.Visible = false;
+            DgvForReview.Visible = true;
+            BtnUApprove.Visible = true;
+            RefreshRequestsData();
         }
 
         //Approved button function
@@ -335,6 +320,7 @@ namespace Techsist
         {
             selectedId = Convert.ToInt32(LblUGetId.Text);
             query.ApprovedTicket(selectedId);
+            RefreshRequestsData();
         }
 
         //SA Members selection for Admin
@@ -388,6 +374,23 @@ namespace Techsist
             }
         }
 
+        private void DgvSAOnGoingTasks_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in DgvSAOnGoingTasks.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                var xId = row.Cells["Id"].Value.ToString();
+                var xIssue = row.Cells["IssueType"].Value.ToString();
+                oselectedIssueId = Convert.ToInt32(xId);
+            }
+        }
+
         //Start Task Button for SA and then refresh the data
         private void BtnStartTasks_Click(object sender, EventArgs e)
         {
@@ -398,11 +401,33 @@ namespace Techsist
         //Done Task Function and then refresh the data.
         private void BtnDoneTask_Click(object sender, EventArgs e)
         {
-            query.FinishTask(selectedIssueId, (TxtFActionDone.Text).ToString());
+            query.FinishTask(oselectedIssueId, (TxtFActionDone.Text).ToString());
             RefreshRequestsData();
         }
 
         private void LblSelectedID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DgvForReview_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridViewCell cell = null;
+            foreach (DataGridViewCell selectedCell in DgvForReview.SelectedCells)
+            {
+                cell = selectedCell;
+                break;
+            }
+            if (cell != null)
+            {
+                DataGridViewRow row = cell.OwningRow;
+                var x = row.Cells["Id"].Value.ToString();
+                selectedId = Convert.ToInt32(x);
+                LblUGetId.Text = x;
+            }
+        }
+
+        private void DgvForReview_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblLogout = new System.Windows.Forms.Label();
             this.LblWelcomeSA = new System.Windows.Forms.Label();
             this.PicLogo = new System.Windows.Forms.PictureBox();
@@ -97,18 +97,15 @@
             this.LblUActionDone = new System.Windows.Forms.Label();
             this.LblUGetIssue = new System.Windows.Forms.Label();
             this.LblUIssue = new System.Windows.Forms.Label();
-            this.BtnUSubmit = new System.Windows.Forms.Button();
-            this.CboUAssignedSA = new System.Windows.Forms.ComboBox();
             this.LblUGetPriority = new System.Windows.Forms.Label();
             this.LblUGetId = new System.Windows.Forms.Label();
-            this.BtnUAssignedSA = new System.Windows.Forms.Button();
-            this.LblUAssignedSA = new System.Windows.Forms.Label();
             this.LblUPriorityLvl = new System.Windows.Forms.Label();
             this.LblUTicketId = new System.Windows.Forms.Label();
             this.DgvUnassignedReview = new System.Windows.Forms.DataGridView();
             this.TbpUserLists = new System.Windows.Forms.TabPage();
             this.LblSelectedID = new System.Windows.Forms.Label();
             this.DgvUserList = new System.Windows.Forms.DataGridView();
+            this.DgvForReview = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.TbcSaUser.SuspendLayout();
             this.TbpRequests.SuspendLayout();
@@ -126,6 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvUnassignedReview)).BeginInit();
             this.TbpUserLists.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvForReview)).BeginInit();
             this.SuspendLayout();
             // 
             // LblLogout
@@ -461,15 +459,15 @@
             // 
             // DgvGetRequests
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            this.DgvGetRequests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
+            this.DgvGetRequests.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.DgvGetRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvGetRequests.Location = new System.Drawing.Point(17, 22);
             this.DgvGetRequests.Name = "DgvGetRequests";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.DgvGetRequests.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
+            this.DgvGetRequests.RowsDefaultCellStyle = dataGridViewCellStyle38;
             this.DgvGetRequests.Size = new System.Drawing.Size(747, 217);
             this.DgvGetRequests.TabIndex = 0;
             this.DgvGetRequests.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvGetRequests_CellClick);
@@ -495,7 +493,7 @@
             // 
             this.GboSAMyTasks.Controls.Add(this.GboOngoingTasks);
             this.GboSAMyTasks.Controls.Add(this.GboPendingTasks);
-            this.GboSAMyTasks.Location = new System.Drawing.Point(18, 25);
+            this.GboSAMyTasks.Location = new System.Drawing.Point(3, 6);
             this.GboSAMyTasks.Name = "GboSAMyTasks";
             this.GboSAMyTasks.Size = new System.Drawing.Size(749, 514);
             this.GboSAMyTasks.TabIndex = 7;
@@ -549,6 +547,7 @@
             this.DgvSAOnGoingTasks.Name = "DgvSAOnGoingTasks";
             this.DgvSAOnGoingTasks.Size = new System.Drawing.Size(697, 151);
             this.DgvSAOnGoingTasks.TabIndex = 3;
+            this.DgvSAOnGoingTasks.SelectionChanged += new System.EventHandler(this.DgvSAOnGoingTasks_SelectionChanged);
             // 
             // GboPendingTasks
             // 
@@ -751,17 +750,14 @@
             // 
             // GBoUList
             // 
+            this.GBoUList.Controls.Add(this.DgvForReview);
             this.GBoUList.Controls.Add(this.BtnUApprove);
             this.GBoUList.Controls.Add(this.TxtUActionDone);
             this.GBoUList.Controls.Add(this.LblUActionDone);
             this.GBoUList.Controls.Add(this.LblUGetIssue);
             this.GBoUList.Controls.Add(this.LblUIssue);
-            this.GBoUList.Controls.Add(this.BtnUSubmit);
-            this.GBoUList.Controls.Add(this.CboUAssignedSA);
             this.GBoUList.Controls.Add(this.LblUGetPriority);
             this.GBoUList.Controls.Add(this.LblUGetId);
-            this.GBoUList.Controls.Add(this.BtnUAssignedSA);
-            this.GBoUList.Controls.Add(this.LblUAssignedSA);
             this.GBoUList.Controls.Add(this.LblUPriorityLvl);
             this.GBoUList.Controls.Add(this.LblUTicketId);
             this.GBoUList.Controls.Add(this.DgvUnassignedReview);
@@ -796,7 +792,7 @@
             // 
             this.LblUActionDone.AutoSize = true;
             this.LblUActionDone.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUActionDone.Location = new System.Drawing.Point(16, 274);
+            this.LblUActionDone.Location = new System.Drawing.Point(15, 271);
             this.LblUActionDone.Name = "LblUActionDone";
             this.LblUActionDone.Size = new System.Drawing.Size(89, 16);
             this.LblUActionDone.TabIndex = 39;
@@ -822,26 +818,6 @@
             this.LblUIssue.TabIndex = 37;
             this.LblUIssue.Text = "Issue:";
             // 
-            // BtnUSubmit
-            // 
-            this.BtnUSubmit.Location = new System.Drawing.Point(208, 324);
-            this.BtnUSubmit.Name = "BtnUSubmit";
-            this.BtnUSubmit.Size = new System.Drawing.Size(114, 28);
-            this.BtnUSubmit.TabIndex = 36;
-            this.BtnUSubmit.Text = "Assign";
-            this.BtnUSubmit.UseVisualStyleBackColor = true;
-            this.BtnUSubmit.Visible = false;
-            this.BtnUSubmit.Click += new System.EventHandler(this.BtnUSubmit_Click);
-            // 
-            // CboUAssignedSA
-            // 
-            this.CboUAssignedSA.FormattingEnabled = true;
-            this.CboUAssignedSA.Location = new System.Drawing.Point(120, 269);
-            this.CboUAssignedSA.Name = "CboUAssignedSA";
-            this.CboUAssignedSA.Size = new System.Drawing.Size(171, 23);
-            this.CboUAssignedSA.TabIndex = 35;
-            this.CboUAssignedSA.Visible = false;
-            // 
             // LblUGetPriority
             // 
             this.LblUGetPriority.AutoSize = true;
@@ -859,26 +835,6 @@
             this.LblUGetId.Size = new System.Drawing.Size(15, 16);
             this.LblUGetId.TabIndex = 33;
             this.LblUGetId.Text = "0";
-            // 
-            // BtnUAssignedSA
-            // 
-            this.BtnUAssignedSA.Location = new System.Drawing.Point(119, 270);
-            this.BtnUAssignedSA.Name = "BtnUAssignedSA";
-            this.BtnUAssignedSA.Size = new System.Drawing.Size(175, 22);
-            this.BtnUAssignedSA.TabIndex = 32;
-            this.BtnUAssignedSA.Text = "Click to assigned SA";
-            this.BtnUAssignedSA.UseVisualStyleBackColor = true;
-            this.BtnUAssignedSA.Click += new System.EventHandler(this.BtnUAssignedSA_Click);
-            // 
-            // LblUAssignedSA
-            // 
-            this.LblUAssignedSA.AutoSize = true;
-            this.LblUAssignedSA.Font = new System.Drawing.Font("Arial", 9.25F, System.Drawing.FontStyle.Bold);
-            this.LblUAssignedSA.Location = new System.Drawing.Point(16, 272);
-            this.LblUAssignedSA.Name = "LblUAssignedSA";
-            this.LblUAssignedSA.Size = new System.Drawing.Size(87, 16);
-            this.LblUAssignedSA.TabIndex = 3;
-            this.LblUAssignedSA.Text = "AssignedSA:";
             // 
             // LblUPriorityLvl
             // 
@@ -906,7 +862,7 @@
             this.DgvUnassignedReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUnassignedReview.Location = new System.Drawing.Point(13, 25);
             this.DgvUnassignedReview.Name = "DgvUnassignedReview";
-            this.DgvUnassignedReview.Size = new System.Drawing.Size(329, 170);
+            this.DgvUnassignedReview.Size = new System.Drawing.Size(329, 173);
             this.DgvUnassignedReview.TabIndex = 0;
             this.DgvUnassignedReview.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUnassignedReview_CellClick);
             // 
@@ -936,22 +892,34 @@
             // DgvUserList
             // 
             this.DgvUserList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            this.DgvUserList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvUserList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
             this.DgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUserList.Location = new System.Drawing.Point(33, 20);
             this.DgvUserList.Name = "DgvUserList";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.DgvUserList.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.White;
+            this.DgvUserList.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.DgvUserList.Size = new System.Drawing.Size(709, 444);
             this.DgvUserList.TabIndex = 0;
             this.DgvUserList.SelectionChanged += new System.EventHandler(this.DgvUserList_SelectionChanged);
+            // 
+            // DgvForReview
+            // 
+            this.DgvForReview.AllowUserToOrderColumns = true;
+            this.DgvForReview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvForReview.Location = new System.Drawing.Point(6, -1);
+            this.DgvForReview.Name = "DgvForReview";
+            this.DgvForReview.Size = new System.Drawing.Size(342, 297);
+            this.DgvForReview.TabIndex = 42;
+            this.DgvForReview.Visible = false;
+            this.DgvForReview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvForReview_CellContentClick);
+            this.DgvForReview.SelectionChanged += new System.EventHandler(this.DgvForReview_SelectionChanged);
             // 
             // FrmSaUser
             // 
@@ -992,6 +960,7 @@
             this.TbpUserLists.ResumeLayout(false);
             this.TbpUserLists.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUserList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvForReview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1057,12 +1026,8 @@
         private System.Windows.Forms.Label LblUActionDone;
         private System.Windows.Forms.Label LblUGetIssue;
         private System.Windows.Forms.Label LblUIssue;
-        private System.Windows.Forms.Button BtnUSubmit;
-        private System.Windows.Forms.ComboBox CboUAssignedSA;
         private System.Windows.Forms.Label LblUGetPriority;
         private System.Windows.Forms.Label LblUGetId;
-        private System.Windows.Forms.Button BtnUAssignedSA;
-        private System.Windows.Forms.Label LblUAssignedSA;
         private System.Windows.Forms.Label LblUPriorityLvl;
         private System.Windows.Forms.Label LblUTicketId;
         private System.Windows.Forms.DataGridView DgvUnassignedReview;
@@ -1076,5 +1041,6 @@
         private System.Windows.Forms.Button BtnDoneTask;
         private System.Windows.Forms.TextBox TxtFActionDone;
         private System.Windows.Forms.Label LblOngoingActionDone;
+        private System.Windows.Forms.DataGridView DgvForReview;
     }
 }

@@ -231,6 +231,7 @@
       <Column Name="IssueType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PriorityLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="StatusCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

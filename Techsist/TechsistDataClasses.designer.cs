@@ -2407,6 +2407,8 @@ namespace Techsist
 		
 		private int _StatusCode;
 		
+		private string _ActionDone;
+		
 		public GetForReviewTicketResult()
 		{
 		}
@@ -2471,6 +2473,22 @@ namespace Techsist
 				if ((this._StatusCode != value))
 				{
 					this._StatusCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActionDone", DbType="NVarChar(MAX)")]
+		public string ActionDone
+		{
+			get
+			{
+				return this._ActionDone;
+			}
+			set
+			{
+				if ((this._ActionDone != value))
+				{
+					this._ActionDone = value;
 				}
 			}
 		}

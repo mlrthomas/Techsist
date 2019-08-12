@@ -5,7 +5,7 @@
 _A Ticketing Application that organized the trouble ticket submitted
 by users and modified by System Administrators._
 ## Screenshots
-![image1](https://github.com/mlrthomas/Techsist/Techsist/screen1.png)
+![image1](https://github.com/mlrthomas/blob/master/Techsist/screen1.png)
 ## Setup/Installation Requirements
 * _Clone this repository_
 * _Open it in Visual Studio_

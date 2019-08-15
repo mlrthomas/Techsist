@@ -7,7 +7,7 @@ by users and modified by System Administrators._
 ## Video Walkthrough
 [Click Video Link](https://drive.google.com/open?id=1_Sa8KcTUFqJ_QPQdmO_VlLW-Xx8v2Ghy)
 ## Screenshots
-![image1](https://github.com/mlrthomas/Techsist/blob/master/Techsist/screen1.png)
+![image1](https://github.com/mlrthomas/Techsist/blob/master/screen1.png)
 ## Setup/Installation Requirements
 * _Clone this repository_
 * _Open it in Visual Studio_

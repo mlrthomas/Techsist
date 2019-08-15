@@ -4,6 +4,8 @@
 ## Description
 _A Ticketing Application that organized the trouble ticket submitted
 by users and modified by System Administrators._
+## Video Walkthrough
+[Click Video Link](https://drive.google.com/open?id=1_Sa8KcTUFqJ_QPQdmO_VlLW-Xx8v2Ghy)
 ## Screenshots
 ![image1](https://github.com/mlrthomas/Techsist/blob/master/Techsist/screen1.png)
 ## Setup/Installation Requirements

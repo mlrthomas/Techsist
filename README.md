@@ -8,6 +8,8 @@ by users and modified by System Administrators._
 [Click Video Link](https://drive.google.com/open?id=1_Sa8KcTUFqJ_QPQdmO_VlLW-Xx8v2Ghy)
 ## Screenshots
 ![image1](https://github.com/mlrthomas/Techsist/blob/master/screen1.png)
+## Project Documentation
+[Project Documentation Link](https://github.com/mlrthomas/Techsist/blob/master/ProjectDocumentation.pdf)
 ## Setup/Installation Requirements
 * _Clone this repository_
 * _Open it in Visual Studio_
